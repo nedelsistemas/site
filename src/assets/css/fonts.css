@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("public/fonts/helvetica-neue/HelveticaNeueRoman.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("public/fonts/helvetica-neue/HelveticaNeueItalic.ttf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("public/fonts/helvetica-neue/HelveticaNeueBold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("public/fonts/helvetica-neue/HelveticaNeueBoldItalic.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("public/fonts/helvetica-neue/HelveticaNeueLight.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("public/fonts/helvetica-neue/HelveticaNeueLightItalic.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
