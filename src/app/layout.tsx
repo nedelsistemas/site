@@ -3,10 +3,12 @@ import { Inter, Geist } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
-const interHeading = Inter({subsets:['latin'],variable:'--font-heading'});
+const interHeading = Inter({ subsets: ["latin"], variable: "--font-heading" });
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,11 +35,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable, interHeading.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable, interHeading.variable)}
+    >
       <body
         className={`${inter.variable} ${helveticaNeue.variable} ${dongraScript.variable} antialiased`}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

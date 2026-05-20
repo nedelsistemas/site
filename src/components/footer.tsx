@@ -1,0 +1,136 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="bg-nedel-white shadow-2xl border-2 border-nedel-highlight-gray/20 rounded-t-3xl p-5 md:pt-20 pb-10 overflow-clip">
+      <div className="relative max-w-6xl mx-auto">
+        <div className=" bg-nedel-white shadow-xl border-2 border-nedel-highlight-gray/20 text-black rounded-4xl p-5 md:p-20">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-[1fr_2fr] gap-10 items-start">
+              <div>
+                <Image
+                  src="/n.svg"
+                  alt="Nedel Sistemas"
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                />
+                <p className="text-sm pt-5 text-muted-foreground">
+                  Há mais de 30 anos desenvolvendo soluções confiáveis que
+                  ajudam empresas a organizar processos, reduzir erros e crescer
+                  com segurança.
+                </p>
+                <div className="flex gap-4 mt-6">
+                  <Link
+                    href="https://www.instagram.com/nedelsistemas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src="/ig.svg"
+                      alt="Instagram"
+                      width={20}
+                      height={20}
+                      loading="lazy"
+                    />
+                  </Link>
+                  <Link
+                    href="https://github.com/nedelsistemas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src="/github.svg"
+                      alt="GitHub"
+                      width={20}
+                      height={20}
+                      loading="lazy"
+                    />
+                  </Link>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:justify-items-center">
+                <ul>
+                  <li className="font-bold mb-3">Produtos</li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Digiadm
+                  </li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Diginfce
+                  </li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Digientregas
+                  </li>
+                </ul>
+                <ul>
+                  <li className="font-bold mb-3">Recursos</li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Tutoriais
+                  </li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Suporte
+                  </li>
+                </ul>
+                <ul>
+                  <li className="font-bold mb-3">Fale conosco</li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Fone e WhatsApp: <br />
+                    <a
+                      href="http://wa.me/+554936787274"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      (49) 3678-7274
+                    </a>
+                  </li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    <a href="tel:+554936787275">Fone: (49) 3678-7275</a>
+                  </li>
+                </ul>
+                <ul>
+                  <li className="font-bold mb-3">Horários</li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Segunda a Sexta: 7:30h às 18h
+                  </li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Sábado: 8:00h às 12:00h
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <hr className="my-6" />
+            <div className="flex flex-col md:flex-row gap-2 md:justify-between">
+              <p className="text-sm">
+                &copy; {new Date().getFullYear()} | Nedel Sistemas - Todos os
+                direitos reservados.
+              </p>
+              <div className="flex justify-between gap-4">
+                <Link
+                  href="/policy/privacy"
+                  className="text-sm text-muted-foreground underline"
+                >
+                  Política de Privacidade
+                </Link>
+                <Link
+                  href="/policy/terms"
+                  className="text-sm text-muted-foreground underline"
+                >
+                  Termos e Condições
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Image
+          src="/nedel-footer.svg"
+          alt="Nedel Sistemas"
+          width={1400}
+          height={900}
+          loading="lazy"
+          className="mt-10 w-full opacity-60"
+        />
+      </div>
+    </footer>
+  );
+}
