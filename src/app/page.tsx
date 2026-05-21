@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import * as Lucide from "lucide-react";
 import Digiadm from "@/assets/mock/digiadm.png";
 import Diginfce from "@/assets/mock/diginfce.png";
@@ -139,16 +140,16 @@ export default function Home() {
                     Itapiranga - SC
                   </button>
                   <div>
-                    <div className="w-fit">
-                      <h1>O SISTEMA</h1>
-                      <h3 className="align-text-top">
+                    <h1 className="w-fit">
+                      <span className="block">O SISTEMA</span>
+                      <span className="block align-text-top text-3xl md:text-4xl font-bold">
                         DA{" "}
                         <span className="text-7xl md:text-8xl font-bold text-nedel-blue">
                           NOSSA
                         </span>
-                      </h3>
-                      <h1 className="text-right">CIDADE</h1>
-                    </div>
+                      </span>
+                      <span className="block text-right">CIDADE</span>
+                    </h1>
                     <p className="text-muted-foreground mt-4">
                       Há mais de 30 anos desenvolvendo soluções confiáveis que
                       ajudam empresas a organizar processos, reduzir erros e
@@ -168,12 +169,18 @@ export default function Home() {
                       , CONFIÁVEL, COMPLETO.
                     </h3>
                     <div className="flex gap-4">
-                      <button className="py-3 px-6 bg-nedel-black-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-black-blue/80 transition-colors cursor-pointer">
+                      <Link
+                        href="/products"
+                        className="py-3 px-6 bg-nedel-black-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-black-blue/80 transition-colors"
+                      >
                         Comece já
-                      </button>
-                      <button className="py-3.5 px-5 text-nedel-black-blue rounded-xl font-semibold text-sm border border-transparent hover:border hover:border-nedel-black-blue transition-colors cursor-pointer">
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="py-3.5 px-5 text-nedel-black-blue rounded-xl font-semibold text-sm border border-transparent hover:border hover:border-nedel-black-blue transition-colors"
+                      >
                         Contate-nos
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -190,16 +197,29 @@ export default function Home() {
                 <h3 className="text-white ">
                   Ecossistema completo para sua empresa
                 </h3>
-                <div className="flex">
-                  <div className="w-14 h-w-14 bg-white p-2 rounded-full flex items-center justify-center ">
-                    <img src="/digiadm.png" alt="werwer" />
+                <div className="flex items-center gap-2">
+                  <div className="w-14 h-14 bg-white p-2 rounded-full flex items-center justify-center">
+                    <Image
+                      src="/digiadm.png"
+                      alt="Ícone do Digiadm"
+                      width={40}
+                      height={40}
+                    />
                   </div>
-                  <div className="w-14 h-w-14 bg-white p-2 rounded-full flex items-center justify-center">
-                    <img src="/diginfce.png" alt="werwer" />
+                  <div className="w-14 h-14 bg-white p-2 rounded-full flex items-center justify-center">
+                    <Image
+                      src="/diginfce.png"
+                      alt="Ícone do Diginfc-e"
+                      width={40}
+                      height={40}
+                    />
                   </div>
-                  <button className="border border-nedel-highlight-gray rounded-full text-white text-sm px-4 backdrop-blur-lg cursor-pointer">
-                    +2 aplicações
-                  </button>
+                  <Link
+                    href="/products"
+                    className="border border-nedel-highlight-gray rounded-full text-white text-sm px-4 py-2 backdrop-blur-lg hover:bg-white/10 transition-colors"
+                  >
+                    +4 aplicações
+                  </Link>
                 </div>
               </div>
             </div>
@@ -278,8 +298,13 @@ export default function Home() {
                 O Ecossistema
               </h2>
               <p className="text-white/60 text-base md:text-lg mt-4 max-w-2xl mx-auto">
-                Três pilares de tecnologia integrados para cobrir todas as
-                necessidades do seu dia a dia empresarial.
+                Seis aplicações integradas que cobrem do balcão à rota de
+                entrega. Conheça as principais abaixo — ou veja o ecossistema
+                completo em{" "}
+                <Link href="/products" className="underline hover:text-white">
+                  Produtos
+                </Link>
+                .
               </p>
             </div>
 
@@ -317,10 +342,13 @@ export default function Home() {
                         ))}
                       </ul>
                       <div className="pt-4">
-                        <button className="inline-flex items-center gap-2 py-3 px-6 bg-nedel-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-blue/80 transition-colors cursor-pointer">
+                        <Link
+                          href="/products"
+                          className="inline-flex items-center gap-2 py-3 px-6 bg-nedel-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-blue/80 transition-colors"
+                        >
                           Ver detalhes
                           <Lucide.ArrowRight size={16} />
-                        </button>
+                        </Link>
                       </div>
                     </div>
 
@@ -511,13 +539,21 @@ export default function Home() {
                 com a Nedel Sistemas. Peça uma demonstração sem compromisso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                <button className="inline-flex items-center justify-center gap-2 py-3 px-6 bg-white text-nedel-blue rounded-xl font-semibold text-sm hover:bg-white/90 transition-colors cursor-pointer">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 py-3 px-6 bg-white text-nedel-blue rounded-xl font-semibold text-sm hover:bg-white/90 transition-colors"
+                >
                   Agendar demonstração
                   <Lucide.ArrowRight size={16} />
-                </button>
-                <button className="py-3 px-6 text-white rounded-xl font-semibold text-sm border border-white/30 hover:border-white hover:bg-white/10 transition-colors cursor-pointer">
+                </Link>
+                <a
+                  href="https://wa.me/+554936787274"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-6 text-white rounded-xl font-semibold text-sm border border-white/30 hover:border-white hover:bg-white/10 transition-colors"
+                >
                   Chamar no WhatsApp
-                </button>
+                </a>
               </div>
             </div>
           </div>

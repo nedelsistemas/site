@@ -53,23 +53,88 @@ export default function Footer() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:justify-items-center">
                 <ul>
                   <li className="font-bold mb-3">Produtos</li>
-                  <li className="text-muted-foreground text-sm pb-2">
-                    Digiadm
+                  <li className="pb-2">
+                    <Link
+                      href="/products"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Digiadm
+                    </Link>
                   </li>
-                  <li className="text-muted-foreground text-sm pb-2">
-                    Diginfce
+                  <li className="pb-2">
+                    <Link
+                      href="/products"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Diginfc-e
+                    </Link>
                   </li>
-                  <li className="text-muted-foreground text-sm pb-2">
-                    Digientregas
+                  <li className="pb-2">
+                    <Link
+                      href="/products"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Digivendas
+                    </Link>
+                  </li>
+                  <li className="pb-2">
+                    <Link
+                      href="/products"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Digientregas
+                    </Link>
+                  </li>
+                  <li className="pb-2">
+                    <Link
+                      href="/products"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Digiexpedição
+                    </Link>
+                  </li>
+                  <li className="pb-2">
+                    <Link
+                      href="/products"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Digiviveiros
+                    </Link>
                   </li>
                 </ul>
                 <ul>
                   <li className="font-bold mb-3">Recursos</li>
-                  <li className="text-muted-foreground text-sm pb-2">
-                    Tutoriais
+                  <li className="pb-2">
+                    <Link
+                      href="/help"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Tutoriais
+                    </Link>
                   </li>
-                  <li className="text-muted-foreground text-sm pb-2">
-                    Suporte
+                  <li className="pb-2">
+                    <Link
+                      href="/downloads"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Downloads
+                    </Link>
+                  </li>
+                  <li className="pb-2">
+                    <Link
+                      href="/contact"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Suporte
+                    </Link>
+                  </li>
+                  <li className="pb-2">
+                    <Link
+                      href="/about"
+                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
+                    >
+                      Sobre nós
+                    </Link>
                   </li>
                 </ul>
                 <ul>
@@ -77,24 +142,33 @@ export default function Footer() {
                   <li className="text-muted-foreground text-sm pb-2">
                     Fone e WhatsApp: <br />
                     <a
-                      href="http://wa.me/+554936787274"
+                      href="https://wa.me/+554936787274"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="hover:text-nedel-blue transition-colors"
                     >
                       (49) 3678-7274
                     </a>
                   </li>
                   <li className="text-muted-foreground text-sm pb-2">
-                    <a href="tel:+554936787275">Fone: (49) 3678-7275</a>
+                    <a
+                      href="tel:+554936787275"
+                      className="hover:text-nedel-blue transition-colors"
+                    >
+                      Fone: (49) 3678-7275
+                    </a>
+                  </li>
+                  <li className="text-muted-foreground text-sm pb-2">
+                    Itapiranga — SC
                   </li>
                 </ul>
                 <ul>
                   <li className="font-bold mb-3">Horários</li>
                   <li className="text-muted-foreground text-sm pb-2">
-                    Segunda a Sexta: 7:30h às 18h
+                    Segunda a Sexta: 7h30 às 18h
                   </li>
                   <li className="text-muted-foreground text-sm pb-2">
-                    Sábado: 8:00h às 12:00h
+                    Sábado: 8h às 12h
                   </li>
                 </ul>
               </div>

@@ -1,11 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
+  Briefcase,
   FileText,
-  ShoppingCart,
+  Package,
+  Sprout,
+  Truck,
   type LucideIcon,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Central de Ajuda",
+  description:
+    "Guias, tutoriais e documentação dos sistemas Nedel: Digiadm, Diginfc-e, Digivendas, Digientregas, Digiexpedição e Digiviveiros.",
+};
 
 const POPULAR = [
   {
@@ -42,15 +52,36 @@ const SYSTEMS: {
   {
     title: "Diginfc-e",
     description: "Frente de caixa rápida com NFC-e homologada.",
-    href: "#",
+    href: "",
     icon: FileText,
     soon: true,
   },
   {
     title: "Digivendas",
-    description: "Força de vendas e pedidos em campo.",
-    href: "#",
-    icon: ShoppingCart,
+    description: "Força de vendas e pedidos do representante em campo.",
+    href: "",
+    icon: Briefcase,
+    soon: true,
+  },
+  {
+    title: "Digientregas",
+    description: "Coleta e entrega pra transportadoras.",
+    href: "",
+    icon: Truck,
+    soon: true,
+  },
+  {
+    title: "Digiexpedição",
+    description: "Carregamento conferido pra rotas de entrega.",
+    href: "",
+    icon: Package,
+    soon: true,
+  },
+  {
+    title: "Digiviveiros",
+    description: "Controle de viveiros e estoque de mudas.",
+    href: "",
+    icon: Sprout,
     soon: true,
   },
 ];
@@ -101,7 +132,7 @@ export default function HelpIndex() {
         <h2 className="text-xl font-semibold text-nedel-black-blue mb-5">
           Explore por sistema
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {SYSTEMS.map((system) => {
             const Icon = system.icon;
             const card = (

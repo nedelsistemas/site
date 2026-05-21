@@ -5,9 +5,12 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   BookOpen,
+  Briefcase,
   ChevronRight,
   FileText,
-  ShoppingCart,
+  Package,
+  Sprout,
+  Truck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -36,18 +39,11 @@ const HELP_NAV: NavSection[] = [
       },
     ],
   },
-  {
-    title: "Diginfc-e",
-    icon: FileText,
-    items: [],
-    soon: true,
-  },
-  {
-    title: "Digivendas",
-    icon: ShoppingCart,
-    items: [],
-    soon: true,
-  },
+  { title: "Diginfc-e", icon: FileText, items: [], soon: true },
+  { title: "Digivendas", icon: Briefcase, items: [], soon: true },
+  { title: "Digientregas", icon: Truck, items: [], soon: true },
+  { title: "Digiexpedição", icon: Package, items: [], soon: true },
+  { title: "Digiviveiros", icon: Sprout, items: [], soon: true },
 ];
 
 export default function HelpSidebar({

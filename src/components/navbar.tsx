@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { href: "/about", label: "Sobre" },
   { href: "/downloads", label: "Downloads" },
   { href: "/help", label: "Ajuda" },
+  { href: "/contact", label: "Contato" },
 ];
 
 export default function Navbar() {
@@ -57,10 +58,13 @@ export default function Navbar() {
       </ul>
 
       {/* Desktop CTA */}
-      <button className="hidden md:inline-flex items-center border border-nedel-black-blue px-4 py-2 rounded-xl hover:bg-nedel-black-blue hover:text-white transition-colors hover:translate-x-0.5 text-sm font-medium cursor-pointer">
+      <Link
+        href="/contact"
+        className="hidden md:inline-flex items-center border border-nedel-black-blue px-4 py-2 rounded-xl hover:bg-nedel-black-blue hover:text-white transition-colors hover:translate-x-0.5 text-sm font-medium"
+      >
         Começar
         <ArrowRight className="ml-2" size={16} />
-      </button>
+      </Link>
 
       {/* Mobile hamburger */}
       <Sheet open={open} onOpenChange={setOpen}>
@@ -103,13 +107,14 @@ export default function Navbar() {
           </ul>
 
           <div className="mt-auto p-4">
-            <button
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 bg-nedel-black-blue text-white px-4 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/80 transition-colors cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 bg-nedel-black-blue text-white px-4 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/80 transition-colors"
             >
               Começar
               <ArrowRight size={16} />
-            </button>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>
