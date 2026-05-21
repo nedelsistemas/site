@@ -65,12 +65,6 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/n.svg", type: "image/svg+xml" },
-    ],
-  },
 };
 
 export default function RootLayout({

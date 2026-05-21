@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, House, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -40,7 +40,20 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop nav links */}
-      <ul className="hidden md:flex gap-1 font-medium text-sm">
+      <ul className="hidden md:flex gap-1 font-medium text-sm items-center">
+        <li>
+          <Link
+            href="/"
+            aria-label="Início"
+            className={`inline-flex items-center px-3 py-2 rounded-3xl transition-colors ${
+              isActive("/")
+                ? "text-nedel-blue bg-nedel-blue/10"
+                : "hover:bg-[#f5f5f5]"
+            }`}
+          >
+            <House size={18} />
+          </Link>
+        </li>
         {NAV_LINKS.map((link) => (
           <li key={link.href}>
             <Link

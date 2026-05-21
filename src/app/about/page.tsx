@@ -115,51 +115,38 @@ export default function About() {
     <>
       {/* Hero */}
       <Section className="my-0 pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="grid md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 items-center w-full">
-          <div>
-            <Eyebrow>Sobre nós</Eyebrow>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-nedel-black-blue mt-4 leading-[1.05]">
-              O sistema
-              <br />
-              da nossa cidade.
-            </h1>
-            <p className="text-lg text-muted-foreground mt-6 leading-relaxed max-w-xl">
-              Desde 1994, ajudamos empresários da nossa região — e cada vez de
-              mais lugares — a tocarem seus negócios com mais clareza, menos
-              papel e a tranquilidade de saber quem atende do outro lado da
-              linha.
-            </p>
-            <div className="flex flex-wrap items-center gap-4 mt-8 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2">
-                <MapPin size={16} className="text-nedel-blue" />
-                Itapiranga, Santa Catarina
-              </span>
-              <span className="text-nedel-highlight-gray">•</span>
-              <span className="inline-flex items-center gap-2">
-                <Building2 size={16} className="text-nedel-blue" />
-                Fundada em 01/11/1994
-              </span>
-            </div>
+        <div className="max-w-3xl">
+          <Eyebrow>Sobre nós</Eyebrow>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-nedel-black-blue mt-4 leading-[1.05]">
+            O sistema da nossa cidade.
+          </h1>
+          <p className="text-lg text-muted-foreground mt-6 leading-relaxed max-w-xl">
+            Desde 1994, ajudamos empresários da nossa região — e cada vez de
+            mais lugares — a tocarem seus negócios com mais clareza, menos papel
+            e a tranquilidade de saber quem atende do outro lado da linha.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 mt-8 text-sm text-muted-foreground">
+            <span className="inline-flex items-center gap-2">
+              <MapPin size={16} className="text-nedel-blue" />
+              Itapiranga, Santa Catarina
+            </span>
+            <span className="text-nedel-highlight-gray">•</span>
+            <span className="inline-flex items-center gap-2">
+              <Building2 size={16} className="text-nedel-blue" />
+              Fundada em 01/11/1994
+            </span>
           </div>
+        </div>
 
-          {/* Placeholder pra foto da fachada/escritório */}
-          <div className="relative aspect-[4/5] rounded-3xl bg-nedel-blue overflow-hidden flex items-center justify-center">
-            {/* Substituir pelo <Image /> da fachada/escritório */}
-            <div className="text-center px-6">
-              <div className="inline-flex p-4 rounded-2xl bg-white/15 mb-4">
-                <Image
-                  src="/n.svg"
-                  alt=""
-                  width={36}
-                  height={36}
-                  className="brightness-0 invert"
-                />
-              </div>
-              <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
-                Foto da empresa
-              </p>
-            </div>
-          </div>
+        <div className="relative w-full aspect-[16/8] md:aspect-[20/12] rounded-3xl overflow-hidden mt-10 md:mt-14">
+          <Image
+            src="/fachada.png"
+            alt="Fachada da sede da Nedel Sistemas em Itapiranga/SC"
+            fill
+            sizes="(min-width: 1280px) 1200px, 100vw"
+            className="object-cover object-center"
+            priority
+          />
         </div>
       </Section>
 
@@ -173,26 +160,29 @@ export default function About() {
           <div className="mt-8 space-y-5 text-foreground/80 leading-relaxed text-left md:text-center">
             <p>
               Em 1º de novembro de 1994, Henrique Nedel — então com 20 anos —
-              abriu a porta da Nedel Informática em Itapiranga, no extremo
-              oeste catarinense. Eram só duas pessoas. O capital era pouco, o
-              mercado de informática ainda engatinhava no interior, e a única
-              certeza era a vontade de fazer dar certo.
+              abriu a porta da Nedel Informática em Itapiranga, no extremo oeste
+              catarinense. Eram só duas pessoas. O capital era pouco, o mercado
+              de informática ainda engatinhava no interior, e a única certeza
+              era a vontade de fazer dar certo.
             </p>
             <p>
-              Nos primeiros anos, a empresa atuou em várias frentes — revenda
-              de equipamentos, suprimentos, assistência técnica e, desde
-              sempre, <strong className="text-nedel-black-blue">sistemas
-              de automação comercial</strong>. Foi esse último braço que, com
-              o tempo, viraria o coração da operação.
+              Nos primeiros anos, a empresa atuou em várias frentes — revenda de
+              equipamentos, suprimentos, assistência técnica e, desde sempre,{" "}
+              <strong className="text-nedel-black-blue">
+                sistemas de automação comercial
+              </strong>
+              . Foi esse último braço que, com o tempo, viraria o coração da
+              operação.
             </p>
             <p>
               Em 2006, a Nedel se desdobrou: a parte de provedor de internet
               ganhou vida própria como Nedel Telecom. A Sistemas, livre pra se
               dedicar inteiramente ao que faz melhor, seguiu o caminho do
-              software. O <strong className="text-nedel-black-blue">Digiadm
-              </strong> se firmou como o produto principal, e em torno dele
-              nasceram o Diginfc-e, o Digivendas e os demais aplicativos que
-              vocês conhecem hoje.
+              software. O{" "}
+              <strong className="text-nedel-black-blue">Digiadm</strong> se
+              firmou como o produto principal, e em torno dele nasceram o
+              Diginfc-e, o Digivendas e os demais aplicativos que vocês conhecem
+              hoje.
             </p>
             <p>
               Trinta anos depois, continuamos em Itapiranga. Continuamos
@@ -244,7 +234,9 @@ export default function About() {
                   {/* Spacer pra alternar lados no desktop */}
                   {!isEven && <div className="hidden md:block" />}
 
-                  <div className={`pl-12 md:pl-0 ${isEven ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
+                  <div
+                    className={`pl-12 md:pl-0 ${isEven ? "md:pr-8 md:text-right" : "md:pl-8"}`}
+                  >
                     <span
                       className={`inline-block text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${
                         isCurrent ? "text-nedel-red" : "text-nedel-blue"
@@ -312,8 +304,8 @@ export default function About() {
             Nossa cultura, de 1994 pra cá
           </h2>
           <p className="text-muted-foreground mt-4 leading-relaxed">
-            Muita coisa mudou em 30 anos — a tecnologia, as leis, os clientes.
-            O jeito de tratar quem confia na gente, não.
+            Muita coisa mudou em 30 anos — a tecnologia, as leis, os clientes. O
+            jeito de tratar quem confia na gente, não.
           </p>
         </Reveal>
 
@@ -387,17 +379,15 @@ export default function About() {
           </div>
         </Reveal>
 
-        {/* Placeholder foto da equipe */}
         <Reveal delay={0.15} className="mt-12 w-full">
-          <div className="relative aspect-[16/7] rounded-3xl bg-nedel-black-blue overflow-hidden flex items-center justify-center">
-            <div className="text-center px-6">
-              <div className="inline-flex p-4 rounded-2xl bg-nedel-blue/30 mb-4">
-                <Users size={36} className="text-white" />
-              </div>
-              <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
-                Foto da equipe
-              </p>
-            </div>
+          <div className="relative w-full aspect-[16/7] rounded-3xl overflow-hidden">
+            <Image
+              src="/equipe.jpeg"
+              alt="Equipe da Nedel Sistemas"
+              fill
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="object-cover object-center"
+            />
           </div>
         </Reveal>
       </Section>
@@ -410,8 +400,8 @@ export default function About() {
             Comércios que confiam na Nedel
           </h2>
           <p className="text-muted-foreground mt-4 leading-relaxed">
-            Mais de 200 empresas operam diariamente com nossos sistemas em
-            Santa Catarina, Rio Grande do Sul e Paraná.
+            Mais de 200 empresas operam diariamente com nossos sistemas em Santa
+            Catarina, Rio Grande do Sul e Paraná.
           </p>
         </Reveal>
 
@@ -450,8 +440,8 @@ export default function About() {
               Quer fazer parte dessa história?
             </h2>
             <p className="text-white/80 mt-4 max-w-xl mx-auto leading-relaxed">
-              Conheça os sistemas que ajudam mais de 200 empresas a tocar o
-              dia a dia com tranquilidade.
+              Conheça os sistemas que ajudam mais de 200 empresas a tocar o dia
+              a dia com tranquilidade.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-8">
               <Link
