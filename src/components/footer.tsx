@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="relative max-w-6xl mx-auto">
         <div className=" bg-nedel-white shadow-xl border-2 border-nedel-highlight-gray/20 text-black rounded-4xl p-5 md:p-20">
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-[1fr_2fr] gap-10 items-start">
+            <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-10 items-start">
               <div>
                 <Image
                   src="/n.svg"
@@ -50,7 +50,7 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:justify-items-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 md:gap-2 md:justify-items-center">
                 <ul>
                   <li className="font-bold mb-3">Produtos</li>
                   <li className="pb-2">
@@ -174,21 +174,21 @@ export default function Footer() {
               </div>
             </div>
             <hr className="my-6" />
-            <div className="flex flex-col md:flex-row gap-2 md:justify-between">
-              <p className="text-sm">
-                &copy; {new Date().getFullYear()} | Nedel Sistemas - Todos os
+            <div className="flex flex-col md:flex-row gap-4 md:gap-2 md:justify-between md:items-center">
+              <p className="text-sm text-muted-foreground">
+                &copy; {new Date().getFullYear()} · Nedel Sistemas · Todos os
                 direitos reservados.
               </p>
-              <div className="flex justify-between gap-4">
+              <div className="flex flex-wrap gap-x-4 gap-y-2">
                 <Link
                   href="/policy/privacy"
-                  className="text-sm text-muted-foreground underline"
+                  className="text-sm text-muted-foreground underline hover:text-nedel-blue transition-colors"
                 >
                   Política de Privacidade
                 </Link>
                 <Link
                   href="/policy/terms"
-                  className="text-sm text-muted-foreground underline"
+                  className="text-sm text-muted-foreground underline hover:text-nedel-blue transition-colors"
                 >
                   Termos e Condições
                 </Link>
@@ -198,11 +198,12 @@ export default function Footer() {
         </div>
         <Image
           src="/nedel-footer.svg"
-          alt="Nedel Sistemas"
+          alt=""
+          aria-hidden
           width={1400}
           height={900}
           loading="lazy"
-          className="mt-10 w-full opacity-60"
+          className="mt-6 md:mt-10 w-full max-h-32 md:max-h-none object-cover object-top opacity-60"
         />
       </div>
     </footer>
