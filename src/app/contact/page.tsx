@@ -11,6 +11,7 @@ import {
   PlayCircle,
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
+import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Contato",
@@ -86,9 +87,9 @@ export default function Contact() {
 
       {/* Canais principais */}
       <Section className="my-0 pb-12 md:pb-20">
-        <div className="grid md:grid-cols-2 gap-5 w-full">
+        <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
           {PRIMARY_CHANNELS.map((ch) => (
-            <div
+            <RevealItem
               key={ch.label}
               className="flex flex-col p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40 transition-colors"
             >
@@ -123,23 +124,23 @@ export default function Contact() {
                   <ArrowRight size={16} />
                 </a>
               )}
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
       {/* Info secundária */}
       <Section className="my-0 py-16 md:py-20 bg-secondary/40">
-        <div className="text-center max-w-2xl mb-12">
+        <Reveal className="text-center max-w-2xl mb-12">
           <Eyebrow>Outras informações</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Tudo o que você precisa saber
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-5 w-full">
+        <RevealStagger className="grid md:grid-cols-3 gap-5 w-full">
           {SECONDARY_INFO.map((item) => (
-            <div
+            <RevealItem
               key={item.title}
               className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white"
             >
@@ -152,14 +153,14 @@ export default function Contact() {
               <p className="text-foreground/80 leading-relaxed text-sm whitespace-pre-line">
                 {item.body}
               </p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
       {/* Demonstração */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center w-full">
+        <Reveal className="grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center w-full">
           <div>
             <Eyebrow>Demonstração gratuita</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
@@ -248,7 +249,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );

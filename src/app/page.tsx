@@ -4,6 +4,7 @@ import * as Lucide from "lucide-react";
 import Digiadm from "@/assets/mock/digiadm.png";
 import Diginfce from "@/assets/mock/diginfce.png";
 import Digientregas from "@/assets/mock/digientregas.png";
+import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 
 const STATS = [
   {
@@ -229,15 +230,15 @@ export default function Home() {
         {/* STATS */}
         <section className="w-full py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-5">
-            <div className="text-center mb-12 md:mb-16">
+            <Reveal className="text-center mb-12 md:mb-16">
               <Eyebrow>Por que confiar na Nedel</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-3">
                 Tradição, confiança e tecnologia
               </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-nedel-highlight-gray/60 bg-secondary/30 rounded-3xl border border-nedel-highlight-gray/40 overflow-hidden">
+            </Reveal>
+            <RevealStagger className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-nedel-highlight-gray/60 bg-secondary/30 rounded-3xl border border-nedel-highlight-gray/40 overflow-hidden">
               {STATS.map((stat, i) => (
-                <div key={i} className="px-8 py-12 text-center">
+                <RevealItem key={i} className="px-8 py-12 text-center">
                   <p className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-nedel-blue to-nedel-medium-blue bg-clip-text text-transparent">
                     {stat.count}
                   </p>
@@ -247,16 +248,16 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mt-2 max-w-xs mx-auto">
                     {stat.description}
                   </p>
-                </div>
+                </RevealItem>
               ))}
-            </div>
+            </RevealStagger>
           </div>
         </section>
 
         {/* SOLUTIONS */}
         <section className="w-full py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-5">
-            <div className="text-center mb-12 md:mb-16">
+            <Reveal className="text-center mb-12 md:mb-16">
               <Eyebrow>Setores atendidos</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-3">
                 Soluções para cada setor
@@ -264,10 +265,10 @@ export default function Home() {
               <p className="text-muted-foreground text-base md:text-lg mt-4 max-w-2xl mx-auto">
                 Desenvolvido sob medida para a complexidade do seu negócio.
               </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            </Reveal>
+            <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {SOLUTIONS.map((solution, i) => (
-                <div
+                <RevealItem
                   key={i}
                   className="group relative bg-background rounded-2xl p-6 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
@@ -280,9 +281,9 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                     {solution.description}
                   </p>
-                </div>
+                </RevealItem>
               ))}
-            </div>
+            </RevealStagger>
           </div>
         </section>
 
@@ -292,7 +293,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-nedel-black-blue via-nedel-black-blue/90 to-nedel-black-blue"></div>
 
           <div className="relative max-w-6xl mx-auto px-5">
-            <div className="text-center mb-20 md:mb-28">
+            <Reveal className="text-center mb-20 md:mb-28">
               <Eyebrow>Nossos produtos</Eyebrow>
               <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mt-3">
                 O Ecossistema
@@ -306,14 +307,16 @@ export default function Home() {
                 </Link>
                 .
               </p>
-            </div>
+            </Reveal>
 
             <div className="flex flex-col gap-16 md:gap-36">
               {APPS.map((app, i) => {
                 const reversed = i % 2 === 1;
                 return (
-                  <div
+                  <Reveal
                     key={i}
+                    variant={reversed ? "slideLeft" : "slideRight"}
+                    amount={0.25}
                     className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
                   >
                     <div
@@ -363,7 +366,7 @@ export default function Home() {
                         className="relative rounded-2xl shadow-2xl border border-white/10 hover:scale-[1.02] transition-transform duration-500"
                       />
                     </div>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
@@ -373,7 +376,7 @@ export default function Home() {
         {/* WHY CHOOSE US — BENTO */}
         <section className="w-full py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-5">
-            <div className="text-center mb-12 md:mb-16">
+            <Reveal className="text-center mb-12 md:mb-16">
               <Eyebrow>Diferenciais</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-3">
                 Por que escolher a Nedel?
@@ -382,11 +385,11 @@ export default function Home() {
                 Mais do que software: uma parceria de longo prazo para o
                 crescimento da sua empresa.
               </p>
-            </div>
+            </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+            <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
               {/* Featured card */}
-              <div className="md:col-span-2 relative bg-gradient-to-br from-nedel-black-blue to-nedel-medium-blue rounded-3xl p-8 md:p-10 overflow-hidden text-white md:min-h-[280px]">
+              <RevealItem className="md:col-span-2 relative bg-gradient-to-br from-nedel-black-blue to-nedel-medium-blue rounded-3xl p-8 md:p-10 overflow-hidden text-white md:min-h-[280px]">
                 <div className="absolute top-0 right-0 w-72 h-72 bg-nedel-blue/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3"></div>
                 <div className="absolute inset-0 bg-[url('/graphics/pattern-n/azul-medio.png')] bg-cover bg-center opacity-10"></div>
                 <div className="relative flex flex-col h-full justify-between">
@@ -402,10 +405,10 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </RevealItem>
 
               {/* Side card */}
-              <div className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all md:min-h-[280px] flex flex-col">
+              <RevealItem className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all md:min-h-[280px] flex flex-col">
                 <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 w-fit group-hover:bg-nedel-blue/15 transition-colors">
                   <Lucide.Headphones className="size-6 text-nedel-blue" />
                 </div>
@@ -418,10 +421,10 @@ export default function Home() {
                     filas intermináveis.
                   </p>
                 </div>
-              </div>
+              </RevealItem>
 
               {/* Row 2: 3 small cards */}
-              <div className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all">
+              <RevealItem className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all">
                 <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 group-hover:bg-nedel-blue/15 transition-colors">
                   <Lucide.ShieldCheck className="size-6 text-nedel-blue" />
                 </div>
@@ -432,9 +435,9 @@ export default function Home() {
                   Sistema sempre em dia com Receita Federal e órgãos
                   estaduais, sem você precisar acompanhar.
                 </p>
-              </div>
+              </RevealItem>
 
-              <div className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all">
+              <RevealItem className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all">
                 <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 group-hover:bg-nedel-blue/15 transition-colors">
                   <Lucide.Lock className="size-6 text-nedel-blue" />
                 </div>
@@ -445,9 +448,9 @@ export default function Home() {
                   Backup automático, criptografia e infraestrutura
                   redundante. Seus dados protegidos 24/7.
                 </p>
-              </div>
+              </RevealItem>
 
-              <div className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all">
+              <RevealItem className="group bg-background rounded-3xl p-6 md:p-8 border border-nedel-highlight-gray/40 hover:border-nedel-blue/40 hover:shadow-lg transition-all">
                 <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 group-hover:bg-nedel-blue/15 transition-colors">
                   <Lucide.Puzzle className="size-6 text-nedel-blue" />
                 </div>
@@ -458,10 +461,10 @@ export default function Home() {
                   Conecte com bancos, marketplaces e gateways via APIs
                   abertas e documentadas.
                 </p>
-              </div>
+              </RevealItem>
 
               {/* Bottom wide card */}
-              <div className="md:col-span-3 relative bg-secondary/30 rounded-3xl p-8 md:p-10 border border-nedel-highlight-gray/40 overflow-hidden">
+              <RevealItem className="md:col-span-3 relative bg-secondary/30 rounded-3xl p-8 md:p-10 border border-nedel-highlight-gray/40 overflow-hidden">
                 <div className="md:flex md:items-center md:justify-between gap-8">
                   <div className="flex items-start gap-5">
                     <div className="flex-shrink-0 p-4 rounded-2xl bg-nedel-blue/10">
@@ -479,15 +482,15 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </RevealItem>
+            </RevealStagger>
           </div>
         </section>
 
         {/* STEPS */}
         <section className="w-full bg-secondary/30 py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-5">
-            <div className="text-center mb-16 md:mb-20">
+            <Reveal className="text-center mb-16 md:mb-20">
               <Eyebrow>Próximos passos</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-3">
                 Começar é simples
@@ -496,16 +499,19 @@ export default function Home() {
                 Um processo estruturado para levar você da desordem ao
                 controle total.
               </p>
-            </div>
+            </Reveal>
 
-            <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6">
+            <RevealStagger
+              staggerDelay={0.12}
+              className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6"
+            >
               <div
                 aria-hidden
                 className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-nedel-blue/40 to-transparent"
               ></div>
 
               {STEPS.map((step, i) => (
-                <div key={i} className="relative text-center">
+                <RevealItem key={i} className="relative text-center">
                   <div className="flex justify-center mb-6">
                     <div className="relative w-20 h-20 rounded-full bg-background border-2 border-nedel-blue flex items-center justify-center text-nedel-blue font-bold text-2xl shadow-md hover:bg-nedel-blue hover:text-white transition-all hover:scale-110 cursor-default">
                       {String(i + 1).padStart(2, "0")}
@@ -517,15 +523,19 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mt-2 max-w-xs mx-auto">
                     {step.description}
                   </p>
-                </div>
+                </RevealItem>
               ))}
-            </div>
+            </RevealStagger>
           </div>
         </section>
 
         {/* CTA */}
         <section className="w-full p-5 pb-10">
-          <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-nedel-blue to-nedel-medium-blue rounded-3xl md:rounded-4xl overflow-hidden">
+          <Reveal
+            variant="scaleIn"
+            duration={0.7}
+            className="relative max-w-6xl mx-auto bg-gradient-to-br from-nedel-blue to-nedel-medium-blue rounded-3xl md:rounded-4xl overflow-hidden"
+          >
             <div className="absolute inset-0 bg-[url('/graphics/pattern-n/azul-medio.png')] bg-cover bg-center opacity-15"></div>
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-nedel-black-blue/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
@@ -556,7 +566,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
     </div>

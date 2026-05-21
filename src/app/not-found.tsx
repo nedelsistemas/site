@@ -1,21 +1,24 @@
 import Link from "next/link";
 import { ArrowLeft, Home, Search } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 
 export default function NotFound() {
   return (
     <div className="max-w-3xl mx-auto px-5 py-20 md:py-32 text-center">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
-        Erro 404
-      </p>
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-nedel-black-blue mt-4">
-        Página não encontrada
-      </h1>
-      <p className="text-lg text-muted-foreground mt-6 leading-relaxed max-w-xl mx-auto">
-        A página que você procura pode ter sido movida, renomeada ou não
-        existir mais. Mas a gente ajuda você a voltar pro caminho.
-      </p>
+      <Reveal variant="fadeUp" duration={0.6} amount={0}>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
+          Erro 404
+        </p>
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-nedel-black-blue mt-4">
+          Página não encontrada
+        </h1>
+        <p className="text-lg text-muted-foreground mt-6 leading-relaxed max-w-xl mx-auto">
+          A página que você procura pode ter sido movida, renomeada ou não
+          existir mais. Mas a gente ajuda você a voltar pro caminho.
+        </p>
+      </Reveal>
 
-      <div className="flex flex-wrap justify-center gap-3 mt-10">
+      <Reveal variant="fadeUp" duration={0.6} delay={0.15} amount={0} className="flex flex-wrap justify-center gap-3 mt-10">
         <Link
           href="/"
           className="inline-flex items-center gap-2 bg-nedel-black-blue text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/80 transition-colors"
@@ -30,9 +33,15 @@ export default function NotFound() {
           <Search size={16} />
           Central de ajuda
         </Link>
-      </div>
+      </Reveal>
 
-      <div className="mt-16 pt-10 border-t border-nedel-highlight-gray/40">
+      <Reveal
+        variant="fadeUp"
+        duration={0.6}
+        delay={0.3}
+        amount={0}
+        className="mt-16 pt-10 border-t border-nedel-highlight-gray/40"
+      >
         <p className="text-sm text-muted-foreground mb-4">
           Procurando alguma coisa específica?
         </p>
@@ -66,7 +75,7 @@ export default function NotFound() {
             Contato
           </Link>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }

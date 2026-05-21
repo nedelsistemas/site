@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Produtos",
@@ -269,10 +270,14 @@ export default function Products() {
 
         {/* Mini grid dos 6 produtos */}
         <div className="mt-12 md:mt-16 w-full">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
+          <RevealStagger
+            staggerDelay={0.06}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto"
+          >
             {PRODUCTS_OVERVIEW.map((p) => (
-              <div
+              <RevealItem
                 key={p.name}
+                variant="scaleIn"
                 className={`flex flex-col items-center text-center p-4 rounded-2xl border transition-colors ${
                   p.primary
                     ? "border-nedel-blue/40 bg-nedel-blue/5"
@@ -290,15 +295,15 @@ export default function Products() {
                   {p.name}
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">{p.type}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealStagger>
         </div>
       </Section>
 
       {/* Como tudo se conecta */}
       <Section className="my-0 py-16 md:py-20 bg-secondary/40">
-        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center w-full max-w-4xl">
+        <Reveal className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-center w-full max-w-4xl">
           <div className="text-center md:text-right">
             <Eyebrow>Como tudo se conecta</Eyebrow>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-nedel-black-blue mt-3">
@@ -315,13 +320,13 @@ export default function Products() {
             uma única vez, e ele aparece no PDV, no app do vendedor externo, no
             controle de expedição. Sem importação, sem planilha, sem retrabalho.
           </p>
-        </div>
+        </Reveal>
       </Section>
 
       {/* Digiadm — produto principal */}
       <Section className="my-0 py-16 md:py-24">
         <div className="w-full">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-12 md:mb-16">
+          <Reveal className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-12 md:mb-16">
             <div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nedel-blue text-white text-xs font-semibold uppercase tracking-wider">
                 <LayoutDashboard className="size-3.5" />
@@ -357,16 +362,18 @@ export default function Products() {
                 placeholder="blur"
               />
             </div>
-          </div>
+          </Reveal>
 
           {/* Módulos categorizados */}
           <div>
-            <h3 className="text-xl md:text-2xl font-semibold text-nedel-black-blue mb-6 text-center">
-              O que está dentro do Digiadm
-            </h3>
-            <div className="grid md:grid-cols-2 gap-5">
+            <Reveal>
+              <h3 className="text-xl md:text-2xl font-semibold text-nedel-black-blue mb-6 text-center">
+                O que está dentro do Digiadm
+              </h3>
+            </Reveal>
+            <RevealStagger className="grid md:grid-cols-2 gap-5">
               {DIGIADM_MODULE_GROUPS.map((group) => (
-                <div
+                <RevealItem
                   key={group.category}
                   className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white"
                 >
@@ -389,16 +396,16 @@ export default function Products() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </RevealItem>
               ))}
-            </div>
+            </RevealStagger>
           </div>
         </div>
       </Section>
 
       {/* Demais produtos */}
       <Section className="my-0 py-16 md:py-24 bg-nedel-black-blue text-white">
-        <div className="text-center max-w-2xl mb-12 md:mb-16">
+        <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
             Os 5 satélites
           </p>
@@ -409,14 +416,16 @@ export default function Products() {
             Cada um resolve uma parte específica da operação — e todos
             conversam direto com o Digiadm.
           </p>
-        </div>
+        </Reveal>
 
         <div className="flex flex-col gap-16 md:gap-24 w-full">
           {SATELLITES.map((product, i) => {
             const isEven = i % 2 === 0;
             return (
-              <div
+              <Reveal
                 key={product.slug}
+                variant={isEven ? "slideRight" : "slideLeft"}
+                amount={0.2}
                 className="grid md:grid-cols-2 gap-8 md:gap-16 items-center w-full"
               >
                 <div className={isEven ? "md:order-1" : "md:order-2"}>
@@ -474,7 +483,7 @@ export default function Products() {
                     />
                   )}
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -482,7 +491,7 @@ export default function Products() {
 
       {/* Modelo comercial */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="text-center max-w-2xl mb-12 md:mb-16">
+        <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
           <Eyebrow>Como funciona a contratação</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Sem pegadinha, sem investimento inicial pesado
@@ -491,11 +500,11 @@ export default function Products() {
             Conversamos, montamos uma proposta sob medida e você experimenta
             antes de decidir.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-5 w-full">
+        <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
           {PRICING_PILLARS.map((pillar) => (
-            <div
+            <RevealItem
               key={pillar.title}
               className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white"
             >
@@ -508,14 +517,18 @@ export default function Products() {
               <p className="text-foreground/80 leading-relaxed text-sm">
                 {pillar.body}
               </p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
       {/* CTA */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-nedel-blue to-nedel-black-blue p-10 md:p-16 text-center">
+        <Reveal
+          variant="scaleIn"
+          duration={0.7}
+          className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-nedel-blue to-nedel-black-blue p-10 md:p-16 text-center"
+        >
           <div
             aria-hidden
             className="absolute -top-20 -right-20 size-80 rounded-full bg-white/10 blur-3xl"
@@ -550,7 +563,7 @@ export default function Products() {
               </Link>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );

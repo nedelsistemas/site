@@ -9,6 +9,7 @@ import {
   type FolderEntry,
 } from "@/lib/downloads";
 import FileBrowser from "@/components/file-browser";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Downloads",
@@ -74,17 +75,19 @@ export default async function DownloadsPage({
           Voltar para {parentLabel}
         </Link>
       )}
-      <header className="mb-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-nedel-blue">
-          Downloads
-        </p>
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-3">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="text-muted-foreground mt-3 max-w-2xl">{subtitle}</p>
-        )}
-      </header>
+      <Reveal variant="fadeIn" duration={0.4} amount={0}>
+        <header className="mb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-nedel-blue">
+            Downloads
+          </p>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-3">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="text-muted-foreground mt-3 max-w-2xl">{subtitle}</p>
+          )}
+        </header>
+      </Reveal>
 
       <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-8 flex-wrap">
         <Link
@@ -126,11 +129,13 @@ export default async function DownloadsPage({
         })}
       </nav>
 
-      {slug[0] === "conteudo-privado" ? (
-        <PrivateNotice />
-      ) : (
-        <FileBrowser entries={entries} slug={slug} />
-      )}
+      <Reveal variant="fadeUp" duration={0.5} delay={0.1} amount={0}>
+        {slug[0] === "conteudo-privado" ? (
+          <PrivateNotice />
+        ) : (
+          <FileBrowser entries={entries} slug={slug} />
+        )}
+      </Reveal>
     </div>
   );
 }

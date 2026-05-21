@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Sobre nós",
@@ -150,7 +151,7 @@ export default function About() {
 
       {/* História narrativa */}
       <Section className="my-0 py-16 md:py-24 bg-secondary/40">
-        <div className="max-w-3xl w-full text-center">
+        <Reveal className="max-w-3xl w-full text-center">
           <Eyebrow>Nossa história</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Uma empresa que cresceu com a cidade
@@ -186,17 +187,17 @@ export default function About() {
               sexta, tem alguém de verdade do outro lado pra resolver.
             </p>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
       {/* Timeline */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="text-center max-w-2xl mb-12 md:mb-16">
+        <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
           <Eyebrow>Linha do tempo</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Marcos da nossa caminhada
           </h2>
-        </div>
+        </Reveal>
 
         <div className="w-full max-w-3xl relative">
           {/* Linha conectora */}
@@ -205,11 +206,18 @@ export default function About() {
             className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-2 bottom-2 w-px bg-nedel-highlight-gray/60"
           />
 
-          <ol className="flex flex-col gap-12">
+          <RevealStagger
+            staggerDelay={0.15}
+            amount={0.1}
+            className="flex flex-col gap-12"
+          >
             {TIMELINE.map((item, i) => {
               const isEven = i % 2 === 0;
               return (
-                <li key={item.year} className="relative md:grid md:grid-cols-2 md:gap-12 items-start">
+                <RevealItem
+                  key={item.year}
+                  className="relative md:grid md:grid-cols-2 md:gap-12 items-start"
+                >
                   {/* Dot */}
                   <div
                     aria-hidden
@@ -235,45 +243,51 @@ export default function About() {
 
                   {/* Spacer pra alternar lados no desktop */}
                   {isEven && <div className="hidden md:block" />}
-                </li>
+                </RevealItem>
               );
             })}
-          </ol>
+          </RevealStagger>
         </div>
       </Section>
 
       {/* Números */}
       <Section className="my-0 py-16 md:py-20 bg-nedel-black-blue text-white">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
             Em números
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mt-4">
             Três décadas, muita gente atendida
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 w-full">
+        <RevealStagger className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 w-full">
           {NUMBERS.map((item) => (
-            <div key={item.label} className="text-center">
+            <RevealItem
+              key={item.label}
+              variant="scaleIn"
+              className="text-center"
+            >
               <p className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white to-nedel-blue bg-clip-text text-transparent">
                 {item.count}
               </p>
               <p className="text-sm text-white/70 mt-2">{item.label}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
 
-        <p className="text-sm text-white/60 mt-12 text-center max-w-xl">
-          Hoje somos uma equipe pequena de quatro pessoas — pequena de
-          propósito. Cada cliente é atendido por alguém que conhece o sistema
-          de ponta a ponta.
-        </p>
+        <Reveal delay={0.3}>
+          <p className="text-sm text-white/60 mt-12 text-center max-w-xl">
+            Hoje somos uma equipe pequena de quatro pessoas — pequena de
+            propósito. Cada cliente é atendido por alguém que conhece o sistema
+            de ponta a ponta.
+          </p>
+        </Reveal>
       </Section>
 
       {/* Valores / Cultura */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="text-center max-w-2xl mb-12 md:mb-16">
+        <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
           <Eyebrow>O que nos move</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Nossa cultura, de 1994 pra cá
@@ -282,11 +296,11 @@ export default function About() {
             Muita coisa mudou em 30 anos — a tecnologia, as leis, os clientes.
             O jeito de tratar quem confia na gente, não.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-5 w-full">
+        <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
           {VALUES.map((value) => (
-            <div
+            <RevealItem
               key={value.title}
               className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40 transition-colors"
             >
@@ -299,14 +313,14 @@ export default function About() {
               <p className="text-foreground/80 leading-relaxed text-sm">
                 {value.body}
               </p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
       {/* Fundador + Equipe */}
       <Section className="my-0 py-16 md:py-24 bg-secondary/40">
-        <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center w-full">
+        <Reveal className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center w-full">
           {/* Placeholder foto do fundador */}
           <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-nedel-blue/10 via-nedel-blue/5 to-transparent border border-nedel-highlight-gray/40 overflow-hidden flex items-center justify-center order-2 md:order-1">
             {/* Substituir pelo <Image /> do Henrique */}
@@ -339,10 +353,10 @@ export default function About() {
               saiba exatamente o que está acontecendo na sua empresa.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Placeholder foto da equipe */}
-        <div className="mt-12 w-full">
+        <Reveal delay={0.15} className="mt-12 w-full">
           <div className="relative aspect-[16/7] rounded-3xl bg-gradient-to-br from-nedel-blue/10 via-nedel-blue/5 to-transparent border border-nedel-highlight-gray/40 overflow-hidden flex items-center justify-center">
             <div className="text-center px-6">
               <div className="inline-flex p-4 rounded-2xl bg-nedel-blue/10 mb-3">
@@ -353,12 +367,12 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
       {/* Segmentos atendidos */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="text-center max-w-2xl mb-12">
+        <Reveal className="text-center max-w-2xl mb-12">
           <Eyebrow>Quem atendemos</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Comércios que confiam na Nedel
@@ -367,24 +381,30 @@ export default function About() {
             Mais de 200 empresas operam diariamente com nossos sistemas em
             Santa Catarina, Rio Grande do Sul e Paraná.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-wrap justify-center gap-3 max-w-3xl">
+        <RevealStagger
+          staggerDelay={0.05}
+          className="flex flex-wrap justify-center gap-3 max-w-3xl"
+        >
           {SEGMENTS.map((segment) => (
-            <span
-              key={segment}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-nedel-highlight-gray/60 bg-white text-sm font-medium text-nedel-black-blue"
-            >
-              <Sparkles size={14} className="text-nedel-blue" />
-              {segment}
-            </span>
+            <RevealItem key={segment} variant="scaleIn">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-nedel-highlight-gray/60 bg-white text-sm font-medium text-nedel-black-blue">
+                <Sparkles size={14} className="text-nedel-blue" />
+                {segment}
+              </span>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
       {/* CTA final */}
       <Section className="my-0 py-16 md:py-24">
-        <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-nedel-blue to-nedel-black-blue p-10 md:p-16 text-center">
+        <Reveal
+          variant="scaleIn"
+          duration={0.7}
+          className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-nedel-blue to-nedel-black-blue p-10 md:p-16 text-center"
+        >
           <div
             aria-hidden
             className="absolute -top-20 -right-20 size-80 rounded-full bg-white/10 blur-3xl"
@@ -419,7 +439,7 @@ export default function About() {
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );
