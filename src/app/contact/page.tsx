@@ -162,15 +162,28 @@ export default function Contact() {
       </Section>
 
       {/* Info secundária */}
-      <Section className="my-0 py-16 md:py-20 bg-secondary/40">
-        <Reveal className="text-center max-w-2xl mb-12">
-          <Eyebrow>Outras informações</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
+      <Section className="my-0 py-16 md:py-20 relative overflow-hidden">
+        {/* Gradiente de base (sempre visível, garante o tom da seção mesmo sem foto) */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-br from-nedel-black-blue to-nedel-medium-blue"
+        />
+        {/* PLACEHOLDER: substituir /itapiranga.jpg por foto real da cidade quando disponível */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[url('/itapiranga.jpg')] bg-cover bg-center opacity-100"
+        />
+        {/* Sobreposição preta pra não ficar gritante */}
+        <div aria-hidden className="absolute inset-0 bg-black/50" />
+
+        <Reveal className="relative text-center max-w-2xl mb-12">
+          <Eyebrow tone="red">Outras informações</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4">
             Tudo o que você precisa saber
           </h2>
         </Reveal>
 
-        <RevealStagger className="grid md:grid-cols-3 gap-5 w-full">
+        <RevealStagger className="relative grid md:grid-cols-3 gap-5 w-full">
           {SECONDARY_INFO.map((item) => {
             const isWarm = item.accent === "red";
             return (
@@ -265,7 +278,8 @@ export default function Contact() {
                     Endereço
                   </p>
                   <p className="mt-1">
-                    Itapiranga — Santa Catarina, Brasil
+                    Av. Beira Rio, 349 - Centro, Itapiranga/SC - extremo oeste
+                    catarinense.
                   </p>
                 </div>
               </div>
@@ -276,10 +290,10 @@ export default function Contact() {
                     E-mail
                   </p>
                   <a
-                    href="mailto:contato@nedel.inf.br"
+                    href="mailto:sistemas@nedel.inf.br"
                     className="hover:text-white/80 transition-colors mt-1 inline-block"
                   >
-                    contato@nedel.inf.br
+                    sistemas@nedel.inf.br
                   </a>
                 </div>
               </div>

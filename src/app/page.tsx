@@ -5,6 +5,7 @@ import Digiadm from "@/assets/mock/digiadm.png";
 import Diginfce from "@/assets/mock/diginfce.png";
 import Digientregas from "@/assets/mock/digientregas.png";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
+import { MockupFrame } from "@/components/ui/mockup-frame";
 
 const STATS = [
   {
@@ -382,17 +383,16 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="relative">
-                      <div className="absolute -inset-8 bg-gradient-to-br from-nedel-blue/40 via-nedel-blue/10 to-transparent blur-3xl"></div>
+                    <MockupFrame glow="blue" glowIntensity="strong">
                       <Image
                         src={app.pathImage}
                         alt={app.name}
                         width={1400}
                         height={900}
                         loading="lazy"
-                        className="relative rounded-2xl shadow-2xl border border-white/10 hover:scale-[1.02] transition-transform duration-500"
+                        className="w-full h-auto"
                       />
-                    </div>
+                    </MockupFrame>
                   </Reveal>
                 );
               })}

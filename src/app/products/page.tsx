@@ -30,6 +30,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
+import { MockupFrame } from "@/components/ui/mockup-frame";
 import DigiadmMock from "@/assets/mock/digiadm.png";
 import DiginfceMock from "@/assets/mock/diginfce.png";
 import DigientregasMock from "@/assets/mock/digientregas.png";
@@ -383,15 +384,14 @@ export default function Products() {
                 </span>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-nedel-blue/20 to-transparent blur-3xl" />
+            <MockupFrame glow="blue" glowIntensity="strong">
               <Image
                 src={DigiadmMock}
                 alt="Tela do Digiadm"
-                className="relative w-full h-auto rounded-2xl shadow-2xl"
+                className="w-full h-auto"
                 placeholder="blur"
               />
-            </div>
+            </MockupFrame>
           </Reveal>
 
           {/* Módulos categorizados */}
@@ -510,15 +510,14 @@ export default function Products() {
                 </div>
                 <div className={isEven ? "md:order-2" : "md:order-1"}>
                   {product.image ? (
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-nedel-blue/30 to-transparent blur-3xl" />
+                    <MockupFrame glow="blue" glowIntensity="strong">
                       <Image
                         src={product.image}
                         alt={`Tela do ${product.name}`}
-                        className="relative w-full h-auto rounded-2xl shadow-2xl"
+                        className="w-full h-auto"
                         placeholder="blur"
                       />
-                    </div>
+                    </MockupFrame>
                   ) : (
                     <MockPlaceholder
                       label={`Imagem do ${product.name}`}
