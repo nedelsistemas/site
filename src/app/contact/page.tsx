@@ -21,7 +21,8 @@ export const metadata: Metadata = {
 
 const PRIMARY_CHANNELS = [
   {
-    icon: <MessageCircle className="size-6 text-nedel-blue" />,
+    Icon: MessageCircle,
+    accent: "green" as const,
     label: "WhatsApp e telefone",
     value: "(49) 3678-7274",
     description:
@@ -33,7 +34,8 @@ const PRIMARY_CHANNELS = [
     },
   },
   {
-    icon: <PhoneCall className="size-6 text-nedel-blue" />,
+    Icon: PhoneCall,
+    accent: "blue" as const,
     label: "Telefone fixo",
     value: "(49) 3678-7275",
     description:
@@ -44,25 +46,38 @@ const PRIMARY_CHANNELS = [
 
 const SECONDARY_INFO = [
   {
-    icon: <MapPin className="size-5 text-nedel-blue" />,
+    Icon: MapPin,
+    accent: "blue" as const,
     title: "Onde estamos",
     body: "Av. Beira Rio, 349 - Centro, Itapiranga/SC - extremo oeste catarinense.",
   },
   {
-    icon: <Clock className="size-5 text-nedel-blue" />,
+    Icon: Clock,
+    accent: "blue" as const,
     title: "Horário de atendimento",
     body: "Segunda a sexta: 8h às 18h\nSábados: 8h às 12h",
   },
   {
-    icon: <Headphones className="size-5 text-nedel-blue" />,
+    Icon: Headphones,
+    accent: "red" as const,
     title: "Suporte técnico",
     body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.\n\nFora do horário comercial: (49) 99101-3275 (somente ligações).",
   },
 ];
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+function Eyebrow({
+  children,
+  tone = "blue",
+}: {
+  children: React.ReactNode;
+  tone?: "blue" | "red";
+}) {
   return (
-    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
+    <p
+      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
+        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
+      }`}
+    >
       {children}
     </p>
   );
@@ -88,44 +103,61 @@ export default function Contact() {
       {/* Canais principais */}
       <Section className="my-0 pb-12 md:pb-20">
         <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
-          {PRIMARY_CHANNELS.map((ch) => (
-            <RevealItem
-              key={ch.label}
-              className="flex flex-col p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40 transition-colors"
-            >
-              <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 mb-4 w-fit">
-                {ch.icon}
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {ch.label}
-              </p>
-              <p className="text-2xl md:text-3xl font-bold text-nedel-black-blue mt-1">
-                {ch.value}
-              </p>
-              <p className="text-foreground/80 leading-relaxed mt-3 flex-1">
-                {ch.description}
-              </p>
-              {ch.cta.external ? (
-                <a
-                  href={ch.cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center gap-2 bg-nedel-black-blue text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/80 transition-colors w-fit"
+          {PRIMARY_CHANNELS.map((ch) => {
+            const isDark = ch.accent === "blue";
+            const cardBg =
+              ch.accent === "green"
+                ? "bg-nedel-green"
+                : ch.accent === "red"
+                  ? "bg-nedel-red"
+                  : "bg-nedel-black-blue";
+            return (
+              <RevealItem
+                key={ch.label}
+                className={`flex flex-col p-8 rounded-2xl overflow-hidden text-white ${cardBg}`}
+              >
+                <div
+                  className={`inline-flex p-3 rounded-xl mb-4 w-fit ${
+                    isDark ? "bg-nedel-blue/30" : "bg-white/15"
+                  }`}
                 >
-                  {ch.cta.text}
-                  <ArrowRight size={16} />
-                </a>
-              ) : (
-                <a
-                  href={ch.cta.href}
-                  className="mt-6 inline-flex items-center justify-center gap-2 bg-nedel-black-blue text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/80 transition-colors w-fit"
+                  <ch.Icon className="size-6 text-white" />
+                </div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
+                  {ch.label}
+                </p>
+                <p className="text-2xl md:text-3xl font-bold mt-1">
+                  {ch.value}
+                </p>
+                <p
+                  className={`leading-relaxed mt-3 flex-1 ${
+                    isDark ? "text-white/75" : "text-white/90"
+                  }`}
                 >
-                  {ch.cta.text}
-                  <ArrowRight size={16} />
-                </a>
-              )}
-            </RevealItem>
-          ))}
+                  {ch.description}
+                </p>
+                {ch.cta.external ? (
+                  <a
+                    href={ch.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors w-fit"
+                  >
+                    {ch.cta.text}
+                    <ArrowRight size={16} />
+                  </a>
+                ) : (
+                  <a
+                    href={ch.cta.href}
+                    className="mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors w-fit"
+                  >
+                    {ch.cta.text}
+                    <ArrowRight size={16} />
+                  </a>
+                )}
+              </RevealItem>
+            );
+          })}
         </RevealStagger>
       </Section>
 
@@ -139,22 +171,33 @@ export default function Contact() {
         </Reveal>
 
         <RevealStagger className="grid md:grid-cols-3 gap-5 w-full">
-          {SECONDARY_INFO.map((item) => (
-            <RevealItem
-              key={item.title}
-              className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white"
-            >
-              <div className="inline-flex p-2.5 rounded-xl bg-nedel-blue/10 mb-4">
-                {item.icon}
-              </div>
-              <h3 className="font-semibold text-nedel-black-blue mb-2">
-                {item.title}
-              </h3>
-              <p className="text-foreground/80 leading-relaxed text-sm whitespace-pre-line">
-                {item.body}
-              </p>
-            </RevealItem>
-          ))}
+          {SECONDARY_INFO.map((item) => {
+            const isWarm = item.accent === "red";
+            return (
+              <RevealItem
+                key={item.title}
+                className={`p-7 md:p-8 rounded-2xl overflow-hidden text-white ${
+                  isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                }`}
+              >
+                <div
+                  className={`inline-flex p-2.5 rounded-xl mb-4 ${
+                    isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                  }`}
+                >
+                  <item.Icon className="size-5 text-white" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <p
+                  className={`leading-relaxed text-sm whitespace-pre-line ${
+                    isWarm ? "text-white/90" : "text-white/80"
+                  }`}
+                >
+                  {item.body}
+                </p>
+              </RevealItem>
+            );
+          })}
         </RevealStagger>
       </Section>
 
@@ -162,7 +205,7 @@ export default function Contact() {
       <Section className="my-0 py-16 md:py-24">
         <Reveal className="grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center w-full">
           <div>
-            <Eyebrow>Demonstração gratuita</Eyebrow>
+            <Eyebrow tone="red">Demonstração gratuita</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
               7 dias pra você sentir o sistema na sua operação
             </h2>
@@ -213,40 +256,40 @@ export default function Contact() {
           </div>
 
           {/* Card endereço/email */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-nedel-blue/5 via-transparent to-nedel-blue/5 border border-nedel-highlight-gray/40">
+          <div className="p-8 rounded-2xl bg-nedel-red text-white overflow-hidden">
             <div className="space-y-6">
               <div className="flex gap-3">
-                <MapPin className="size-5 text-nedel-blue shrink-0 mt-0.5" />
+                <MapPin className="size-5 text-white shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
                     Endereço
                   </p>
-                  <p className="text-nedel-black-blue mt-1">
+                  <p className="mt-1">
                     Itapiranga — Santa Catarina, Brasil
                   </p>
                 </div>
               </div>
               <div className="flex gap-3">
-                <Mail className="size-5 text-nedel-blue shrink-0 mt-0.5" />
+                <Mail className="size-5 text-white shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
                     E-mail
                   </p>
                   <a
                     href="mailto:contato@nedel.inf.br"
-                    className="text-nedel-black-blue hover:text-nedel-blue transition-colors mt-1 inline-block"
+                    className="hover:text-white/80 transition-colors mt-1 inline-block"
                   >
                     contato@nedel.inf.br
                   </a>
                 </div>
               </div>
               <div className="flex gap-3">
-                <Clock className="size-5 text-nedel-blue shrink-0 mt-0.5" />
+                <Clock className="size-5 text-white shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
                     Atendimento
                   </p>
-                  <p className="text-nedel-black-blue mt-1">
+                  <p className="mt-1">
                     Seg a sex: 7h30 às 18h
                     <br />
                     Sáb: 8h às 12h

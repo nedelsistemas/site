@@ -45,7 +45,8 @@ const PRODUCTS_OVERVIEW = [
 
 const DIGIADM_MODULE_GROUPS = [
   {
-    icon: <Receipt className="size-5 text-nedel-blue" />,
+    Icon: Receipt,
+    accent: "blue" as const,
     category: "Fiscal",
     items: [
       "NF-e (Nota Fiscal Eletrônica)",
@@ -59,7 +60,8 @@ const DIGIADM_MODULE_GROUPS = [
     ],
   },
   {
-    icon: <Wallet className="size-5 text-nedel-blue" />,
+    Icon: Wallet,
+    accent: "red" as const,
     category: "Financeiro e contábil",
     items: [
       "API de boleto bancário — Sicoob e Sicredi (Cresol em breve)",
@@ -70,7 +72,8 @@ const DIGIADM_MODULE_GROUPS = [
     ],
   },
   {
-    icon: <Briefcase className="size-5 text-nedel-blue" />,
+    Icon: Briefcase,
+    accent: "blue" as const,
     category: "Comercial e operacional",
     items: [
       "Módulo comercial",
@@ -82,7 +85,8 @@ const DIGIADM_MODULE_GROUPS = [
     ],
   },
   {
-    icon: <Sparkles className="size-5 text-nedel-blue" />,
+    Icon: Sparkles,
+    accent: "red" as const,
     category: "Segmentos especializados",
     items: [
       "Cooperativas",
@@ -197,30 +201,44 @@ const SATELLITES: Product[] = [
 
 const PRICING_PILLARS = [
   {
-    icon: <Wallet className="size-5 text-nedel-blue" />,
+    Icon: Wallet,
+    accent: "blue" as const,
     title: "Cobrança mensal",
     body: "Sem investimento inicial pesado. Você paga uma mensalidade alinhada ao porte da sua empresa e aos módulos contratados.",
   },
   {
-    icon: <HelpCircle className="size-5 text-nedel-blue" />,
+    Icon: HelpCircle,
+    accent: "red" as const,
     title: "Proposta sob consulta",
     body: "O valor varia com o enquadramento da empresa e os módulos necessários. Conversamos antes pra fazer uma proposta justa.",
   },
   {
-    icon: <PlayCircle className="size-5 text-nedel-blue" />,
+    Icon: PlayCircle,
+    accent: "red" as const,
     title: "Demonstração de 7 dias",
     body: "Você roda o sistema antes de decidir. Tempo suficiente pra sentir como é a operação no dia a dia.",
   },
   {
-    icon: <Headphones className="size-5 text-nedel-blue" />,
+    Icon: Headphones,
+    accent: "blue" as const,
     title: "Implantação inclusa",
     body: "Implementação e treinamento remoto gratuitos. Nossa equipe acompanha você até a empresa estar 100% rodando no sistema.",
   },
 ];
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+function Eyebrow({
+  children,
+  tone = "blue",
+}: {
+  children: React.ReactNode;
+  tone?: "blue" | "red";
+}) {
   return (
-    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
+    <p
+      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
+        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
+      }`}
+    >
       {children}
     </p>
   );
@@ -235,13 +253,13 @@ function MockPlaceholder({
 }) {
   return (
     <div
-      className={`relative ${aspect} w-full rounded-2xl bg-gradient-to-br from-nedel-blue/10 via-nedel-blue/5 to-transparent border border-nedel-highlight-gray/40 overflow-hidden flex items-center justify-center`}
+      className={`relative ${aspect} w-full rounded-2xl bg-nedel-blue overflow-hidden flex items-center justify-center`}
     >
       <div className="text-center px-6">
-        <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 mb-2">
-          <PlayCircle className="size-6 text-nedel-blue/60" />
+        <div className="inline-flex p-3 rounded-xl bg-white/15 mb-3">
+          <PlayCircle className="size-6 text-white" />
         </div>
-        <p className="text-xs text-muted-foreground uppercase tracking-wider">
+        <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
           {label}
         </p>
       </div>
@@ -278,23 +296,35 @@ export default function Products() {
               <RevealItem
                 key={p.name}
                 variant="scaleIn"
-                className={`flex flex-col items-center text-center p-4 rounded-2xl border transition-colors ${
+                className={`flex flex-col items-center text-center p-4 rounded-2xl transition-colors ${
                   p.primary
-                    ? "border-nedel-blue/40 bg-nedel-blue/5"
-                    : "border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40"
+                    ? "bg-nedel-blue text-white"
+                    : "border border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40"
                 }`}
               >
                 <div
                   className={`p-2 rounded-lg mb-2 ${
-                    p.primary ? "bg-nedel-blue text-white" : "bg-nedel-blue/10 text-nedel-blue"
+                    p.primary
+                      ? "bg-white/15 text-white"
+                      : "bg-nedel-blue/10 text-nedel-blue"
                   }`}
                 >
                   {p.icon}
                 </div>
-                <p className="font-semibold text-nedel-black-blue text-sm">
+                <p
+                  className={`font-semibold text-sm ${
+                    p.primary ? "text-white" : "text-nedel-black-blue"
+                  }`}
+                >
                   {p.name}
                 </p>
-                <p className="text-xs text-muted-foreground mt-0.5">{p.type}</p>
+                <p
+                  className={`text-xs mt-0.5 ${
+                    p.primary ? "text-white/80" : "text-muted-foreground"
+                  }`}
+                >
+                  {p.type}
+                </p>
               </RevealItem>
             ))}
           </RevealStagger>
@@ -372,32 +402,45 @@ export default function Products() {
               </h3>
             </Reveal>
             <RevealStagger className="grid md:grid-cols-2 gap-5">
-              {DIGIADM_MODULE_GROUPS.map((group) => (
-                <RevealItem
-                  key={group.category}
-                  className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded-lg bg-nedel-blue/10">
-                      {group.icon}
-                    </div>
-                    <h4 className="font-semibold text-nedel-black-blue text-lg">
-                      {group.category}
-                    </h4>
-                  </div>
-                  <ul className="space-y-2">
-                    {group.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-2.5 text-sm text-foreground/80 leading-relaxed"
+              {DIGIADM_MODULE_GROUPS.map((group) => {
+                const isWarm = group.accent === "red";
+                return (
+                  <RevealItem
+                    key={group.category}
+                    className={`p-7 md:p-8 rounded-2xl overflow-hidden text-white ${
+                      isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 mb-5">
+                      <div
+                        className={`p-2.5 rounded-lg ${
+                          isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                        }`}
                       >
-                        <CheckCircle2 className="size-4 text-nedel-blue shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </RevealItem>
-              ))}
+                        <group.Icon className="size-5 text-white" />
+                      </div>
+                      <h4 className="font-bold text-lg">{group.category}</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className={`flex gap-2.5 text-sm leading-relaxed ${
+                            isWarm ? "text-white/90" : "text-white/85"
+                          }`}
+                        >
+                          <CheckCircle2
+                            className={`size-4 shrink-0 mt-0.5 ${
+                              isWarm ? "text-white" : "text-nedel-blue"
+                            }`}
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </RevealItem>
+                );
+              })}
             </RevealStagger>
           </div>
         </div>
@@ -453,7 +496,7 @@ export default function Products() {
                         <span className="flex-1">
                           {f.text}
                           {f.soon && (
-                            <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-nedel-blue/20 text-nedel-blue border border-nedel-blue/30">
+                            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-nedel-red text-white">
                               em breve
                             </span>
                           )}
@@ -492,7 +535,7 @@ export default function Products() {
       {/* Modelo comercial */}
       <Section className="my-0 py-16 md:py-24">
         <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
-          <Eyebrow>Como funciona a contratação</Eyebrow>
+          <Eyebrow tone="red">Como funciona a contratação</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Sem pegadinha, sem investimento inicial pesado
           </h2>
@@ -503,22 +546,33 @@ export default function Products() {
         </Reveal>
 
         <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
-          {PRICING_PILLARS.map((pillar) => (
-            <RevealItem
-              key={pillar.title}
-              className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white"
-            >
-              <div className="inline-flex p-2.5 rounded-xl bg-nedel-blue/10 mb-4">
-                {pillar.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-nedel-black-blue mb-2">
-                {pillar.title}
-              </h3>
-              <p className="text-foreground/80 leading-relaxed text-sm">
-                {pillar.body}
-              </p>
-            </RevealItem>
-          ))}
+          {PRICING_PILLARS.map((pillar) => {
+            const isWarm = pillar.accent === "red";
+            return (
+              <RevealItem
+                key={pillar.title}
+                className={`p-8 md:p-10 rounded-2xl overflow-hidden text-white ${
+                  isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                }`}
+              >
+                <div
+                  className={`inline-flex p-3 rounded-xl mb-5 ${
+                    isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                  }`}
+                >
+                  <pillar.Icon className="size-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{pillar.title}</h3>
+                <p
+                  className={`leading-relaxed ${
+                    isWarm ? "text-white/85" : "text-white/75"
+                  }`}
+                >
+                  {pillar.body}
+                </p>
+              </RevealItem>
+            );
+          })}
         </RevealStagger>
       </Section>
 
@@ -531,11 +585,11 @@ export default function Products() {
         >
           <div
             aria-hidden
-            className="absolute -top-20 -right-20 size-80 rounded-full bg-white/10 blur-3xl"
+            className="absolute -top-20 -right-20 size-80 rounded-full bg-white/15 blur-3xl"
           />
           <div
             aria-hidden
-            className="absolute -bottom-20 -left-20 size-80 rounded-full bg-nedel-blue/30 blur-3xl"
+            className="absolute -bottom-32 -left-32 size-[28rem] rounded-full bg-nedel-red/50 blur-3xl"
           />
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">

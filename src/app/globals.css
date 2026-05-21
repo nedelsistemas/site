@@ -54,6 +54,8 @@
   --color-nedel-blue: var(--blue-ribbon-500);
   --color-nedel-medium-blue: var(--royal-blue-600);
   --color-nedel-black-blue: var(--daintree-800);
+  --color-nedel-green: var(--mountain-meadow-500);
+  --color-nedel-dark-green: var(--mountain-meadow-700);
   --color-nedel-white: var(--white-50);
   --color-nedel-highlight-gray: var(--quill-gray-100);
 }
@@ -174,6 +176,16 @@
   --royal-blue-700: #0044ad;
   --royal-blue-800: #002a72;
   --royal-blue-900: #000e32;
+  --mountain-meadow-50: #e7faec;
+  --mountain-meadow-100: #c4f4d2;
+  --mountain-meadow-200: #93ecb1;
+  --mountain-meadow-300: #5fe18d;
+  --mountain-meadow-400: #3ad971;
+  --mountain-meadow-500: #25d366;
+  --mountain-meadow-600: #1eb556;
+  --mountain-meadow-700: #16923f;
+  --mountain-meadow-800: #0d5c28;
+  --mountain-meadow-900: #052a12;
 }
 
 .dark {

@@ -51,22 +51,26 @@ const TIMELINE = [
 
 const VALUES = [
   {
-    icon: <Handshake className="size-5 text-nedel-blue" />,
+    Icon: Handshake,
+    accent: "red" as const,
     title: "Atendimento humano",
     body: "Nada de robô ou ticket sem retorno. Quem atende você conhece o seu sistema, a sua rotina e, muitas vezes, o seu nome.",
   },
   {
-    icon: <HeartHandshake className="size-5 text-nedel-blue" />,
+    Icon: HeartHandshake,
+    accent: "red" as const,
     title: "Proximidade que se sente",
     body: "Somos do interior e atendemos como gente do interior atende — com respeito, paciência e o tempo que cada cliente precisa.",
   },
   {
-    icon: <Compass className="size-5 text-nedel-blue" />,
+    Icon: Compass,
+    accent: "blue" as const,
     title: "Evolução constante",
     body: "O Digiadm está na versão 3.1.22 porque acreditamos que software bom é software que melhora todo mês. Sem você precisar pedir.",
   },
   {
-    icon: <Award className="size-5 text-nedel-blue" />,
+    Icon: Award,
+    accent: "blue" as const,
     title: "Solidez de três décadas",
     body: "Em 30+ anos, atravessamos a chegada da internet, do PIX e da emissão eletrônica. Continuamos aqui — e continuamos aprendendo.",
   },
@@ -88,9 +92,19 @@ const SEGMENTS = [
   "Prestadores de serviço",
 ];
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+function Eyebrow({
+  children,
+  tone = "blue",
+}: {
+  children: React.ReactNode;
+  tone?: "blue" | "red";
+}) {
   return (
-    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
+    <p
+      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
+        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
+      }`}
+    >
       {children}
     </p>
   );
@@ -129,19 +143,19 @@ export default function About() {
           </div>
 
           {/* Placeholder pra foto da fachada/escritório */}
-          <div className="relative aspect-[4/5] rounded-3xl bg-gradient-to-br from-nedel-blue/10 via-nedel-blue/5 to-transparent border border-nedel-highlight-gray/40 overflow-hidden flex items-center justify-center">
+          <div className="relative aspect-[4/5] rounded-3xl bg-nedel-blue overflow-hidden flex items-center justify-center">
             {/* Substituir pelo <Image /> da fachada/escritório */}
             <div className="text-center px-6">
-              <div className="inline-flex p-4 rounded-2xl bg-nedel-blue/10 mb-3">
+              <div className="inline-flex p-4 rounded-2xl bg-white/15 mb-4">
                 <Image
                   src="/n.svg"
                   alt=""
                   width={36}
                   height={36}
-                  className="opacity-60"
+                  className="brightness-0 invert"
                 />
               </div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider">
+              <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
                 Foto da empresa
               </p>
             </div>
@@ -152,7 +166,7 @@ export default function About() {
       {/* História narrativa */}
       <Section className="my-0 py-16 md:py-24 bg-secondary/40">
         <Reveal className="max-w-3xl w-full text-center">
-          <Eyebrow>Nossa história</Eyebrow>
+          <Eyebrow tone="red">Nossa história</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Uma empresa que cresceu com a cidade
           </h2>
@@ -213,6 +227,7 @@ export default function About() {
           >
             {TIMELINE.map((item, i) => {
               const isEven = i % 2 === 0;
+              const isCurrent = item.year === "Hoje";
               return (
                 <RevealItem
                   key={item.year}
@@ -221,16 +236,20 @@ export default function About() {
                   {/* Dot */}
                   <div
                     aria-hidden
-                    className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-2 size-8 rounded-full bg-white border-2 border-nedel-blue flex items-center justify-center"
-                  >
-                    <div className="size-2.5 rounded-full bg-nedel-blue" />
-                  </div>
+                    className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 top-2 size-7 rounded-full ring-4 ring-background ${
+                      isCurrent ? "bg-nedel-red" : "bg-nedel-black-blue"
+                    }`}
+                  />
 
                   {/* Spacer pra alternar lados no desktop */}
                   {!isEven && <div className="hidden md:block" />}
 
                   <div className={`pl-12 md:pl-0 ${isEven ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
-                    <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue mb-2">
+                    <span
+                      className={`inline-block text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${
+                        isCurrent ? "text-nedel-red" : "text-nedel-blue"
+                      }`}
+                    >
                       {item.year}
                     </span>
                     <h3 className="text-xl font-semibold text-nedel-black-blue mb-2">
@@ -299,22 +318,35 @@ export default function About() {
         </Reveal>
 
         <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
-          {VALUES.map((value) => (
-            <RevealItem
-              key={value.title}
-              className="p-6 md:p-8 rounded-2xl border border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40 transition-colors"
-            >
-              <div className="inline-flex p-2.5 rounded-xl bg-nedel-blue/10 mb-4">
-                {value.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-nedel-black-blue mb-2">
-                {value.title}
-              </h3>
-              <p className="text-foreground/80 leading-relaxed text-sm">
-                {value.body}
-              </p>
-            </RevealItem>
-          ))}
+          {VALUES.map((value) => {
+            const isWarm = value.accent === "red";
+            return (
+              <RevealItem
+                key={value.title}
+                className={`relative p-8 md:p-10 rounded-2xl overflow-hidden text-white ${
+                  isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                }`}
+              >
+                <div
+                  className={`inline-flex p-3 rounded-xl mb-6 ${
+                    isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                  }`}
+                >
+                  <value.Icon className="size-6 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                  {value.title}
+                </h3>
+                <p
+                  className={`leading-relaxed ${
+                    isWarm ? "text-white/85" : "text-white/75"
+                  }`}
+                >
+                  {value.body}
+                </p>
+              </RevealItem>
+            );
+          })}
         </RevealStagger>
       </Section>
 
@@ -322,20 +354,20 @@ export default function About() {
       <Section className="my-0 py-16 md:py-24 bg-secondary/40">
         <Reveal className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center w-full">
           {/* Placeholder foto do fundador */}
-          <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-nedel-blue/10 via-nedel-blue/5 to-transparent border border-nedel-highlight-gray/40 overflow-hidden flex items-center justify-center order-2 md:order-1">
+          <div className="relative aspect-square rounded-3xl bg-nedel-red overflow-hidden flex items-center justify-center order-2 md:order-1">
             {/* Substituir pelo <Image /> do Henrique */}
             <div className="text-center px-6">
-              <div className="inline-flex p-4 rounded-2xl bg-nedel-blue/10 mb-3">
-                <Users size={36} className="text-nedel-blue/60" />
+              <div className="inline-flex p-4 rounded-2xl bg-white/15 mb-4">
+                <Users size={36} className="text-white" />
               </div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider">
+              <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
                 Foto do fundador
               </p>
             </div>
           </div>
 
           <div className="order-1 md:order-2">
-            <Eyebrow>Quem está por trás</Eyebrow>
+            <Eyebrow tone="red">Quem está por trás</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
               Henrique Nedel e uma equipe que conhece você pelo nome
             </h2>
@@ -357,12 +389,12 @@ export default function About() {
 
         {/* Placeholder foto da equipe */}
         <Reveal delay={0.15} className="mt-12 w-full">
-          <div className="relative aspect-[16/7] rounded-3xl bg-gradient-to-br from-nedel-blue/10 via-nedel-blue/5 to-transparent border border-nedel-highlight-gray/40 overflow-hidden flex items-center justify-center">
+          <div className="relative aspect-[16/7] rounded-3xl bg-nedel-black-blue overflow-hidden flex items-center justify-center">
             <div className="text-center px-6">
-              <div className="inline-flex p-4 rounded-2xl bg-nedel-blue/10 mb-3">
-                <Users size={36} className="text-nedel-blue/60" />
+              <div className="inline-flex p-4 rounded-2xl bg-nedel-blue/30 mb-4">
+                <Users size={36} className="text-white" />
               </div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider">
+              <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
                 Foto da equipe
               </p>
             </div>
@@ -407,11 +439,11 @@ export default function About() {
         >
           <div
             aria-hidden
-            className="absolute -top-20 -right-20 size-80 rounded-full bg-white/10 blur-3xl"
+            className="absolute -top-20 -right-20 size-80 rounded-full bg-white/15 blur-3xl"
           />
           <div
             aria-hidden
-            className="absolute -bottom-20 -left-20 size-80 rounded-full bg-nedel-blue/30 blur-3xl"
+            className="absolute -bottom-32 -left-32 size-[28rem] rounded-full bg-nedel-red/50 blur-3xl"
           />
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
