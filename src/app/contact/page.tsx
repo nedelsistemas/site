@@ -46,17 +46,17 @@ const SECONDARY_INFO = [
   {
     icon: <MapPin className="size-5 text-nedel-blue" />,
     title: "Onde estamos",
-    body: "Itapiranga, Santa Catarina — extremo oeste catarinense.",
+    body: "Av. Beira Rio, 349 - Centro, Itapiranga/SC - extremo oeste catarinense.",
   },
   {
     icon: <Clock className="size-5 text-nedel-blue" />,
     title: "Horário de atendimento",
-    body: "Segunda a sexta: 7h30 às 18h\nSábados: 8h às 12h",
+    body: "Segunda a sexta: 8h às 18h\nSábados: 8h às 12h",
   },
   {
     icon: <Headphones className="size-5 text-nedel-blue" />,
     title: "Suporte técnico",
-    body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.",
+    body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.\n\nFora do horário comercial: (49) 99101-3275 (somente ligações).",
   },
 ];
 
@@ -169,20 +169,26 @@ export default function Contact() {
             <p className="text-foreground/80 leading-relaxed mt-5">
               Antes de você decidir qualquer coisa, a gente monta uma
               demonstração com os módulos que fazem sentido pro seu negócio.
-              Você roda por uma semana, faz testes reais, e só então
-              conversamos sobre proposta.
+              Você roda por uma semana, faz testes reais, e só então conversamos
+              sobre proposta.
             </p>
             <ul className="space-y-3 mt-6 text-foreground/80">
               <li className="flex gap-3">
-                <span className="text-nedel-blue font-semibold shrink-0">•</span>
+                <span className="text-nedel-blue font-semibold shrink-0">
+                  •
+                </span>
                 <span>Sem cartão de crédito</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-nedel-blue font-semibold shrink-0">•</span>
+                <span className="text-nedel-blue font-semibold shrink-0">
+                  •
+                </span>
                 <span>Implantação e treinamento remoto inclusos</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-nedel-blue font-semibold shrink-0">•</span>
+                <span className="text-nedel-blue font-semibold shrink-0">
+                  •
+                </span>
                 <span>Proposta sob medida pro porte da sua empresa</span>
               </li>
             </ul>
