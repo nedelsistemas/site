@@ -39,9 +39,36 @@ const HELP_NAV: NavSection[] = [
       },
     ],
   },
-  { title: "Diginfc-e", icon: FileText, items: [], soon: true },
-  { title: "Digivendas", icon: Briefcase, items: [], soon: true },
-  { title: "Digientregas", icon: Truck, items: [], soon: true },
+  {
+    title: "Diginfc-e",
+    icon: FileText,
+    items: [
+      { title: "Visão geral", href: "/help/diginfce" },
+      { title: "Como emitir uma NFC-e", href: "/help/diginfce/emitir-nfce" },
+    ],
+  },
+  {
+    title: "Digivendas",
+    icon: Briefcase,
+    items: [
+      { title: "Visão geral", href: "/help/digivendas" },
+      {
+        title: "Como registrar um pedido",
+        href: "/help/digivendas/registrar-pedido",
+      },
+    ],
+  },
+  {
+    title: "Digientregas",
+    icon: Truck,
+    items: [
+      { title: "Visão geral", href: "/help/digientregas" },
+      {
+        title: "Criar e despachar entrega",
+        href: "/help/digientregas/criar-entrega",
+      },
+    ],
+  },
   { title: "Digiexpedição", icon: Package, items: [], soon: true },
   { title: "Digiviveiros", icon: Sprout, items: [], soon: true },
 ];

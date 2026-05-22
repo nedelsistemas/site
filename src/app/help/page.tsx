@@ -25,6 +25,11 @@ const POPULAR = [
       "Passo a passo completo para emitir Nota Fiscal Eletrônica de produto.",
   },
   {
+    title: "Como emitir uma NFC-e no Diginfc-e",
+    href: "/help/diginfce/emitir-nfce",
+    description: "Da abertura do caixa à finalização do cupom fiscal eletrônico.",
+  },
+  {
     title: "Configuração inicial do Digiadm",
     href: "/help/digiadm/configuracao-inicial",
     description: "O que configurar nas primeiras horas após a implantação.",
@@ -52,23 +57,20 @@ const SYSTEMS: {
   {
     title: "Diginfc-e",
     description: "Frente de caixa rápida com NFC-e homologada.",
-    href: "",
+    href: "/help/diginfce",
     icon: FileText,
-    soon: true,
   },
   {
     title: "Digivendas",
     description: "Força de vendas e pedidos do representante em campo.",
-    href: "",
+    href: "/help/digivendas",
     icon: Briefcase,
-    soon: true,
   },
   {
     title: "Digientregas",
     description: "Coleta e entrega pra transportadoras.",
-    href: "",
+    href: "/help/digientregas",
     icon: Truck,
-    soon: true,
   },
   {
     title: "Digiexpedição",
