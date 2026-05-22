@@ -3,13 +3,12 @@ import { cn } from "@/lib/utils";
 type MockupFrameProps = {
   children: React.ReactNode;
   className?: string;
-  glow?: "blue" | "red" | "green" | "none";
+  glow?: "blue" | "green" | "none";
   glowIntensity?: "subtle" | "strong";
 };
 
 const GLOW_COLORS = {
   blue: "from-nedel-blue/40 via-nedel-blue/10 to-transparent",
-  red: "from-nedel-red/40 via-nedel-red/10 to-transparent",
   green: "from-nedel-green/40 via-nedel-green/10 to-transparent",
   none: "",
 } as const;

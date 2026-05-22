@@ -52,13 +52,13 @@ const TIMELINE = [
 const VALUES = [
   {
     Icon: Handshake,
-    accent: "red" as const,
+    accent: "vivid" as const,
     title: "Atendimento humano",
     body: "Nada de robô ou ticket sem retorno. Quem atende você conhece o seu sistema, a sua rotina e, muitas vezes, o seu nome.",
   },
   {
     Icon: HeartHandshake,
-    accent: "red" as const,
+    accent: "vivid" as const,
     title: "Proximidade que se sente",
     body: "Somos do interior e atendemos como gente do interior atende — com respeito, paciência e o tempo que cada cliente precisa.",
   },
@@ -92,19 +92,9 @@ const SEGMENTS = [
   "Prestadores de serviço",
 ];
 
-function Eyebrow({
-  children,
-  tone = "blue",
-}: {
-  children: React.ReactNode;
-  tone?: "blue" | "red";
-}) {
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p
-      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
-        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
-      }`}
-    >
+    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
       {children}
     </p>
   );
@@ -153,7 +143,7 @@ export default function About() {
       {/* História narrativa */}
       <Section className="my-0 py-16 md:py-24 bg-secondary/40">
         <Reveal className="max-w-3xl w-full text-center">
-          <Eyebrow tone="red">Nossa história</Eyebrow>
+          <Eyebrow>Nossa história</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Uma empresa que cresceu com a cidade
           </h2>
@@ -227,7 +217,7 @@ export default function About() {
                   <div
                     aria-hidden
                     className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 top-2 size-7 rounded-full ring-4 ring-background ${
-                      isCurrent ? "bg-nedel-red" : "bg-nedel-black-blue"
+                      isCurrent ? "bg-nedel-blue" : "bg-nedel-black-blue"
                     }`}
                   />
 
@@ -239,7 +229,7 @@ export default function About() {
                   >
                     <span
                       className={`inline-block text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${
-                        isCurrent ? "text-nedel-red" : "text-nedel-blue"
+                        isCurrent ? "text-nedel-blue" : "text-nedel-black-blue/60"
                       }`}
                     >
                       {item.year}
@@ -311,17 +301,17 @@ export default function About() {
 
         <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
           {VALUES.map((value) => {
-            const isWarm = value.accent === "red";
+            const isVivid = value.accent === "vivid";
             return (
               <RevealItem
                 key={value.title}
                 className={`relative p-8 md:p-10 rounded-2xl overflow-hidden text-white ${
-                  isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                  isVivid ? "bg-nedel-blue" : "bg-nedel-black-blue"
                 }`}
               >
                 <div
                   className={`inline-flex p-3 rounded-xl mb-6 ${
-                    isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                    isVivid ? "bg-white/15" : "bg-nedel-blue/30"
                   }`}
                 >
                   <value.Icon className="size-6 text-white" />
@@ -331,7 +321,7 @@ export default function About() {
                 </h3>
                 <p
                   className={`leading-relaxed ${
-                    isWarm ? "text-white/85" : "text-white/75"
+                    isVivid ? "text-white/85" : "text-white/75"
                   }`}
                 >
                   {value.body}
@@ -346,7 +336,7 @@ export default function About() {
       <Section className="my-0 py-16 md:py-24 bg-secondary/40">
         <Reveal className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center w-full">
           {/* Placeholder foto do fundador */}
-          <div className="relative aspect-square rounded-3xl bg-nedel-red overflow-hidden flex items-center justify-center order-2 md:order-1">
+          <div className="relative aspect-square rounded-3xl bg-nedel-blue overflow-hidden flex items-center justify-center order-2 md:order-1">
             {/* Substituir pelo <Image /> do Henrique */}
             <div className="text-center px-6">
               <div className="inline-flex p-4 rounded-2xl bg-white/15 mb-4">
@@ -359,7 +349,7 @@ export default function About() {
           </div>
 
           <div className="order-1 md:order-2">
-            <Eyebrow tone="red">Quem está por trás</Eyebrow>
+            <Eyebrow>Quem está por trás</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
               Henrique Nedel e uma equipe que conhece você pelo nome
             </h2>
@@ -433,7 +423,7 @@ export default function About() {
           />
           <div
             aria-hidden
-            className="absolute -bottom-32 -left-32 size-[28rem] rounded-full bg-nedel-red/50 blur-3xl"
+            className="absolute -bottom-32 -left-32 size-[28rem] rounded-full bg-nedel-blue/50 blur-3xl"
           />
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">

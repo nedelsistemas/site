@@ -62,7 +62,7 @@ const DIGIADM_MODULE_GROUPS = [
   },
   {
     Icon: Wallet,
-    accent: "red" as const,
+    accent: "vivid" as const,
     category: "Financeiro e contábil",
     items: [
       "API de boleto bancário — Sicoob e Sicredi (Cresol em breve)",
@@ -87,7 +87,7 @@ const DIGIADM_MODULE_GROUPS = [
   },
   {
     Icon: Sparkles,
-    accent: "red" as const,
+    accent: "vivid" as const,
     category: "Segmentos especializados",
     items: [
       "Cooperativas",
@@ -209,13 +209,13 @@ const PRICING_PILLARS = [
   },
   {
     Icon: HelpCircle,
-    accent: "red" as const,
+    accent: "vivid" as const,
     title: "Proposta sob consulta",
     body: "O valor varia com o enquadramento da empresa e os módulos necessários. Conversamos antes pra fazer uma proposta justa.",
   },
   {
     Icon: PlayCircle,
-    accent: "red" as const,
+    accent: "vivid" as const,
     title: "Demonstração de 7 dias",
     body: "Você roda o sistema antes de decidir. Tempo suficiente pra sentir como é a operação no dia a dia.",
   },
@@ -227,19 +227,9 @@ const PRICING_PILLARS = [
   },
 ];
 
-function Eyebrow({
-  children,
-  tone = "blue",
-}: {
-  children: React.ReactNode;
-  tone?: "blue" | "red";
-}) {
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p
-      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
-        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
-      }`}
-    >
+    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
       {children}
     </p>
   );
@@ -403,18 +393,18 @@ export default function Products() {
             </Reveal>
             <RevealStagger className="grid md:grid-cols-2 gap-5">
               {DIGIADM_MODULE_GROUPS.map((group) => {
-                const isWarm = group.accent === "red";
+                const isVivid = group.accent === "vivid";
                 return (
                   <RevealItem
                     key={group.category}
                     className={`p-7 md:p-8 rounded-2xl overflow-hidden text-white ${
-                      isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                      isVivid ? "bg-nedel-blue" : "bg-nedel-black-blue"
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-5">
                       <div
                         className={`p-2.5 rounded-lg ${
-                          isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                          isVivid ? "bg-white/15" : "bg-nedel-blue/30"
                         }`}
                       >
                         <group.Icon className="size-5 text-white" />
@@ -426,12 +416,12 @@ export default function Products() {
                         <li
                           key={item}
                           className={`flex gap-2.5 text-sm leading-relaxed ${
-                            isWarm ? "text-white/90" : "text-white/85"
+                            isVivid ? "text-white/90" : "text-white/85"
                           }`}
                         >
                           <CheckCircle2
                             className={`size-4 shrink-0 mt-0.5 ${
-                              isWarm ? "text-white" : "text-nedel-blue"
+                              isVivid ? "text-white" : "text-nedel-blue"
                             }`}
                           />
                           <span>{item}</span>
@@ -496,7 +486,7 @@ export default function Products() {
                         <span className="flex-1">
                           {f.text}
                           {f.soon && (
-                            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-nedel-red text-white">
+                            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-nedel-blue text-white">
                               em breve
                             </span>
                           )}
@@ -534,7 +524,7 @@ export default function Products() {
       {/* Modelo comercial */}
       <Section className="my-0 py-16 md:py-24">
         <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
-          <Eyebrow tone="red">Como funciona a contratação</Eyebrow>
+          <Eyebrow>Como funciona a contratação</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Sem pegadinha, sem investimento inicial pesado
           </h2>
@@ -546,17 +536,17 @@ export default function Products() {
 
         <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
           {PRICING_PILLARS.map((pillar) => {
-            const isWarm = pillar.accent === "red";
+            const isVivid = pillar.accent === "vivid";
             return (
               <RevealItem
                 key={pillar.title}
                 className={`p-8 md:p-10 rounded-2xl overflow-hidden text-white ${
-                  isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                  isVivid ? "bg-nedel-blue" : "bg-nedel-black-blue"
                 }`}
               >
                 <div
                   className={`inline-flex p-3 rounded-xl mb-5 ${
-                    isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                    isVivid ? "bg-white/15" : "bg-nedel-blue/30"
                   }`}
                 >
                   <pillar.Icon className="size-5 text-white" />
@@ -564,7 +554,7 @@ export default function Products() {
                 <h3 className="text-xl font-bold mb-3">{pillar.title}</h3>
                 <p
                   className={`leading-relaxed ${
-                    isWarm ? "text-white/85" : "text-white/75"
+                    isVivid ? "text-white/85" : "text-white/75"
                   }`}
                 >
                   {pillar.body}
@@ -588,7 +578,7 @@ export default function Products() {
           />
           <div
             aria-hidden
-            className="absolute -bottom-32 -left-32 size-[28rem] rounded-full bg-nedel-red/50 blur-3xl"
+            className="absolute -bottom-32 -left-32 size-[28rem] rounded-full bg-nedel-blue/50 blur-3xl"
           />
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">

@@ -59,25 +59,15 @@ const SECONDARY_INFO = [
   },
   {
     Icon: Headphones,
-    accent: "red" as const,
+    accent: "vivid" as const,
     title: "Suporte técnico",
     body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.\n\nFora do horário comercial: (49) 99101-3275 (somente ligações).",
   },
 ];
 
-function Eyebrow({
-  children,
-  tone = "blue",
-}: {
-  children: React.ReactNode;
-  tone?: "blue" | "red";
-}) {
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p
-      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
-        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
-      }`}
-    >
+    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
       {children}
     </p>
   );
@@ -108,8 +98,8 @@ export default function Contact() {
             const cardBg =
               ch.accent === "green"
                 ? "bg-nedel-green"
-                : ch.accent === "red"
-                  ? "bg-nedel-red"
+                : ch.accent === "vivid"
+                  ? "bg-nedel-blue"
                   : "bg-nedel-black-blue";
             return (
               <RevealItem
@@ -177,7 +167,7 @@ export default function Contact() {
         <div aria-hidden className="absolute inset-0 bg-black/50" />
 
         <Reveal className="relative text-center max-w-2xl mb-12">
-          <Eyebrow tone="red">Outras informações</Eyebrow>
+          <Eyebrow>Outras informações</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4">
             Tudo o que você precisa saber
           </h2>
@@ -185,17 +175,17 @@ export default function Contact() {
 
         <RevealStagger className="relative grid md:grid-cols-3 gap-5 w-full">
           {SECONDARY_INFO.map((item) => {
-            const isWarm = item.accent === "red";
+            const isVivid = item.accent === "vivid";
             return (
               <RevealItem
                 key={item.title}
                 className={`p-7 md:p-8 rounded-2xl overflow-hidden text-white ${
-                  isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                  isVivid ? "bg-nedel-blue" : "bg-nedel-black-blue"
                 }`}
               >
                 <div
                   className={`inline-flex p-2.5 rounded-xl mb-4 ${
-                    isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                    isVivid ? "bg-white/15" : "bg-nedel-blue/30"
                   }`}
                 >
                   <item.Icon className="size-5 text-white" />
@@ -203,7 +193,7 @@ export default function Contact() {
                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                 <p
                   className={`leading-relaxed text-sm whitespace-pre-line ${
-                    isWarm ? "text-white/90" : "text-white/80"
+                    isVivid ? "text-white/90" : "text-white/80"
                   }`}
                 >
                   {item.body}
@@ -218,7 +208,7 @@ export default function Contact() {
       <Section className="my-0 py-16 md:py-24">
         <Reveal className="grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center w-full">
           <div>
-            <Eyebrow tone="red">Demonstração gratuita</Eyebrow>
+            <Eyebrow>Demonstração gratuita</Eyebrow>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
               7 dias pra você sentir o sistema na sua operação
             </h2>
@@ -269,7 +259,7 @@ export default function Contact() {
           </div>
 
           {/* Card endereço/email */}
-          <div className="p-8 rounded-2xl bg-nedel-red text-white overflow-hidden">
+          <div className="p-8 rounded-2xl bg-nedel-blue text-white overflow-hidden">
             <div className="space-y-6">
               <div className="flex gap-3">
                 <MapPin className="size-5 text-white shrink-0 mt-0.5" />

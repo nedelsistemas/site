@@ -37,8 +37,8 @@ Marketing/site for **Nedel Sistemas** (a Brazilian ERP/PDV vendor — Itapiranga
 Tailwind v4 is configured entirely in CSS (`src/app/globals.css`) — there is **no `tailwind.config.*`**. That single file:
 
 1. Imports `tailwindcss`, `tw-animate-css`, and `shadcn/tailwind.css`.
-2. Defines theme tokens under `@theme inline` (shadcn semantic colors like `--color-primary`, plus brand tokens `--color-nedel-blue`, `--color-nedel-black-blue`, `--color-nedel-red`, `--color-nedel-medium-blue`, `--color-nedel-white`, `--color-nedel-highlight-gray`).
-3. Defines the raw palette in `:root` (named ramps: `blue-ribbon-*`, `daintree-*`, `coral-red-*`, `mexican-red-*`, `royal-blue-*`, `quill-gray-*`, `white-*`) — the brand tokens above resolve into these.
+2. Defines theme tokens under `@theme inline` (shadcn semantic colors like `--color-primary`, plus brand tokens `--color-nedel-blue` (`#0066ff` — vibrant), `--color-nedel-black-blue` (`#051c2c` — petrol), `--color-nedel-medium-blue`, `--color-nedel-green` (`#25d366` — reserved for WhatsApp UI only), `--color-nedel-white`, `--color-nedel-highlight-gray` (`#d9d9d6`)). **Red was removed from the design system — do not reintroduce `nedel-red`, `coral-red-*`, or `mexican-red-*`. Visual contrast is built by mass and saturation: vibrant blue against petrol against gray.**
+3. Defines the raw palette in `:root` (named ramps: `blue-ribbon-*`, `daintree-*`, `royal-blue-*`, `quill-gray-*`, `mountain-meadow-*`, `white-*`) — the brand tokens above resolve into these.
 4. Sets base typography in `@layer base` (body uses `font-helvetica`; `h1`–`h4` use `font-inter`).
 
 When introducing colors, use the brand tokens (`bg-nedel-blue`, `text-nedel-black-blue`, etc.) or shadcn semantic tokens — don't hardcode hexes. Background patterns live in `public/graphics/` (e.g. `bg-[url('/graphics/pattern-n/azul-medio.png')]`).

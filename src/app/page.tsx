@@ -118,19 +118,9 @@ const STEPS = [
   },
 ];
 
-function Eyebrow({
-  children,
-  tone = "blue",
-}: {
-  children: React.ReactNode;
-  tone?: "blue" | "red";
-}) {
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span
-      className={`text-xs font-semibold uppercase tracking-[0.2em] ${
-        tone === "red" ? "text-nedel-red" : "text-nedel-blue"
-      }`}
-    >
+    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
       {children}
     </span>
   );
@@ -256,7 +246,7 @@ export default function Home() {
                   <p
                     className={`text-5xl md:text-6xl font-bold bg-clip-text text-transparent ${
                       i === 1
-                        ? "bg-gradient-to-br from-nedel-red to-nedel-dark-red"
+                        ? "bg-gradient-to-br from-nedel-blue to-nedel-black-blue"
                         : "bg-gradient-to-br from-nedel-blue to-nedel-medium-blue"
                     }`}
                   >
@@ -288,17 +278,17 @@ export default function Home() {
             </Reveal>
             <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {SOLUTIONS.map((solution, i) => {
-                const isWarm = i % 2 === 1;
+                const isVivid = i % 2 === 1;
                 return (
                   <RevealItem
                     key={i}
                     className={`group relative rounded-2xl p-7 overflow-hidden text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                      isWarm ? "bg-nedel-red" : "bg-nedel-black-blue"
+                      isVivid ? "bg-nedel-blue" : "bg-nedel-black-blue"
                     }`}
                   >
                     <div
                       className={`inline-flex p-3 rounded-xl mb-5 ${
-                        isWarm ? "bg-white/15" : "bg-nedel-blue/30"
+                        isVivid ? "bg-white/15" : "bg-nedel-blue/30"
                       }`}
                     >
                       <solution.Icon className="size-5 text-white" />
@@ -306,7 +296,7 @@ export default function Home() {
                     <h3 className="text-lg font-bold">{solution.title}</h3>
                     <p
                       className={`text-sm mt-2 leading-relaxed ${
-                        isWarm ? "text-white/85" : "text-white/75"
+                        isVivid ? "text-white/85" : "text-white/75"
                       }`}
                     >
                       {solution.description}
@@ -407,7 +397,7 @@ export default function Home() {
         <section className="w-full py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-5">
             <Reveal className="text-center mb-12 md:mb-16">
-              <Eyebrow tone="red">Diferenciais</Eyebrow>
+              <Eyebrow>Diferenciais</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-3">
                 Por que escolher a Nedel?
               </h2>
@@ -438,7 +428,7 @@ export default function Home() {
               </RevealItem>
 
               {/* Side card */}
-              <RevealItem className="relative bg-nedel-red rounded-3xl p-6 md:p-8 overflow-hidden md:min-h-[280px] flex flex-col text-white">
+              <RevealItem className="relative bg-nedel-blue rounded-3xl p-6 md:p-8 overflow-hidden md:min-h-[280px] flex flex-col text-white">
                 <div className="inline-flex p-3 rounded-xl bg-white/15 w-fit">
                   <Lucide.Headphones className="size-6 text-white" />
                 </div>
@@ -519,7 +509,7 @@ export default function Home() {
         <section className="w-full bg-secondary/30 py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-5">
             <Reveal className="text-center mb-16 md:mb-20">
-              <Eyebrow tone="red">Próximos passos</Eyebrow>
+              <Eyebrow>Próximos passos</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-3">
                 Começar é simples
               </h2>
@@ -545,7 +535,7 @@ export default function Home() {
                     <div className="flex justify-center mb-6">
                       <div
                         className={`relative w-20 h-20 rounded-full ring-4 ring-background flex items-center justify-center text-white font-bold text-2xl shadow-lg transition-all hover:scale-110 cursor-default ${
-                          isFinal ? "bg-nedel-red" : "bg-nedel-black-blue"
+                          isFinal ? "bg-nedel-blue" : "bg-nedel-black-blue"
                         }`}
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -573,7 +563,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-[url('/graphics/pattern-n/azul-medio.png')] bg-cover bg-center opacity-15"></div>
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-[28rem] h-[28rem] bg-nedel-red/45 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-[28rem] h-[28rem] bg-nedel-blue/45 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
 
             <div className="relative max-w-3xl mx-auto flex flex-col items-center justify-center py-24 md:py-32 px-6 text-center">
               <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
