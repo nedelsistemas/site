@@ -5,6 +5,7 @@ import Digiadm from "@/assets/mock/digiadm.png";
 import Diginfce from "@/assets/mock/diginfce.png";
 import Digientregas from "@/assets/mock/digientregas.png";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
+import { LogoMarquee } from "@/components/logo-marquee";
 import { MockupFrame } from "@/components/ui/mockup-frame";
 
 const STATS = [
@@ -169,13 +170,12 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-4 pt-12">
-                    <h3 className="flex items-center uppercase text-nedel-blue font-semibold">
+                    <h3 className="flex flex-wrap items-center gap-x-1 uppercase text-nedel-blue font-semibold text-sm md:text-base">
                       <span className="flex items-center">
                         VELO
                         <Lucide.Zap
                           fill="#0066ff"
-                          size={40}
-                          className="rotate-12"
+                          className="rotate-12 size-7 md:size-10"
                         />
                       </span>
                       , CONFIÁVEL, COMPLETO.
@@ -237,6 +237,9 @@ export default function Home() {
             </div>
           </div>
         </header>
+
+        {/* LOGOS DE CLIENTES */}
+        <LogoMarquee />
 
         {/* STATS */}
         <section className="w-full py-20 md:py-28">
@@ -440,12 +443,10 @@ export default function Home() {
                   <Lucide.Headphones className="size-6 text-white" />
                 </div>
                 <div className="mt-auto pt-8">
-                  <h3 className="text-xl font-bold">
-                    Suporte humanizado
-                  </h3>
+                  <h3 className="text-xl font-bold">Suporte humanizado</h3>
                   <p className="text-sm text-white/85 mt-2">
-                    Atendimento real por especialistas — sem chatbots, sem
-                    filas intermináveis.
+                    Atendimento real por especialistas — sem chatbots, sem filas
+                    intermináveis.
                   </p>
                 </div>
               </RevealItem>
@@ -459,8 +460,8 @@ export default function Home() {
                   Atualizações fiscais
                 </h3>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Sistema sempre em dia com Receita Federal e órgãos
-                  estaduais, sem você precisar acompanhar.
+                  Sistema sempre em dia com Receita Federal e órgãos estaduais,
+                  sem você precisar acompanhar.
                 </p>
               </RevealItem>
 
@@ -472,8 +473,8 @@ export default function Home() {
                   Segurança de dados
                 </h3>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Backup automático, criptografia e infraestrutura
-                  redundante. Seus dados protegidos 24/7.
+                  Backup automático, criptografia e infraestrutura redundante.
+                  Seus dados protegidos 24/7.
                 </p>
               </RevealItem>
 
@@ -485,8 +486,8 @@ export default function Home() {
                   Fácil integração
                 </h3>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Conecte com bancos, marketplaces e gateways via APIs
-                  abertas e documentadas.
+                  Conecte com bancos, marketplaces e gateways via APIs abertas e
+                  documentadas.
                 </p>
               </RevealItem>
 
@@ -502,9 +503,9 @@ export default function Home() {
                         Escalabilidade real
                       </h3>
                       <p className="text-muted-foreground mt-2 max-w-2xl">
-                        Cresce com a sua empresa — de uma filial a centenas,
-                        sem precisar trocar de sistema. Arquitetura
-                        preparada para alto volume.
+                        Cresce com a sua empresa — de uma filial a centenas, sem
+                        precisar trocar de sistema. Arquitetura preparada para
+                        alto volume.
                       </p>
                     </div>
                   </div>
@@ -523,8 +524,8 @@ export default function Home() {
                 Começar é simples
               </h2>
               <p className="text-muted-foreground text-base md:text-lg mt-4 max-w-2xl mx-auto">
-                Um processo estruturado para levar você da desordem ao
-                controle total.
+                Um processo estruturado para levar você da desordem ao controle
+                total.
               </p>
             </Reveal>
 
@@ -579,8 +580,8 @@ export default function Home() {
                 Pronto para levar mais controle para a sua empresa?
               </h2>
               <p className="text-white/80 mt-5 text-base md:text-lg max-w-2xl">
-                Junte-se a mais de 200 empresas que transformaram sua gestão
-                com a Nedel Sistemas. Peça uma demonstração sem compromisso.
+                Junte-se a mais de 200 empresas que transformaram sua gestão com
+                a Nedel Sistemas. Peça uma demonstração sem compromisso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
                 <Link
