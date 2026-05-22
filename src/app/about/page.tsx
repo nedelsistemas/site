@@ -214,15 +214,13 @@ export default function About() {
               // PLACEHOLDER: substituir pelo <Image /> da foto correspondente
               const photoPlaceholder = (
                 <div className="relative aspect-[4/3] w-full rounded-2xl bg-nedel-highlight-gray overflow-hidden flex items-center justify-center">
-                  <div className="text-center px-4">
-                    <Camera
-                      size={28}
-                      className="text-nedel-black-blue/40 mx-auto mb-2"
-                    />
-                    <p className="text-xs text-nedel-black-blue/60 uppercase tracking-[0.18em] font-semibold">
-                      Foto {item.year}
-                    </p>
-                  </div>
+                  <Image
+                    src={`/sobre/${item.year}.jpg`}
+                    sizes="(min-width: 1280px) 400px, 100vw"
+                    alt={`Foto ilustrativa para o ano de ${item.year}`}
+                    fill
+                    className="object-cover object-center"
+                  />
                 </div>
               );
 
@@ -251,7 +249,9 @@ export default function About() {
                   >
                     <span
                       className={`inline-block text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${
-                        isCurrent ? "text-nedel-blue" : "text-nedel-black-blue/60"
+                        isCurrent
+                          ? "text-nedel-blue"
+                          : "text-nedel-black-blue/60"
                       }`}
                     >
                       {item.year}
@@ -367,14 +367,13 @@ export default function About() {
           {/* Placeholder foto do fundador */}
           <div className="relative aspect-square rounded-3xl bg-nedel-blue overflow-hidden flex items-center justify-center order-2 md:order-1">
             {/* Substituir pelo <Image /> do Henrique */}
-            <div className="text-center px-6">
-              <div className="inline-flex p-4 rounded-2xl bg-white/15 mb-4">
-                <Users size={36} className="text-white" />
-              </div>
-              <p className="text-xs text-white/80 uppercase tracking-[0.18em] font-semibold">
-                Foto do fundador
-              </p>
-            </div>
+            <Image
+              src="/sobre/fundador.jpg"
+              alt="Henrique Nedel, fundador da Nedel Sistemas"
+              fill
+              sizes="(min-width: 1280px) 400px, 100vw"
+              className="object-cover object-left"
+            />
           </div>
 
           <div className="order-1 md:order-2">

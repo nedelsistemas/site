@@ -36,12 +36,33 @@ import DiginfceMock from "@/assets/mock/diginfce.png";
 import DigientregasMock from "@/assets/mock/digientregas.png";
 
 const PRODUCTS_OVERVIEW = [
-  { name: "Digiadm", type: "ERP", icon: <LayoutDashboard className="size-4" />, primary: true },
+  {
+    name: "Digiadm",
+    type: "ERP",
+    icon: <LayoutDashboard className="size-4" />,
+    primary: true,
+  },
   { name: "Diginfc-e", type: "PDV", icon: <Receipt className="size-4" /> },
-  { name: "Digivendas", type: "Vendas externas", icon: <Briefcase className="size-4" /> },
-  { name: "Digientregas", type: "Logística", icon: <Truck className="size-4" /> },
-  { name: "Digiexpedição", type: "Expedição", icon: <Package className="size-4" /> },
-  { name: "Digiviveiros", type: "Viveiros", icon: <Sprout className="size-4" /> },
+  {
+    name: "Digivendas",
+    type: "Vendas externas",
+    icon: <Briefcase className="size-4" />,
+  },
+  {
+    name: "Digientregas",
+    type: "Logística",
+    icon: <Truck className="size-4" />,
+  },
+  {
+    name: "Digiexpedição",
+    type: "Expedição",
+    icon: <Package className="size-4" />,
+  },
+  {
+    name: "Digiviveiros",
+    type: "Viveiros",
+    icon: <Sprout className="size-4" />,
+  },
 ];
 
 const DIGIADM_MODULE_GROUPS = [
@@ -109,6 +130,7 @@ type Product = {
   image: StaticImageData | null;
   platform: string;
   icon: React.ReactNode;
+  show: boolean;
 };
 
 const SATELLITES: Product[] = [
@@ -129,6 +151,7 @@ const SATELLITES: Product[] = [
     image: DiginfceMock,
     platform: "Windows Desktop",
     icon: <Receipt className="size-5 text-nedel-blue" />,
+    show: true,
   },
   {
     slug: "digivendas",
@@ -146,6 +169,7 @@ const SATELLITES: Product[] = [
     image: null,
     platform: "Android",
     icon: <Briefcase className="size-5 text-nedel-blue" />,
+    show: false,
   },
   {
     slug: "digientregas",
@@ -163,6 +187,7 @@ const SATELLITES: Product[] = [
     image: DigientregasMock,
     platform: "Android",
     icon: <Truck className="size-5 text-nedel-blue" />,
+    show: true,
   },
   {
     slug: "digiexpedicao",
@@ -180,6 +205,7 @@ const SATELLITES: Product[] = [
     image: null,
     platform: "Aplicativo móvel",
     icon: <Package className="size-5 text-nedel-blue" />,
+    show: false,
   },
   {
     slug: "digiviveiros",
@@ -197,6 +223,7 @@ const SATELLITES: Product[] = [
     image: null,
     platform: "Aplicativo móvel",
     icon: <Sprout className="size-5 text-nedel-blue" />,
+    show: false,
   },
 ];
 
@@ -446,14 +473,15 @@ export default function Products() {
             Cinco aplicações, todas integradas
           </h2>
           <p className="text-white/70 mt-4 leading-relaxed">
-            Cada um resolve uma parte específica da operação — e todos
-            conversam direto com o Digiadm.
+            Cada um resolve uma parte específica da operação — e todos conversam
+            direto com o Digiadm.
           </p>
         </Reveal>
 
         <div className="flex flex-col gap-16 md:gap-24 w-full">
           {SATELLITES.map((product, i) => {
             const isEven = i % 2 === 0;
+            if (product.show === false) return null;
             return (
               <Reveal
                 key={product.slug}

@@ -94,23 +94,14 @@ export default function Contact() {
       <Section className="my-0 pb-12 md:pb-20">
         <RevealStagger className="grid md:grid-cols-2 gap-5 w-full">
           {PRIMARY_CHANNELS.map((ch) => {
-            const isDark = ch.accent === "blue";
             const cardBg =
-              ch.accent === "green"
-                ? "bg-nedel-green"
-                : ch.accent === "vivid"
-                  ? "bg-nedel-blue"
-                  : "bg-nedel-black-blue";
+              ch.accent === "green" ? "bg-nedel-green" : "bg-nedel-blue";
             return (
               <RevealItem
                 key={ch.label}
                 className={`flex flex-col p-8 rounded-2xl overflow-hidden text-white ${cardBg}`}
               >
-                <div
-                  className={`inline-flex p-3 rounded-xl mb-4 w-fit ${
-                    isDark ? "bg-nedel-blue/30" : "bg-white/15"
-                  }`}
-                >
+                <div className="inline-flex p-3 rounded-xl mb-4 w-fit bg-white/15">
                   <ch.Icon className="size-6 text-white" />
                 </div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-white/75">
@@ -119,11 +110,7 @@ export default function Contact() {
                 <p className="text-2xl md:text-3xl font-bold mt-1">
                   {ch.value}
                 </p>
-                <p
-                  className={`leading-relaxed mt-3 flex-1 ${
-                    isDark ? "text-white/75" : "text-white/90"
-                  }`}
-                >
+                <p className="leading-relaxed mt-3 flex-1 text-white/90">
                   {ch.description}
                 </p>
                 {ch.cta.external ? (
