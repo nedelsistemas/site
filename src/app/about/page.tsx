@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Award,
   Building2,
+  Camera,
   Compass,
   Handshake,
   HeartHandshake,
@@ -208,10 +209,27 @@ export default function About() {
             {TIMELINE.map((item, i) => {
               const isEven = i % 2 === 0;
               const isCurrent = item.year === "Hoje";
+
+              // Placeholder pra foto histórica daquele ano
+              // PLACEHOLDER: substituir pelo <Image /> da foto correspondente
+              const photoPlaceholder = (
+                <div className="relative aspect-[4/3] w-full rounded-2xl bg-nedel-highlight-gray overflow-hidden flex items-center justify-center">
+                  <div className="text-center px-4">
+                    <Camera
+                      size={28}
+                      className="text-nedel-black-blue/40 mx-auto mb-2"
+                    />
+                    <p className="text-xs text-nedel-black-blue/60 uppercase tracking-[0.18em] font-semibold">
+                      Foto {item.year}
+                    </p>
+                  </div>
+                </div>
+              );
+
               return (
                 <RevealItem
                   key={item.year}
-                  className="relative md:grid md:grid-cols-2 md:gap-12 items-start"
+                  className="relative md:grid md:grid-cols-2 md:gap-12 items-center"
                 >
                   {/* Dot */}
                   <div
@@ -221,8 +239,12 @@ export default function About() {
                     }`}
                   />
 
-                  {/* Spacer pra alternar lados no desktop */}
-                  {!isEven && <div className="hidden md:block" />}
+                  {/* Foto na coluna oposta — desktop only, item ímpar */}
+                  {!isEven && (
+                    <div className="hidden md:block md:pr-8">
+                      {photoPlaceholder}
+                    </div>
+                  )}
 
                   <div
                     className={`pl-12 md:pl-0 ${isEven ? "md:pr-8 md:text-right" : "md:pl-8"}`}
@@ -240,10 +262,17 @@ export default function About() {
                     <p className="text-foreground/80 leading-relaxed">
                       {item.body}
                     </p>
+
+                    {/* Foto inline — mobile only, abaixo do texto */}
+                    <div className="md:hidden mt-5">{photoPlaceholder}</div>
                   </div>
 
-                  {/* Spacer pra alternar lados no desktop */}
-                  {isEven && <div className="hidden md:block" />}
+                  {/* Foto na coluna oposta — desktop only, item par */}
+                  {isEven && (
+                    <div className="hidden md:block md:pl-8">
+                      {photoPlaceholder}
+                    </div>
+                  )}
                 </RevealItem>
               );
             })}

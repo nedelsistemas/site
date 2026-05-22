@@ -35,7 +35,7 @@ const PRIMARY_CHANNELS = [
   },
   {
     Icon: PhoneCall,
-    accent: "blue" as const,
+    accent: "vivid" as const,
     label: "Telefone fixo",
     value: "(49) 3678-7275",
     description:
