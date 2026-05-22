@@ -57,11 +57,13 @@ const PRODUCTS_OVERVIEW = [
     name: "Digiexpedição",
     type: "Expedição",
     icon: <Package className="size-4" />,
+    comingSoon: true,
   },
   {
     name: "Digiviveiros",
     type: "Viveiros",
     icon: <Sprout className="size-4" />,
+    comingSoon: true,
   },
 ];
 
@@ -131,6 +133,7 @@ type Product = {
   platform: string;
   icon: React.ReactNode;
   show: boolean;
+  comingSoon?: boolean;
 };
 
 const SATELLITES: Product[] = [
@@ -205,7 +208,8 @@ const SATELLITES: Product[] = [
     image: null,
     platform: "Aplicativo móvel",
     icon: <Package className="size-5 text-nedel-blue" />,
-    show: false,
+    show: true,
+    comingSoon: true,
   },
   {
     slug: "digiviveiros",
@@ -223,7 +227,8 @@ const SATELLITES: Product[] = [
     image: null,
     platform: "Aplicativo móvel",
     icon: <Sprout className="size-5 text-nedel-blue" />,
-    show: false,
+    show: true,
+    comingSoon: true,
   },
 ];
 
@@ -318,7 +323,7 @@ export default function Products() {
                   p.primary
                     ? "bg-nedel-blue text-white"
                     : "border border-nedel-highlight-gray/40 bg-white hover:border-nedel-blue/40"
-                }`}
+                } ${p.comingSoon ? "opacity-60 saturate-50" : ""}`}
               >
                 <div
                   className={`p-2 rounded-lg mb-2 ${
@@ -343,6 +348,11 @@ export default function Products() {
                 >
                   {p.type}
                 </p>
+                {p.comingSoon && (
+                  <span className="mt-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-nedel-blue text-white">
+                    Em breve
+                  </span>
+                )}
               </RevealItem>
             ))}
           </RevealStagger>
@@ -473,8 +483,9 @@ export default function Products() {
             Cinco aplicações, todas integradas
           </h2>
           <p className="text-white/70 mt-4 leading-relaxed">
-            Cada um resolve uma parte específica da operação — e todos conversam
-            direto com o Digiadm.
+            Cada um resolve uma parte específica da operação. Conectam direto
+            ao Digiadm e são contratados separadamente, conforme a operação da
+            sua empresa pedir.
           </p>
         </Reveal>
 
@@ -497,6 +508,11 @@ export default function Products() {
                     <span className="text-xs font-semibold uppercase tracking-wider text-nedel-blue">
                       {product.type}
                     </span>
+                    {product.comingSoon && (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-white/15 text-white border border-white/20">
+                        Em breve
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
                     {product.name}
@@ -526,7 +542,11 @@ export default function Products() {
                     {product.platform}
                   </span>
                 </div>
-                <div className={isEven ? "md:order-2" : "md:order-1"}>
+                <div
+                  className={`${isEven ? "md:order-2" : "md:order-1"} ${
+                    product.comingSoon ? "opacity-60 saturate-50" : ""
+                  }`}
+                >
                   {product.image ? (
                     <MockupFrame glow="blue" glowIntensity="strong">
                       <Image
@@ -538,7 +558,11 @@ export default function Products() {
                     </MockupFrame>
                   ) : (
                     <MockPlaceholder
-                      label={`Imagem do ${product.name}`}
+                      label={
+                        product.comingSoon
+                          ? `${product.name} · Em breve`
+                          : `Imagem do ${product.name}`
+                      }
                       aspect="aspect-[4/3]"
                     />
                   )}
