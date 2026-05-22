@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, House, Menu } from "lucide-react";
+import { ArrowRight, House, Menu, Moon } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -119,7 +119,24 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-auto p-4">
+          <div className="mt-auto p-4 space-y-3">
+            <a
+              href="tel:+5549991013275"
+              onClick={() => setOpen(false)}
+              className="w-full inline-flex items-center gap-3 px-3 py-3 rounded-xl bg-nedel-blue/5 border border-nedel-blue/30 hover:bg-nedel-blue/10 transition-colors"
+            >
+              <span className="shrink-0 inline-flex p-2 rounded-lg bg-nedel-blue/15">
+                <Moon size={16} className="text-nedel-blue" />
+              </span>
+              <span className="flex-1 text-left">
+                <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-nedel-blue">
+                  Plantão
+                </span>
+                <span className="block text-sm font-semibold text-nedel-black-blue">
+                  (49) 99101-3275
+                </span>
+              </span>
+            </a>
             <Link
               href="/contact"
               onClick={() => setOpen(false)}

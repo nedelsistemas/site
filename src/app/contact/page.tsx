@@ -7,7 +7,9 @@ import {
   Mail,
   MapPin,
   MessageCircle,
+  Moon,
   PhoneCall,
+  PhoneOutgoing,
   PlayCircle,
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
@@ -61,7 +63,7 @@ const SECONDARY_INFO = [
     Icon: Headphones,
     accent: "vivid" as const,
     title: "Suporte técnico",
-    body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.\n\nFora do horário comercial: (49) 99101-3275 (somente ligações).",
+    body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.",
   },
 ];
 
@@ -136,6 +138,58 @@ export default function Contact() {
             );
           })}
         </RevealStagger>
+      </Section>
+
+      {/* Plantão fora do horário */}
+      <Section className="my-0 pb-12 md:pb-20">
+        <Reveal className="w-full">
+          <div className="relative overflow-hidden rounded-2xl bg-nedel-black-blue border border-nedel-blue/25 p-7 md:p-10">
+            <div
+              aria-hidden
+              className="absolute -top-24 -right-24 size-72 rounded-full bg-nedel-blue/25 blur-3xl"
+            />
+            <div
+              aria-hidden
+              className="absolute -bottom-32 -left-20 size-72 rounded-full bg-nedel-blue/15 blur-3xl"
+            />
+
+            <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="flex items-start gap-5">
+                <div className="shrink-0 inline-flex p-3.5 rounded-2xl bg-nedel-blue/20 border border-nedel-blue/40">
+                  <Moon className="size-7 text-white" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
+                    Plantão · fora do horário comercial
+                  </p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mt-2 leading-tight">
+                    Sistema parado de madrugada
+                    <br className="hidden md:block" /> ou no fim de semana?
+                  </h2>
+                  <p className="text-white/70 text-sm md:text-base leading-relaxed mt-3 max-w-xl">
+                    Pra emergências que não podem esperar o próximo dia útil. Atendimento exclusivo pra clientes ativos — somente ligações, não atende mensagens.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-start md:items-end gap-3 md:shrink-0 md:pl-6 md:border-l md:border-white/10">
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/55">
+                  Telefone do plantão
+                </p>
+                <p className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  (49) 99101-3275
+                </p>
+                <a
+                  href="tel:+5549991013275"
+                  className="inline-flex items-center gap-2 bg-nedel-blue text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-blue/85 transition-colors"
+                >
+                  <PhoneOutgoing size={16} />
+                  Ligar agora
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
       {/* Info secundária */}
