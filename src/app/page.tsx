@@ -368,10 +368,13 @@ export default function Home() {
                       <div className="pt-4">
                         <Link
                           href="/products"
-                          className="inline-flex items-center gap-2 py-3 px-6 bg-nedel-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-blue/80 transition-colors"
+                          className="group inline-flex items-center gap-2 py-3 px-6 bg-nedel-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-blue/85 transition-colors duration-300 ease-out"
                         >
                           Ver detalhes
-                          <Lucide.ArrowRight size={16} />
+                          <Lucide.ArrowRight
+                            size={16}
+                            className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                          />
                         </Link>
                       </div>
                     </div>
@@ -576,16 +579,19 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 py-3 px-6 bg-white text-nedel-blue rounded-xl font-semibold text-sm hover:bg-white/90 transition-colors"
+                  className="group inline-flex items-center justify-center gap-2 py-3 px-6 bg-white text-nedel-blue rounded-xl font-semibold text-sm hover:bg-white/90 transition-colors duration-300 ease-out"
                 >
                   Agendar demonstração
-                  <Lucide.ArrowRight size={16} />
+                  <Lucide.ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                  />
                 </Link>
                 <a
                   href="https://wa.me/+554936787274"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-3 px-6 text-white rounded-xl font-semibold text-sm border border-white/30 hover:border-white hover:bg-white/10 transition-colors"
+                  className="py-3 px-6 text-white rounded-xl font-semibold text-sm border border-white/30 hover:border-white hover:bg-white/10 transition-colors duration-300 ease-out"
                 >
                   Chamar no WhatsApp
                 </a>

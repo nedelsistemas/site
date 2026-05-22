@@ -621,14 +621,17 @@ export default function Products() {
                 href="https://wa.me/+554936787274"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors"
+                className="group inline-flex items-center gap-2 bg-white text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors duration-300 ease-out"
               >
                 Solicitar demonstração
-                <ArrowRight size={16} />
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                />
               </a>
               <Link
                 href="/help"
-                className="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors duration-300 ease-out"
               >
                 Conhecer a documentação
               </Link>

@@ -120,18 +120,24 @@ export default function Contact() {
                     href={ch.cta.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors w-fit"
+                    className="group mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors duration-300 ease-out w-fit"
                   >
                     {ch.cta.text}
-                    <ArrowRight size={16} />
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                    />
                   </a>
                 ) : (
                   <a
                     href={ch.cta.href}
-                    className="mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors w-fit"
+                    className="group mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors duration-300 ease-out w-fit"
                   >
                     {ch.cta.text}
-                    <ArrowRight size={16} />
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                    />
                   </a>
                 )}
               </RevealItem>
@@ -181,7 +187,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="tel:+5549991013275"
-                  className="inline-flex items-center gap-2 bg-nedel-blue text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-blue/85 transition-colors"
+                  className="inline-flex items-center gap-2 bg-nedel-blue text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-blue/85 transition-colors duration-300 ease-out"
                 >
                   <PhoneOutgoing size={16} />
                   Ligar agora
@@ -284,17 +290,20 @@ export default function Contact() {
                 href="https://wa.me/+554936787274?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20dos%20sistemas%20Nedel."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-nedel-blue text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-blue/85 transition-colors"
+                className="inline-flex items-center gap-2 bg-nedel-blue text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-blue/85 transition-colors duration-300 ease-out"
               >
                 <PlayCircle size={16} />
                 Agendar demonstração
               </a>
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 border border-nedel-black-blue text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue hover:text-white transition-colors"
+                className="group inline-flex items-center gap-2 border border-nedel-black-blue text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue hover:text-white transition-colors duration-300 ease-out"
               >
                 Ver produtos
-                <ArrowRight size={16} />
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                />
               </Link>
             </div>
           </div>

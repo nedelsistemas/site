@@ -73,10 +73,13 @@ export default function Navbar() {
       {/* Desktop CTA */}
       <Link
         href="/contact"
-        className="hidden md:inline-flex items-center border border-nedel-black-blue px-4 py-2 rounded-xl hover:bg-nedel-black-blue hover:text-white transition-colors hover:translate-x-0.5 text-sm font-medium"
+        className="group hidden md:inline-flex items-center border border-nedel-black-blue text-nedel-black-blue px-4 py-2 rounded-xl text-sm font-medium hover:bg-nedel-black-blue hover:text-white transition-colors duration-300 ease-out"
       >
         Começar
-        <ArrowRight className="ml-2" size={16} />
+        <ArrowRight
+          size={16}
+          className="ml-2 transition-transform duration-300 ease-out group-hover:translate-x-1"
+        />
       </Link>
 
       {/* Mobile hamburger */}
@@ -140,10 +143,13 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 bg-nedel-black-blue text-white px-4 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/80 transition-colors"
+              className="group w-full inline-flex items-center justify-center gap-2 bg-nedel-black-blue text-white px-4 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue/85 transition-colors duration-300 ease-out"
             >
               Começar
-              <ArrowRight size={16} />
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+              />
             </Link>
           </div>
         </SheetContent>
