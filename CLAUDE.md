@@ -13,7 +13,7 @@ Package manager is **pnpm** (see `pnpm-lock.yaml`).
 
 There is no test runner configured.
 
-`next.config.ts` allows the dev origin `http://10.1.1.38:3000` so the dev server can be hit from another machine on the LAN — keep that entry when editing the config.
+`next.config.ts` sets `allowedDevOrigins: ["*"]` so any machine on the LAN can hit the dev server — keep this open during local development unless intentionally locking down.
 
 ## Architecture
 
