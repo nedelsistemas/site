@@ -17,9 +17,9 @@ export default function Footer() {
                   loading="lazy"
                 />
                 <p className="text-sm pt-5 text-muted-foreground">
-                  Há mais de 30 anos desenvolvendo soluções confiáveis que
-                  ajudam empresas a organizar processos, reduzir erros e crescer
-                  com segurança.
+                  Software de gestão que evolui todo mês, com suporte humano e
+                  sem fila. Mais de 100 empresas já operam com a gente todos os
+                  dias.
                 </p>
                 <div className="flex gap-4 mt-6">
                   <Link
@@ -91,14 +91,6 @@ export default function Footer() {
                       className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
                     >
                       Digiexpedição
-                    </Link>
-                  </li>
-                  <li className="pb-2">
-                    <Link
-                      href="/products"
-                      className="text-muted-foreground text-sm hover:text-nedel-blue transition-colors"
-                    >
-                      Digiviveiros
                     </Link>
                   </li>
                 </ul>
