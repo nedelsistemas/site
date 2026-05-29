@@ -68,7 +68,7 @@ const HELP_NAV: NavSection[] = [
       },
     ],
   },
-  { title: "Digiexpedição", icon: Package, items: [], soon: true },
+  { title: "Digiexpedição", icon: Package, items: [], soon: false },
 ];
 
 export default function HelpSidebar({

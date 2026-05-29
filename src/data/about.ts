@@ -38,7 +38,7 @@ export const TIMELINE: TimelineEntry[] = [
   {
     year: "Hoje",
     title: "O sistema da nossa cidade",
-    body: "Mais de 100 empresas — postos de combustível, mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em Santa Catarina, Rio Grande do Sul e Paraná.",
+    body: "Mais de 100 empresas — mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em Santa Catarina, Rio Grande do Sul e Paraná.",
   },
 ];
 
@@ -47,19 +47,19 @@ export const VALUES: Value[] = [
     Icon: Handshake,
     accent: "vivid",
     title: "Atendimento humano",
-    body: "Nada de robô ou ticket sem retorno. Quem atende você conhece o seu sistema, a sua rotina e, muitas vezes, o seu nome.",
+    body: "Nada de robô. Quem atende você conhece o seu sistema, a sua rotina e, muitas vezes, o seu nome.",
   },
   {
     Icon: HeartHandshake,
     accent: "vivid",
     title: "Proximidade que se sente",
-    body: "Somos do interior e atendemos como gente do interior atende — com respeito, paciência e o tempo que cada cliente precisa.",
+    body: "Somos do interior e atendemos com respeito, paciência e o tempo que cada cliente precisa.",
   },
   {
     Icon: Compass,
     accent: "blue",
     title: "Evolução constante",
-    body: "O Digiadm está na versão 3.1.22 porque acreditamos que software bom é software que melhora todo mês. Sem você precisar pedir.",
+    body: "O Digiadm já está na versão 3.1.22. Atualizamos o sistema todo mês — sem custo extra, sem você precisar pedir.",
   },
   {
     Icon: Award,
@@ -77,10 +77,11 @@ export const NUMBERS: Number[] = [
 ];
 
 export const SEGMENTS: string[] = [
-  "Postos de combustível",
+  "Agropecuárias",
+  "Distribuidoras",
+  "Lacicínios",
+  "Lojas de varejo",
   "Mercados e mercearias",
   "Padarias e confeitarias",
-  "Lojas de varejo",
-  "Distribuidoras",
   "Prestadores de serviço",
 ];

@@ -124,23 +124,23 @@ export const APPS: App[] = [
 
 export const STEPS: Step[] = [
   {
-    title: "Diagnóstico",
+    title: "Necessidades",
     description:
-      "Entendemos seu negócio e identificamos os gargalos da gestão.",
+      "Você nos conta o que a operação precisa: módulos, integrações e particularidades do seu segmento.",
   },
   {
-    title: "Proposta",
+    title: "Enquadramento",
     description:
-      "Apresentamos a configuração ideal dos nossos sistemas para você.",
+      "Pedimos o CNPJ pra consultar o regime tributário e validar o que se aplica à sua empresa.",
   },
   {
-    title: "Implantação",
+    title: "Orçamento",
     description:
-      "Configuração técnica e treinamento da sua equipe por especialistas.",
+      "Com base nas necessidades e nos módulos contratados, montamos uma proposta sob medida.",
   },
   {
-    title: "Sucesso",
+    title: "Implantação remota",
     description:
-      "Sua empresa rodando com eficiência, dados reais e suporte técnico.",
+      "Configuração, migração e treinamento da equipe — tudo feito remotamente, sem parar a operação.",
   },
 ];

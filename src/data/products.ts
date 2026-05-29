@@ -42,6 +42,7 @@ export type Product = {
   demoGif?: { src: string; width: number; height: number };
   platform: string;
   Icon: LucideIcon;
+  imageSrc?: string;
   show: boolean;
   comingSoon?: boolean;
 };
@@ -60,31 +61,35 @@ export const PRODUCTS_OVERVIEW: ProductOverview[] = [
     Icon: LayoutDashboard,
     imageSrc: "/apps/mono/digiadm.png",
     primary: true,
+    comingSoon: false,
   },
   {
     name: "Diginfc-e",
     type: "PDV",
     Icon: Receipt,
     imageSrc: "/apps/mono/diginfce.png",
+    comingSoon: false,
   },
   {
     name: "Digivendas",
     type: "Vendas externas",
     Icon: Briefcase,
     imageSrc: "/apps/mono/digivendas.png",
+    comingSoon: false,
   },
   {
     name: "Digientregas",
     type: "Logística",
     Icon: Truck,
     imageSrc: "/apps/mono/digientregas.png",
+    comingSoon: false,
   },
   {
     name: "Digiexpedição",
     type: "Expedição",
     Icon: Package,
     imageSrc: "/apps/mono/digiexpedicao.png",
-    comingSoon: true,
+    comingSoon: false,
   },
 ];
 
@@ -143,7 +148,7 @@ export const DIGIADM_MODULE_GROUPS: DigiadmModuleGroup[] = [
   },
 ];
 
-export const SATELLITES: Product[] = [
+export const INTEGRATIONS: Product[] = [
   {
     slug: "diginfce",
     name: "Diginfc-e",
@@ -161,6 +166,7 @@ export const SATELLITES: Product[] = [
     image: DiginfceMock,
     platform: "Windows Desktop",
     Icon: Receipt,
+    imageSrc: "/apps/mono/diginfce.png",
     show: true,
   },
   {
@@ -179,6 +185,7 @@ export const SATELLITES: Product[] = [
     image: null,
     platform: "Android",
     Icon: Briefcase,
+    imageSrc: "/apps/mono/digivendas.png",
     show: true,
   },
   {
@@ -197,6 +204,7 @@ export const SATELLITES: Product[] = [
     image: DigientregasMock,
     platform: "Android",
     Icon: Truck,
+    imageSrc: "/apps/mono/digientregas.png",
     show: true,
   },
   {
@@ -216,8 +224,9 @@ export const SATELLITES: Product[] = [
     demoGif: { src: "/demos/digexpedicao-demo.gif", width: 1400, height: 900 },
     platform: "Aplicativo móvel",
     Icon: Package,
+    imageSrc: "/apps/mono/digiexpedicao.png",
     show: true,
-    comingSoon: true,
+    comingSoon: false,
   },
 ];
 
@@ -226,7 +235,7 @@ export const PRICING_PILLARS: PricingPillar[] = [
     Icon: Wallet,
     accent: "blue",
     title: "Cobrança mensal",
-    body: "Sem investimento inicial pesado. Você paga uma mensalidade alinhada ao porte da sua empresa e aos módulos contratados.",
+    body: "Você paga uma mensalidade alinhada ao porte da empresa e aos módulos contratados. A infraestrutura local (PC, notebook ou servidor pra hospedar a base) fica por conta do cliente — recomendamos Windows Server quando possível, mas não é exigência.",
   },
   {
     Icon: HelpCircle,

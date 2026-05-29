@@ -316,8 +316,8 @@ export default function Home() {
                 <div className="mt-auto pt-8">
                   <h3 className="text-xl font-bold">Suporte humanizado</h3>
                   <p className="text-sm text-white/85 mt-2">
-                    Atendimento real por especialistas — sem chatbots, sem filas
-                    intermináveis.
+                    Atendimento real por especialistas — sem chatbots, sem
+                    filas.
                   </p>
                 </div>
               </RevealItem>
@@ -395,8 +395,7 @@ export default function Home() {
                 Começar é simples
               </h2>
               <p className="text-muted-foreground text-base md:text-lg mt-4 max-w-2xl mx-auto">
-                Um processo estruturado para levar você da desordem ao controle
-                total.
+                Um processo estruturado para levar você ao controle total.
               </p>
             </Reveal>
 
@@ -432,6 +431,14 @@ export default function Home() {
                 );
               })}
             </RevealStagger>
+
+            <Reveal className="mt-12 md:mt-16 max-w-2xl mx-auto">
+              <p className="text-xs md:text-sm text-muted-foreground text-center">
+                Migrando de outro sistema? Analisamos o banco de dados do ERP
+                atual pra avaliar uma possível conversão — serviço opcional,
+                com custo à parte.
+              </p>
+            </Reveal>
           </div>
         </section>
 
