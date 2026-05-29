@@ -36,9 +36,9 @@ export default function Home() {
                       <span className="block text-right">CIDADE</span>
                     </h1>
                     <p className="text-muted-foreground mt-4">
-                      Há mais de 30 anos desenvolvendo soluções confiáveis que
-                      ajudam empresas a organizar processos, reduzir erros e
-                      crescer com segurança.
+                      Software de gestão que evolui todo mês, com suporte humano
+                      e sem fila. Mais de 100 empresas já operam com a gente
+                      todos os dias.
                     </p>
                   </div>
                   <div className="flex flex-col gap-4 pt-12">
