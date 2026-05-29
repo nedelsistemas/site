@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  CheckCircle2,
-  LayoutDashboard,
-  PlayCircle,
-  Workflow,
-} from "lucide-react";
+import { CheckCircle2, PlayCircle, Workflow } from "lucide-react";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 import { Section } from "@/components/ui/section";
 import { MockupFrame } from "@/components/ui/mockup-frame";
@@ -96,7 +91,17 @@ export default function Products() {
                       : "bg-nedel-blue/10 text-nedel-blue"
                   }`}
                 >
-                  <p.Icon className="size-4" />
+                  {p.imageSrc ? (
+                    <Image
+                      src={p.imageSrc}
+                      alt={p.name}
+                      width={16}
+                      height={16}
+                      className="size-4"
+                    />
+                  ) : (
+                    <p.Icon className="size-4" />
+                  )}
                 </div>
                 <p
                   className={`font-semibold text-sm ${
@@ -151,7 +156,14 @@ export default function Products() {
           <Reveal className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-12 md:mb-16">
             <div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nedel-blue text-white text-xs font-semibold uppercase tracking-wider">
-                <LayoutDashboard className="size-3.5" />
+                <Image
+                  src="/apps/mono/digiadm.png"
+                  alt=""
+                  aria-hidden
+                  width={14}
+                  height={14}
+                  className="size-3.5"
+                />
                 Produto principal
               </span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-nedel-black-blue mt-4 leading-tight">

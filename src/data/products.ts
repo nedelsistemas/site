@@ -20,6 +20,7 @@ export type ProductOverview = {
   name: string;
   type: string;
   Icon: LucideIcon;
+  imageSrc?: string;
   primary?: boolean;
   comingSoon?: boolean;
 };
@@ -54,7 +55,13 @@ export type PricingPillar = {
 };
 
 export const PRODUCTS_OVERVIEW: ProductOverview[] = [
-  { name: "Digiadm", type: "ERP", Icon: LayoutDashboard, primary: true },
+  {
+    name: "Digiadm",
+    type: "ERP",
+    Icon: LayoutDashboard,
+    imageSrc: "/apps/mono/digiadm.png",
+    primary: true,
+  },
   { name: "Diginfc-e", type: "PDV", Icon: Receipt },
   { name: "Digivendas", type: "Vendas externas", Icon: Briefcase },
   { name: "Digientregas", type: "Logística", Icon: Truck },
