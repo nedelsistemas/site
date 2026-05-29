@@ -6,7 +6,6 @@ import {
   Briefcase,
   FileText,
   Package,
-  Sprout,
   Truck,
   type LucideIcon,
 } from "lucide-react";
@@ -14,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Central de Ajuda",
   description:
-    "Guias, tutoriais e documentação dos sistemas Nedel: Digiadm, Diginfc-e, Digivendas, Digientregas, Digiexpedição e Digiviveiros.",
+    "Guias, tutoriais e documentação dos sistemas Nedel: Digiadm, Diginfc-e, Digivendas, Digientregas e Digiexpedição.",
 };
 
 const POPULAR = [
@@ -77,13 +76,6 @@ const SYSTEMS: {
     description: "Carregamento conferido pra rotas de entrega.",
     href: "",
     icon: Package,
-    soon: true,
-  },
-  {
-    title: "Digiviveiros",
-    description: "Controle de viveiros e estoque de mudas.",
-    href: "",
-    icon: Sprout,
     soon: true,
   },
 ];
