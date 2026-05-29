@@ -55,7 +55,7 @@ When introducing colors, use the brand tokens (`bg-nedel-blue`, `text-nedel-blac
 - `src/assets/` — fonts, mock product screenshots (`mock/digiadm.png`, `mock/diginfce.png`, `mock/digientregas.png`), and the `digiadm-logo`. Import these as ES modules (typed as `StaticImageData`) and pass to `next/image`.
 - `public/` is organized by domain:
   - `brand/` — Nedel marks (`nedel.svg`, `n.svg`, `nedel-footer.svg`)
-  - `apps/` — product screenshots (`digiadm.png`, `diginfce.png`)
+  - `apps/` — product logos organized by variant: `color/` (full-color, e.g. `apps/color/digiadm.png`) and `mono/` (single-color for dark/contextual backgrounds). When adding a new product logo, drop both variants in the matching subfolder using the product slug as filename.
   - `logotipos/` — client logos (`png/` rendered on site, `cruas/` raw uploads, `figma/` working files)
   - `social/` — social network icons (`ig.svg`, `github.svg`)
   - `graphics/` — background patterns (`pattern-n/`, `tracado/`) and decorative ornaments
