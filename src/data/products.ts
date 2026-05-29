@@ -9,7 +9,6 @@ import {
   PlayCircle,
   Receipt,
   Sparkles,
-  Sprout,
   Truck,
   Wallet,
 } from "lucide-react";
@@ -62,11 +61,31 @@ export const PRODUCTS_OVERVIEW: ProductOverview[] = [
     imageSrc: "/apps/mono/digiadm.png",
     primary: true,
   },
-  { name: "Diginfc-e", type: "PDV", Icon: Receipt },
-  { name: "Digivendas", type: "Vendas externas", Icon: Briefcase },
-  { name: "Digientregas", type: "Logística", Icon: Truck },
-  { name: "Digiexpedição", type: "Expedição", Icon: Package, comingSoon: true },
-  { name: "Digiviveiros", type: "Viveiros", Icon: Sprout, comingSoon: true },
+  {
+    name: "Diginfc-e",
+    type: "PDV",
+    Icon: Receipt,
+    imageSrc: "/apps/mono/diginfce.png",
+  },
+  {
+    name: "Digivendas",
+    type: "Vendas externas",
+    Icon: Briefcase,
+    imageSrc: "/apps/mono/digivendas.png",
+  },
+  {
+    name: "Digientregas",
+    type: "Logística",
+    Icon: Truck,
+    imageSrc: "/apps/mono/digientregas.png",
+  },
+  {
+    name: "Digiexpedição",
+    type: "Expedição",
+    Icon: Package,
+    imageSrc: "/apps/mono/digiexpedicao.png",
+    comingSoon: true,
+  },
 ];
 
 export const DIGIADM_MODULE_GROUPS: DigiadmModuleGroup[] = [
@@ -197,25 +216,6 @@ export const SATELLITES: Product[] = [
     demoGif: { src: "/demos/digexpedicao-demo.gif", width: 1400, height: 900 },
     platform: "Aplicativo móvel",
     Icon: Package,
-    show: true,
-    comingSoon: true,
-  },
-  {
-    slug: "digiviveiros",
-    name: "Digiviveiros",
-    type: "Viveiros",
-    tagline: "Do plantio ao pedido",
-    description:
-      "Pra produtores de mudas — controle de viveiros, visualização do estoque e acompanhamento da produção.",
-    features: [
-      { text: "Controle completo de viveiros" },
-      { text: "Visualização do estoque de mudas" },
-      { text: "Acompanhamento por lote e estágio" },
-      { text: "Pedidos integrados", soon: true },
-    ],
-    image: null,
-    platform: "Aplicativo móvel",
-    Icon: Sprout,
     show: true,
     comingSoon: true,
   },

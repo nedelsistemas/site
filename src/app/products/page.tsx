@@ -18,11 +18,11 @@ import {
 export const metadata: Metadata = {
   title: "Produtos",
   description:
-    "Conheça o ecossistema Nedel: Digiadm (ERP), Diginfc-e (PDV), Digivendas, Digientregas, Digiexpedição e Digiviveiros — todos conectados em tempo real.",
+    "Conheça o ecossistema Nedel: Digiadm (ERP), Diginfc-e (PDV), Digivendas, Digientregas e Digiexpedição — todos conectados em tempo real.",
   openGraph: {
     title: "Produtos Nedel — Um ecossistema completo",
     description:
-      "Seis sistemas integrados ao Digiadm para gerir do balcão ao depósito, sem retrabalho. Demonstração gratuita de 7 dias.",
+      "Cinco sistemas integrados ao Digiadm para gerir do balcão ao depósito, sem retrabalho. Demonstração gratuita de 7 dias.",
   },
 };
 
@@ -62,9 +62,8 @@ export default function Products() {
             conectado ao Digiadm.
           </h1>
           <p className="text-lg text-muted-foreground mt-6 leading-relaxed">
-            Seis sistemas que conversam entre si em tempo real. Um único dado
-            cadastrado uma vez, refletido em toda a operação — do balcão à rota
-            de entrega, do viveiro ao SPED.
+            Cinco sistemas que conversam entre si em tempo real. Um único dado
+            cadastrado uma vez, refletido em toda a operação.
           </p>
         </div>
 
@@ -72,7 +71,7 @@ export default function Products() {
         <div className="mt-12 md:mt-16 w-full">
           <RevealStagger
             staggerDelay={0.06}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 max-w-5xl mx-auto"
           >
             {PRODUCTS_OVERVIEW.map((p) => (
               <RevealItem
@@ -88,7 +87,9 @@ export default function Products() {
                   className={`p-2 rounded-lg mb-2 ${
                     p.primary
                       ? "bg-white/15 text-white"
-                      : "bg-nedel-blue/10 text-nedel-blue"
+                      : p.imageSrc
+                        ? "bg-nedel-blue text-white"
+                        : "bg-nedel-blue/10 text-nedel-blue"
                   }`}
                 >
                   {p.imageSrc ? (
@@ -142,10 +143,10 @@ export default function Products() {
           </div>
           <p className="text-foreground/80 leading-relaxed text-center md:text-left">
             O Digiadm é o centro do ecossistema. Cada um dos outros aplicativos
-            — Diginfc-e, Digivendas, Digientregas, Digiexpedição e Digiviveiros
-            — se conecta diretamente a ele, em tempo real. Cadastrar um produto
-            uma única vez, e ele aparece no PDV, no app do vendedor externo, no
-            controle de expedição. Sem importação, sem planilha, sem retrabalho.
+            — Diginfc-e, Digivendas, Digientregas e Digiexpedição — se conecta
+            diretamente a ele, em tempo real. Cadastrar um produto uma única
+            vez, e ele aparece no PDV, no app do vendedor externo, no controle
+            de expedição. Sem importação, sem planilha, sem retrabalho.
           </p>
         </Reveal>
       </Section>

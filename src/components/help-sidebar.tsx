@@ -9,7 +9,6 @@ import {
   ChevronRight,
   FileText,
   Package,
-  Sprout,
   Truck,
   type LucideIcon,
 } from "lucide-react";
@@ -70,7 +69,6 @@ const HELP_NAV: NavSection[] = [
     ],
   },
   { title: "Digiexpedição", icon: Package, items: [], soon: true },
-  { title: "Digiviveiros", icon: Sprout, items: [], soon: true },
 ];
 
 export default function HelpSidebar({
