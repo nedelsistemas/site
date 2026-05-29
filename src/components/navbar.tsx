@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import type { LucideIcon } from "lucide-react";
 import { ArrowRight, House, Menu, Moon } from "lucide-react";
 import {
   Sheet,
@@ -13,7 +14,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const NAV_LINKS = [
+type NavLink = { href: string; label: string; Icon?: LucideIcon };
+
+const NAV_LINKS: NavLink[] = [
+  { href: "/", label: "Início", Icon: House },
   { href: "/products", label: "Produtos" },
   { href: "/about", label: "Sobre" },
   { href: "/downloads", label: "Downloads" },
@@ -41,30 +45,18 @@ export default function Navbar() {
 
       {/* Desktop nav links */}
       <ul className="hidden md:flex gap-1 font-medium text-sm items-center">
-        <li>
-          <Link
-            href="/"
-            aria-label="Início"
-            className={`inline-flex items-center px-3 py-2 rounded-3xl transition-colors ${
-              isActive("/")
-                ? "text-nedel-blue bg-nedel-blue/10"
-                : "hover:bg-[#f5f5f5]"
-            }`}
-          >
-            <House size={18} />
-          </Link>
-        </li>
         {NAV_LINKS.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className={`block px-3 py-2 rounded-3xl transition-colors ${
+              aria-label={link.Icon ? link.label : undefined}
+              className={`inline-flex items-center px-3 py-2 rounded-3xl transition-colors ${
                 isActive(link.href)
                   ? "text-nedel-blue bg-nedel-blue/10"
                   : "hover:bg-[#f5f5f5]"
               }`}
             >
-              {link.label}
+              {link.Icon ? <link.Icon size={18} /> : link.label}
             </Link>
           </li>
         ))}
@@ -110,12 +102,13 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`block text-base font-medium px-4 py-3 rounded-xl transition-colors ${
+                  className={`flex items-center gap-3 text-base font-medium px-4 py-3 rounded-xl transition-colors ${
                     isActive(link.href)
                       ? "text-nedel-blue bg-nedel-blue/10"
                       : "text-nedel-black-blue hover:bg-[#f5f5f5]"
                   }`}
                 >
+                  {link.Icon && <link.Icon size={18} />}
                   {link.label}
                 </Link>
               </li>
