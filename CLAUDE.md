@@ -53,4 +53,11 @@ When introducing colors, use the brand tokens (`bg-nedel-blue`, `text-nedel-blac
 ### Assets
 
 - `src/assets/` — fonts, mock product screenshots (`mock/digiadm.png`, `mock/diginfce.png`, `mock/digientregas.png`), and the `digiadm-logo`. Import these as ES modules (typed as `StaticImageData`) and pass to `next/image`.
-- `public/` — site-wide static files: brand SVGs (`nedel.svg`, `n.svg`, `nedel-footer.svg`, `ig.svg`, `github.svg`), product icons (`digiadm.png`, `diginfce.png`, `nedelloja.png`), and `graphics/` background patterns.
+- `public/` is organized by domain:
+  - `brand/` — Nedel marks (`nedel.svg`, `n.svg`, `nedel-footer.svg`)
+  - `apps/` — product screenshots (`digiadm.png`, `diginfce.png`)
+  - `logotipos/` — client logos (`png/` rendered on site, `cruas/` raw uploads, `figma/` working files)
+  - `social/` — social network icons (`ig.svg`, `github.svg`)
+  - `graphics/` — background patterns (`pattern-n/`, `tracado/`) and decorative ornaments
+  - `images/` — photography (team, facade, city) and `timeline/` historical photos
+  - Use kebab-case filenames with no accents or spaces — these become URLs.

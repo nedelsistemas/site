@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-10 items-start">
               <div>
                 <Image
-                  src="/n.svg"
+                  src="/brand/n.svg"
                   alt="Nedel Sistemas"
                   width={40}
                   height={40}
@@ -197,7 +197,7 @@ export default function Footer() {
           </div>
         </div>
         <Image
-          src="/nedel-footer.svg"
+          src="/brand/nedel-footer.svg"
           alt=""
           aria-hidden
           width={1400}

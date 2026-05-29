@@ -31,7 +31,7 @@ export default function Navbar() {
     <nav className="flex justify-between w-full min-h-16 items-center px-4 md:px-2 max-w-6xl mx-auto">
       <Link href="/" className="flex-shrink-0">
         <Image
-          src="/nedel.svg"
+          src="/brand/nedel.svg"
           alt="Nedel"
           width={100}
           height={100}
@@ -100,7 +100,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="inline-block w-fit"
             >
-              <Image src="/nedel.svg" alt="Nedel" width={100} height={100} />
+              <Image src="/brand/nedel.svg" alt="Nedel" width={100} height={100} />
             </Link>
           </SheetHeader>
 

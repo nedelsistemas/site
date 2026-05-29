@@ -133,7 +133,7 @@ export default function About() {
               const photoPlaceholder = (
                 <div className="relative aspect-[4/3] w-full rounded-2xl bg-nedel-highlight-gray overflow-hidden flex items-center justify-center">
                   <Image
-                    src={`/sobre/${item.year}.jpg`}
+                    src={`/timeline/${item.year}.jpg`}
                     sizes="(min-width: 1280px) 400px, 100vw"
                     alt={`Foto ilustrativa para o ano de ${item.year}`}
                     fill
@@ -286,7 +286,7 @@ export default function About() {
           <div className="relative aspect-square rounded-3xl bg-nedel-blue overflow-hidden flex items-center justify-center order-2 md:order-1">
             {/* Substituir pelo <Image /> do Henrique */}
             <Image
-              src="/sobre/fundador.jpg"
+              src="/timeline/fundador.jpg"
               alt="Henrique Nedel, fundador da Nedel Sistemas"
               fill
               sizes="(min-width: 1280px) 400px, 100vw"
@@ -318,7 +318,7 @@ export default function About() {
         <Reveal delay={0.15} className="mt-12 w-full">
           <div className="relative w-full aspect-[16/7] rounded-3xl overflow-hidden">
             <Image
-              src="/equipe.jpeg"
+              src="/images/equipe.jpeg"
               alt="Equipe da Nedel Sistemas"
               fill
               sizes="(min-width: 1280px) 1200px, 100vw"

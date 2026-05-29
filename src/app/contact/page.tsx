@@ -132,10 +132,10 @@ export default function Contact() {
           aria-hidden
           className="absolute inset-0 bg-gradient-to-br from-nedel-black-blue to-nedel-medium-blue"
         />
-        {/* PLACEHOLDER: substituir /itapiranga.jpg por foto real da cidade quando disponível */}
+        {/* PLACEHOLDER: substituir /images/itapiranga.jpg por foto real da cidade quando disponível */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-[url('/itapiranga.jpg')] bg-cover bg-center opacity-100"
+          className="absolute inset-0 bg-[url('/images/itapiranga.jpg')] bg-cover bg-center opacity-100"
         />
         {/* Sobreposição preta pra não ficar gritante */}
         <div aria-hidden className="absolute inset-0 bg-black/50" />

@@ -75,7 +75,7 @@ export default function Home() {
                 <h3 className="text-white ">
                   Mais de 200 clientes confiam no nosso trabalho
                 </h3>
-                <div className="bg-[url('/graphic.png')] bg-no-repeat bg-contain w-full h-full"></div>
+                <div className="bg-[url('/graphics/ornamento-clientes.png')] bg-no-repeat bg-contain w-full h-full"></div>
               </div>
               <div className="flex flex-col justify-between bg-nedel-black-blue rounded-2xl p-8 bg-[url('/graphics/pattern-n/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color bg-center shadow-2xl">
                 <h3 className="text-white ">
