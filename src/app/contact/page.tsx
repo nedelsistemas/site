@@ -169,11 +169,13 @@ export default function Contact() {
                     Plantão · fora do horário comercial
                   </p>
                   <h2 className="text-2xl md:text-3xl font-bold text-white mt-2 leading-tight">
-                    Sistema parado de madrugada
+                    Sistema parado após as 18h
                     <br className="hidden md:block" /> ou no fim de semana?
                   </h2>
                   <p className="text-white/70 text-sm md:text-base leading-relaxed mt-3 max-w-xl">
-                    Pra emergências que não podem esperar o próximo dia útil. Atendimento exclusivo pra clientes ativos — somente ligações, não atende mensagens.
+                    Pra emergências que não podem esperar o próximo dia útil.
+                    Atendimento exclusivo pra clientes ativos — somente
+                    ligações, não atende mensagens.
                   </p>
                 </div>
               </div>
