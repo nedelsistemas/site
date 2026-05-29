@@ -16,7 +16,7 @@ const STATS = [
       "Mais de três décadas entregando estabilidade e evolução tecnológica contínua para o mercado brasileiro.",
   },
   {
-    count: "200+",
+    count: "100+",
     title: "Clientes ativos",
     description:
       "Empresas de diversos setores que confiam seu crescimento e gestão diária às nossas ferramentas.",
@@ -573,7 +573,7 @@ export default function Home() {
                 Pronto para levar mais controle para a sua empresa?
               </h2>
               <p className="text-white/80 mt-5 text-base md:text-lg max-w-2xl">
-                Junte-se a mais de 200 empresas que transformaram sua gestão com
+                Junte-se a mais de 100 empresas que transformaram sua gestão com
                 a Nedel Sistemas. Peça uma demonstração sem compromisso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">

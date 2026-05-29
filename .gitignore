@@ -42,3 +42,7 @@ next-env.d.ts
 
 # documentos locais
 docs
+
+public/logotipos/*
+!public/logotipos/figma
+!public/logotipos/figma/**

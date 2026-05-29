@@ -130,6 +130,7 @@ type Product = {
   description: string;
   features: { text: string; soon?: boolean }[];
   image: StaticImageData | null;
+  demoGif?: { src: string; width: number; height: number };
   platform: string;
   icon: React.ReactNode;
   show: boolean;
@@ -172,7 +173,7 @@ const SATELLITES: Product[] = [
     image: null,
     platform: "Android",
     icon: <Briefcase className="size-5 text-nedel-blue" />,
-    show: false,
+    show: true,
   },
   {
     slug: "digientregas",
@@ -206,6 +207,7 @@ const SATELLITES: Product[] = [
       { text: "Conferência reduz erros de embarque" },
     ],
     image: null,
+    demoGif: { src: "/demos/digexpedicao-demo.gif", width: 1400, height: 900 },
     platform: "Aplicativo móvel",
     icon: <Package className="size-5 text-nedel-blue" />,
     show: true,
@@ -483,9 +485,9 @@ export default function Products() {
             Cinco aplicações, todas integradas
           </h2>
           <p className="text-white/70 mt-4 leading-relaxed">
-            Cada um resolve uma parte específica da operação. Conectam direto
-            ao Digiadm e são contratados separadamente, conforme a operação da
-            sua empresa pedir.
+            Cada um resolve uma parte específica da operação. Conectam direto ao
+            Digiadm e são contratados separadamente, conforme a operação da sua
+            empresa pedir.
           </p>
         </Reveal>
 
@@ -544,7 +546,9 @@ export default function Products() {
                 </div>
                 <div
                   className={`${isEven ? "md:order-2" : "md:order-1"} ${
-                    product.comingSoon ? "opacity-60 saturate-50" : ""
+                    product.comingSoon && !product.demoGif
+                      ? "opacity-60 saturate-50"
+                      : ""
                   }`}
                 >
                   {product.image ? (
@@ -554,6 +558,17 @@ export default function Products() {
                         alt={`Tela do ${product.name}`}
                         className="w-full h-auto"
                         placeholder="blur"
+                      />
+                    </MockupFrame>
+                  ) : product.demoGif ? (
+                    <MockupFrame glow="blue" glowIntensity="strong">
+                      <Image
+                        src={product.demoGif.src}
+                        alt={`Demonstração do ${product.name}`}
+                        width={product.demoGif.width}
+                        height={product.demoGif.height}
+                        unoptimized
+                        className="w-full h-auto"
                       />
                     </MockupFrame>
                   ) : (

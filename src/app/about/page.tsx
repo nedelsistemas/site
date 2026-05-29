@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
+import { CLIENTS } from "@/lib/clients";
 
 export const metadata: Metadata = {
   title: "Sobre nós",
@@ -46,7 +47,7 @@ const TIMELINE = [
   {
     year: "Hoje",
     title: "O sistema da nossa cidade",
-    body: "Mais de 200 empresas — postos de combustível, mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em Santa Catarina, Rio Grande do Sul e Paraná.",
+    body: "Mais de 100 empresas — postos de combustível, mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em Santa Catarina, Rio Grande do Sul e Paraná.",
   },
 ];
 
@@ -79,7 +80,7 @@ const VALUES = [
 
 const NUMBERS = [
   { count: "30+", label: "Anos de história" },
-  { count: "200+", label: "Clientes ativos" },
+  { count: "100+", label: "Clientes ativos" },
   { count: "3", label: "Estados atendidos" },
   { count: "1994", label: "Fundação em Itapiranga" },
 ];
@@ -410,15 +411,15 @@ export default function About() {
         </Reveal>
       </Section>
 
-      {/* Segmentos atendidos */}
-      <Section className="my-0 py-16 md:py-24">
+      {/* Segmentos atendidos + Clientes */}
+      <Section id="clientes" className="my-0 py-16 md:py-24 scroll-mt-20">
         <Reveal className="text-center max-w-2xl mb-12">
           <Eyebrow>Quem atendemos</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
             Comércios que confiam na Nedel
           </h2>
           <p className="text-muted-foreground mt-4 leading-relaxed">
-            Mais de 200 empresas operam diariamente com nossos sistemas em Santa
+            Mais de 100 empresas operam diariamente com nossos sistemas em Santa
             Catarina, Rio Grande do Sul e Paraná.
           </p>
         </Reveal>
@@ -433,6 +434,38 @@ export default function About() {
                 <Sparkles size={14} className="text-nedel-blue" />
                 {segment}
               </span>
+            </RevealItem>
+          ))}
+        </RevealStagger>
+
+        <Reveal className="text-center mt-16 md:mt-20 mb-8">
+          <h3 className="text-xl md:text-2xl font-semibold text-nedel-black-blue">
+            Algumas das empresas que estão com a gente
+          </h3>
+        </Reveal>
+
+        <RevealStagger
+          staggerDelay={0.03}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 w-full"
+        >
+          {CLIENTS.map((client) => (
+            <RevealItem
+              key={client.src}
+              variant="scaleIn"
+              className="group flex flex-col items-center justify-center p-4 md:p-5 rounded-2xl bg-white hover:shadow-lg transition-all duration-300 ease-out"
+            >
+              <div className="flex items-center justify-center h-14 md:h-16 w-full mb-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={client.src}
+                  alt={client.alt}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-[11px] md:text-xs font-medium text-nedel-black-blue/70 text-center leading-tight">
+                {client.alt}
+              </p>
             </RevealItem>
           ))}
         </RevealStagger>
@@ -458,7 +491,7 @@ export default function About() {
               Quer fazer parte dessa história?
             </h2>
             <p className="text-white/80 mt-4 max-w-xl mx-auto leading-relaxed">
-              Conheça os sistemas que ajudam mais de 200 empresas a tocar o dia
+              Conheça os sistemas que ajudam mais de 100 empresas a tocar o dia
               a dia com tranquilidade.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-8">

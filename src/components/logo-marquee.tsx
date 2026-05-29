@@ -1,13 +1,9 @@
-const PLACEHOLDER_LOGOS = Array.from({ length: 15 }, (_, i) => {
-  const n = String(i + 1).padStart(2, "0");
-  return {
-    src: `https://placehold.co/200x80/e5e7eb/9ca3af?text=Cliente+${n}`,
-    alt: `Logotipo Cliente ${n}`,
-  };
-});
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { CLIENTS } from "@/lib/clients";
 
 export function LogoMarquee() {
-  const loop = [...PLACEHOLDER_LOGOS, ...PLACEHOLDER_LOGOS];
+  const loop = [...CLIENTS, ...CLIENTS];
 
   return (
     <section className="w-full py-20 mt-20 md:mt-28 md:py-28 bg-secondary/20">
@@ -16,7 +12,7 @@ export function LogoMarquee() {
           Quem confia na gente
         </p>
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-nedel-black-blue mt-2">
-          Mais de 200 empresas operam com a Nedel todos os dias
+          Mais de 100 empresas operam com a Nedel todos os dias
         </h2>
       </div>
 
@@ -33,19 +29,33 @@ export function LogoMarquee() {
           {loop.map((logo, i) => (
             <div
               key={i}
-              className="shrink-0 mx-6 md:mx-10 flex items-center"
-              aria-hidden={i >= PLACEHOLDER_LOGOS.length}
+              className="shrink-0 mx-6 md:mx-10 w-32 md:w-40 h-10 md:h-20 flex items-center justify-center"
+              aria-hidden={i >= CLIENTS.length}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logo.src}
-                alt={i < PLACEHOLDER_LOGOS.length ? logo.alt : ""}
-                className="h-10 md:h-12 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300"
-                loading="lazy"
+                alt={i < CLIENTS.length ? logo.alt : ""}
+                className="max-h-full max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300"
+                loading="eager"
+                decoding="async"
               />
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-5 text-center mt-10">
+        <Link
+          href="/about#clientes"
+          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-nedel-blue hover:text-nedel-black-blue transition-colors duration-300 ease-out"
+        >
+          Ver todos os clientes
+          <ArrowRight
+            size={16}
+            className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+          />
+        </Link>
       </div>
     </section>
   );
