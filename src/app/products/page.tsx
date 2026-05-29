@@ -11,7 +11,7 @@ import DigiadmMock from "@/assets/mock/digiadm.png";
 import {
   PRODUCTS_OVERVIEW,
   DIGIADM_MODULE_GROUPS,
-  SATELLITES,
+  INTEGRATIONS,
   PRICING_PILLARS,
 } from "@/data/products";
 
@@ -67,7 +67,7 @@ export default function Products() {
           </p>
         </div>
 
-        {/* Mini grid dos 6 produtos */}
+        {/* Mini grid dos 5 produtos */}
         <div className="mt-12 md:mt-16 w-full">
           <RevealStagger
             staggerDelay={0.06}
@@ -96,12 +96,12 @@ export default function Products() {
                     <Image
                       src={p.imageSrc}
                       alt={p.name}
-                      width={16}
-                      height={16}
-                      className="size-4"
+                      width={48}
+                      height={48}
+                      className="size-8"
                     />
                   ) : (
-                    <p.Icon className="size-4" />
+                    <p.Icon className="size-6" />
                   )}
                 </div>
                 <p
@@ -146,7 +146,7 @@ export default function Products() {
             — Diginfc-e, Digivendas, Digientregas e Digiexpedição — se conecta
             diretamente a ele, em tempo real. Cadastrar um produto uma única
             vez, e ele aparece no PDV, no app do vendedor externo, no controle
-            de expedição. Sem importação, sem planilha, sem retrabalho.
+            de expedição.
           </p>
         </Reveal>
       </Section>
@@ -254,20 +254,20 @@ export default function Products() {
       <Section className="my-0 py-16 md:py-24 bg-nedel-black-blue text-white">
         <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
-            Os 5 satélites
+            As 4 integrações
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mt-3">
-            Cinco aplicações, todas integradas
+            Quatro aplicações, todas integradas
           </h2>
           <p className="text-white/70 mt-4 leading-relaxed">
-            Cada um resolve uma parte específica da operação. Conectam direto ao
-            Digiadm e são contratados separadamente, conforme a operação da sua
-            empresa pedir.
+            Cada uma resolve uma parte específica da operação. Conectam direto
+            ao Digiadm e são contratadas separadamente, conforme a operação da
+            sua empresa pedir.
           </p>
         </Reveal>
 
         <div className="flex flex-col gap-16 md:gap-24 w-full">
-          {SATELLITES.map((product, i) => {
+          {INTEGRATIONS.map((product, i) => {
             const isEven = i % 2 === 0;
             if (product.show === false) return null;
             return (
@@ -280,7 +280,17 @@ export default function Products() {
                 <div className={isEven ? "md:order-1" : "md:order-2"}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 rounded-lg bg-white/10">
-                      <product.Icon className="size-5 text-nedel-blue" />
+                      {product.imageSrc ? (
+                        <Image
+                          src={product.imageSrc}
+                          alt={product.name}
+                          width={20}
+                          height={20}
+                          className="size-5"
+                        />
+                      ) : (
+                        <product.Icon className="size-5 text-nedel-blue" />
+                      )}
                     </div>
                     <span className="text-xs font-semibold uppercase tracking-wider text-nedel-blue">
                       {product.type}
@@ -368,11 +378,12 @@ export default function Products() {
         <Reveal className="text-center max-w-2xl mb-12 md:mb-16">
           <Eyebrow>Como funciona a contratação</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-nedel-black-blue mt-4">
-            Sem pegadinha, sem investimento inicial pesado
+            Sem pegadinha, transparente do orçamento à operação
           </h2>
           <p className="text-muted-foreground mt-4 leading-relaxed">
             Conversamos, montamos uma proposta sob medida e você experimenta
-            antes de decidir.
+            antes de decidir. Você sabe exatamente onde estão os custos —
+            software e infraestrutura.
           </p>
         </Reveal>
 
@@ -427,8 +438,8 @@ export default function Products() {
               Quer ver funcionando?
             </h2>
             <p className="text-white/80 mt-4 max-w-xl mx-auto leading-relaxed">
-              Agende uma demonstração e rode o Digiadm com seus próprios dados
-              por 7 dias, sem compromisso.
+              Agende uma demonstração e rode o Digiadm com dados fictícios por 7
+              dias, sem compromisso.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-8">
               <CTALink
