@@ -1,130 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as Lucide from "lucide-react";
-import Digiadm from "@/assets/mock/digiadm.png";
-import Diginfce from "@/assets/mock/diginfce.png";
-import Digientregas from "@/assets/mock/digientregas.png";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { MockupFrame } from "@/components/ui/mockup-frame";
-
-const STATS = [
-  {
-    count: "30+",
-    title: "Anos de mercado",
-    description:
-      "Mais de três décadas entregando estabilidade e evolução tecnológica contínua para o mercado brasileiro.",
-  },
-  {
-    count: "100+",
-    title: "Clientes ativos",
-    description:
-      "Empresas de diversos setores que confiam seu crescimento e gestão diária às nossas ferramentas.",
-  },
-  {
-    count: "100%",
-    title: "Suporte humanizado",
-    description:
-      "Atendimento real por especialistas que entendem as particularidades da sua operação.",
-  },
-];
-
-const SOLUTIONS = [
-  {
-    Icon: Lucide.ShoppingBag,
-    title: "Comércios & Varejo",
-    description:
-      "Gestão de estoque, frente de caixa ágil e integração com múltiplos canais de venda.",
-  },
-  {
-    Icon: Lucide.Factory,
-    title: "Indústrias",
-    description:
-      "Controle de produção (PCP), ordens de serviço e gestão de matérias-primas.",
-  },
-  {
-    Icon: Lucide.Briefcase,
-    title: "Prestadores de serviço",
-    description:
-      "Emissão de NFS-e, gestão de contratos e acompanhamento de rentabilidade por projeto.",
-  },
-  {
-    Icon: Lucide.TrendingUp,
-    title: "Empresas em crescimento",
-    description:
-      "Profissionalize processos, centralize dados e ganhe visibilidade para escalar com segurança.",
-  },
-];
-
-const APPS = [
-  {
-    type: "ERP",
-    name: "Digiadm",
-    description:
-      "O coração da sua gestão. Um ERP completo que integra todos os departamentos em uma única fonte de verdade, eliminando retrabalho e erros manuais.",
-    features: [
-      "Gestão financeira com fluxo de caixa real",
-      "Emissão fiscal (NFe, NFCe, NFSe, CTe, MDFe, NFCom)",
-      "Controle de estoque inteligente",
-    ],
-    pathImage: Digiadm,
-  },
-  {
-    type: "PDV",
-    name: "Diginfce",
-    description:
-      "Agilidade no ponto de venda. Nosso sistema de frente de caixa foi desenhado para não deixar seu cliente esperando, mesmo nos horários de pico.",
-    features: [
-      "Funcionamento offline",
-      "Integração TEF e PIX",
-      "Homologado em todos os estados",
-    ],
-    pathImage: Diginfce,
-  },
-  {
-    type: "Logística",
-    name: "Digientregas",
-    description:
-      "Otimize sua logística de última milha. Gerencie rotas, entregadores e status em tempo real para oferecer a melhor experiência ao seu cliente.",
-    features: [
-      "Roteirização inteligente de pedidos",
-      "App para entregadores (Android)",
-      "Comprovante de entrega digital",
-    ],
-    pathImage: Digientregas,
-  },
-];
-
-const STEPS = [
-  {
-    title: "Diagnóstico",
-    description:
-      "Entendemos seu negócio e identificamos os gargalos da gestão.",
-  },
-  {
-    title: "Proposta",
-    description:
-      "Apresentamos a configuração ideal dos nossos sistemas para você.",
-  },
-  {
-    title: "Implantação",
-    description:
-      "Configuração técnica e treinamento da sua equipe por especialistas.",
-  },
-  {
-    title: "Sucesso",
-    description:
-      "Sua empresa rodando com eficiência, dados reais e suporte técnico.",
-  },
-];
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
-      {children}
-    </span>
-  );
-}
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { CTALink } from "@/components/ui/cta-link";
+import { STATS, SOLUTIONS, APPS, STEPS } from "@/data/home";
 
 export default function Home() {
   return (
@@ -366,16 +248,12 @@ export default function Home() {
                         ))}
                       </ul>
                       <div className="pt-4">
-                        <Link
+                        <CTALink
                           href="/products"
-                          className="group inline-flex items-center gap-2 py-3 px-6 bg-nedel-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-blue/85 transition-colors duration-300 ease-out"
+                          className="py-3 px-6 bg-nedel-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-blue/85"
                         >
                           Ver detalhes
-                          <Lucide.ArrowRight
-                            size={16}
-                            className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-                          />
-                        </Link>
+                        </CTALink>
                       </div>
                     </div>
 
@@ -577,16 +455,12 @@ export default function Home() {
                 a Nedel Sistemas. Peça uma demonstração sem compromisso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                <Link
+                <CTALink
                   href="/contact"
-                  className="group inline-flex items-center justify-center gap-2 py-3 px-6 bg-white text-nedel-blue rounded-xl font-semibold text-sm hover:bg-white/90 transition-colors duration-300 ease-out"
+                  className="justify-center py-3 px-6 bg-white text-nedel-blue rounded-xl font-semibold text-sm hover:bg-white/90"
                 >
                   Agendar demonstração
-                  <Lucide.ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-                  />
-                </Link>
+                </CTALink>
                 <a
                   href="https://wa.me/+554936787274"
                   target="_blank"

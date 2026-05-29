@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { CTALink } from "@/components/ui/cta-link";
 import { CLIENTS } from "@/lib/clients";
 
 export function LogoMarquee() {
@@ -46,16 +45,12 @@ export function LogoMarquee() {
       </div>
 
       <div className="max-w-6xl mx-auto px-5 text-center mt-10">
-        <Link
+        <CTALink
           href="/about#clientes"
-          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-nedel-blue hover:text-nedel-black-blue transition-colors duration-300 ease-out"
+          className="gap-1.5 text-sm font-semibold text-nedel-blue hover:text-nedel-black-blue"
         >
           Ver todos os clientes
-          <ArrowRight
-            size={16}
-            className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-          />
-        </Link>
+        </CTALink>
       </div>
     </section>
   );

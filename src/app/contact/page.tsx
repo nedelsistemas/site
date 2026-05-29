@@ -1,79 +1,23 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
-  ArrowRight,
   Clock,
-  Headphones,
   Mail,
   MapPin,
-  MessageCircle,
   Moon,
-  PhoneCall,
   PhoneOutgoing,
   PlayCircle,
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { CTALink } from "@/components/ui/cta-link";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
+import { PRIMARY_CHANNELS, SECONDARY_INFO } from "@/data/contact";
 
 export const metadata: Metadata = {
   title: "Contato",
   description:
     "Fale com a Nedel Sistemas — WhatsApp, telefone, endereço em Itapiranga/SC e horário de atendimento. Demonstração gratuita de 7 dias.",
 };
-
-const PRIMARY_CHANNELS = [
-  {
-    Icon: MessageCircle,
-    accent: "green" as const,
-    label: "WhatsApp e telefone",
-    value: "(49) 3678-7274",
-    description:
-      "Resposta rápida no horário comercial. Use o WhatsApp pra demonstrações, dúvidas comerciais e suporte ao cliente.",
-    cta: {
-      text: "Abrir no WhatsApp",
-      href: "https://wa.me/+554936787274",
-      external: true,
-    },
-  },
-  {
-    Icon: PhoneCall,
-    accent: "vivid" as const,
-    label: "Telefone fixo",
-    value: "(49) 3678-7275",
-    description:
-      "Linha adicional pra atendimento por voz. Se a primeira estiver ocupada, ligue aqui.",
-    cta: { text: "Ligar agora", href: "tel:+554936787275", external: false },
-  },
-];
-
-const SECONDARY_INFO = [
-  {
-    Icon: MapPin,
-    accent: "blue" as const,
-    title: "Onde estamos",
-    body: "Av. Beira Rio, 349 - Centro, Itapiranga/SC - extremo oeste catarinense.",
-  },
-  {
-    Icon: Clock,
-    accent: "blue" as const,
-    title: "Horário de atendimento",
-    body: "Segunda a sexta: 8h às 18h\nSábados: 8h às 12h",
-  },
-  {
-    Icon: Headphones,
-    accent: "vivid" as const,
-    title: "Suporte técnico",
-    body: "Clientes ativos têm atendimento direto pela mesma linha. Suporte humano, sem chatbot, sem fila.",
-  },
-];
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
-      {children}
-    </p>
-  );
-}
 
 export default function Contact() {
   return (
@@ -115,31 +59,12 @@ export default function Contact() {
                 <p className="leading-relaxed mt-3 flex-1 text-white/90">
                   {ch.description}
                 </p>
-                {ch.cta.external ? (
-                  <a
-                    href={ch.cta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors duration-300 ease-out w-fit"
-                  >
-                    {ch.cta.text}
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-                    />
-                  </a>
-                ) : (
-                  <a
-                    href={ch.cta.href}
-                    className="group mt-6 inline-flex items-center justify-center gap-2 bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors duration-300 ease-out w-fit"
-                  >
-                    {ch.cta.text}
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-                    />
-                  </a>
-                )}
+                <CTALink
+                  href={ch.cta.href}
+                  className="mt-6 justify-center bg-white text-nedel-black-blue px-5 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 w-fit"
+                >
+                  {ch.cta.text}
+                </CTALink>
               </RevealItem>
             );
           })}
@@ -297,16 +222,12 @@ export default function Contact() {
                 <PlayCircle size={16} />
                 Agendar demonstração
               </a>
-              <Link
+              <CTALink
                 href="/products"
-                className="group inline-flex items-center gap-2 border border-nedel-black-blue text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue hover:text-white transition-colors duration-300 ease-out"
+                className="border border-nedel-black-blue text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-nedel-black-blue hover:text-white"
               >
                 Ver produtos
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-                />
-              </Link>
+              </CTALink>
             </div>
           </div>
 

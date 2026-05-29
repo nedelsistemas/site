@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 import { CLIENTS } from "@/lib/clients";
+import { TIMELINE, VALUES, NUMBERS, SEGMENTS } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "Sobre nós",
@@ -14,93 +14,10 @@ export const metadata: Metadata = {
       "Há mais de 30 anos atendendo empresários do Sul do Brasil com proximidade, atendimento humano e sistemas que evoluem todo mês.",
   },
 };
-import {
-  ArrowRight,
-  Award,
-  Building2,
-  Camera,
-  Compass,
-  Handshake,
-  HeartHandshake,
-  MapPin,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { Building2, MapPin, Sparkles } from "lucide-react";
 import { Section } from "@/components/ui/section";
-
-const TIMELINE = [
-  {
-    year: "1994",
-    title: "O começo, em Itapiranga",
-    body: "Aos 20 anos, Henrique Nedel funda a Nedel Informática com mais uma pessoa. Desde o primeiro dia, sistemas de automação comercial fazem parte da operação — ao lado de revenda de equipamentos e assistência técnica.",
-  },
-  {
-    year: "1999",
-    title: "Ano de virada",
-    body: "Com o acesso a linhas de crédito especiais, a empresa consegue investir em tecnologia de ponta e ampliar o atendimento. O foco em software de gestão começa a ganhar tração entre o comércio da região.",
-  },
-  {
-    year: "2006",
-    title: "Nasce a Nedel Telecom",
-    body: "O braço de provedor de internet vira uma empresa independente — a Nedel Telecom. A Sistemas segue seu caminho, dedicada exclusivamente ao desenvolvimento dos sistemas de gestão para o varejo da região.",
-  },
-  {
-    year: "Hoje",
-    title: "O sistema da nossa cidade",
-    body: "Mais de 100 empresas — postos de combustível, mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em Santa Catarina, Rio Grande do Sul e Paraná.",
-  },
-];
-
-const VALUES = [
-  {
-    Icon: Handshake,
-    accent: "vivid" as const,
-    title: "Atendimento humano",
-    body: "Nada de robô ou ticket sem retorno. Quem atende você conhece o seu sistema, a sua rotina e, muitas vezes, o seu nome.",
-  },
-  {
-    Icon: HeartHandshake,
-    accent: "vivid" as const,
-    title: "Proximidade que se sente",
-    body: "Somos do interior e atendemos como gente do interior atende — com respeito, paciência e o tempo que cada cliente precisa.",
-  },
-  {
-    Icon: Compass,
-    accent: "blue" as const,
-    title: "Evolução constante",
-    body: "O Digiadm está na versão 3.1.22 porque acreditamos que software bom é software que melhora todo mês. Sem você precisar pedir.",
-  },
-  {
-    Icon: Award,
-    accent: "blue" as const,
-    title: "Solidez de três décadas",
-    body: "Em 30+ anos, atravessamos a chegada da internet, do PIX e da emissão eletrônica. Continuamos aqui — e continuamos aprendendo.",
-  },
-];
-
-const NUMBERS = [
-  { count: "30+", label: "Anos de história" },
-  { count: "100+", label: "Clientes ativos" },
-  { count: "3", label: "Estados atendidos" },
-  { count: "1994", label: "Fundação em Itapiranga" },
-];
-
-const SEGMENTS = [
-  "Postos de combustível",
-  "Mercados e mercearias",
-  "Padarias e confeitarias",
-  "Lojas de varejo",
-  "Distribuidoras",
-  "Prestadores de serviço",
-];
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nedel-blue">
-      {children}
-    </p>
-  );
-}
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { CTALink } from "@/components/ui/cta-link";
 
 export default function About() {
   return (
@@ -495,16 +412,12 @@ export default function About() {
               a dia com tranquilidade.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-8">
-              <Link
+              <CTALink
                 href="/products"
-                className="group inline-flex items-center gap-2 bg-white text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/90 transition-colors duration-300 ease-out"
+                className="bg-white text-nedel-black-blue px-6 py-3 rounded-xl text-sm font-semibold hover:bg-white/90"
               >
                 Conhecer os produtos
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 ease-out group-hover:translate-x-1"
-                />
-              </Link>
+              </CTALink>
               <a
                 href="https://wa.me/+554936787274"
                 target="_blank"
