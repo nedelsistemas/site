@@ -84,7 +84,7 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <div className="w-14 h-14 bg-white p-2 rounded-full flex items-center justify-center">
                     <Image
-                      src="/digiadm.png"
+                      src="/apps/color/digiadm.png"
                       alt="Ícone do Digiadm"
                       width={40}
                       height={40}
@@ -92,7 +92,7 @@ export default function Home() {
                   </div>
                   <div className="w-14 h-14 bg-white p-2 rounded-full flex items-center justify-center">
                     <Image
-                      src="/diginfce.png"
+                      src="/apps/color/diginfce.png"
                       alt="Ícone do Diginfc-e"
                       width={40}
                       height={40}
