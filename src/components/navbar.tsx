@@ -5,7 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, House, Menu, Moon } from "lucide-react";
+import {
+  ArrowRight,
+  House,
+  Menu,
+  Moon,
+  Info,
+  Download,
+  HelpCircle,
+  PhoneCall,
+  Puzzle,
+} from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -18,11 +28,11 @@ type NavLink = { href: string; label: string; Icon?: LucideIcon };
 
 const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Início", Icon: House },
-  { href: "/products", label: "Produtos" },
-  { href: "/about", label: "Sobre" },
-  { href: "/downloads", label: "Downloads" },
-  { href: "/help", label: "Ajuda" },
-  { href: "/contact", label: "Contato" },
+  { href: "/products", label: "Produtos", Icon: Puzzle },
+  { href: "/about", label: "Sobre", Icon: Info },
+  { href: "/downloads", label: "Downloads", Icon: Download },
+  { href: "/help", label: "Ajuda", Icon: HelpCircle },
+  { href: "/contact", label: "Contato", Icon: PhoneCall },
 ];
 
 export default function Navbar() {
@@ -56,7 +66,7 @@ export default function Navbar() {
                   : "hover:bg-[#f5f5f5]"
               }`}
             >
-              {link.Icon ? <link.Icon size={18} /> : link.label}
+              {link.Icon === House ? <link.Icon size={18} /> : link.label}
             </Link>
           </li>
         ))}
@@ -92,7 +102,12 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="inline-block w-fit"
             >
-              <Image src="/brand/nedel.svg" alt="Nedel" width={100} height={100} />
+              <Image
+                src="/brand/nedel.svg"
+                alt="Nedel"
+                width={100}
+                height={100}
+              />
             </Link>
           </SheetHeader>
 
