@@ -48,8 +48,9 @@ export default function About() {
         </div>
 
         <div className="relative w-full aspect-[16/8] md:aspect-[20/12] rounded-3xl overflow-hidden mt-10 md:mt-14">
+          {/* TODO: trocar por foto real da sede em Itapiranga (atual é placeholder do Pexels) */}
           <Image
-            src="/fachada.png"
+            src="/images/fachada.jpg"
             alt="Fachada da sede da Nedel Sistemas em Itapiranga/SC"
             fill
             sizes="(min-width: 1280px) 1200px, 100vw"
