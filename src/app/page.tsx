@@ -24,8 +24,8 @@ export default function Home() {
                   Itapiranga - SC · Desde 1994
                 </button>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-nedel-black-blue">
-                  <span className="text-nedel-blue">ERP e PDV</span> pra
-                  mercados, distribuidoras e padarias
+                  <span className="text-nedel-blue">ERP e PDV</span> para
+                  oficinas, agropecuárias, construção e varejo
                 </h1>
                 <p className="text-muted-foreground mt-5 text-base md:text-lg max-w-xl">
                   Sistema de gestão completo — fiscal, financeiro, comercial.

@@ -77,11 +77,15 @@ export const NUMBERS: Number[] = [
 ];
 
 export const SEGMENTS: string[] = [
-  "Agropecuárias",
-  "Distribuidoras",
-  "Laticínios",
-  "Lojas de varejo",
-  "Mercados e mercearias",
-  "Padarias e confeitarias",
+  "Agropecuárias e cooperativas",
+  "Auto peças, oficinas e postos",
+  "Confecções e uniformes",
+  "Lojas de moda e calçados",
+  "Materiais de construção",
+  "Mercados e padarias",
+  "Móveis, decoração e eletro",
+  "Papelarias e presentes",
   "Prestadores de serviço",
+  "Transporte e logística",
+  "Veterinárias e laboratórios",
 ];
