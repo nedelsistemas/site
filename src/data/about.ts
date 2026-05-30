@@ -38,7 +38,7 @@ export const TIMELINE: TimelineEntry[] = [
   {
     year: "Hoje",
     title: "O sistema da nossa cidade",
-    body: "Mais de 100 empresas — mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em Santa Catarina, Rio Grande do Sul e Paraná.",
+    body: "147+ empresas — mercados, padarias, varejos e distribuidoras — operam diariamente com os sistemas Digiadm, Diginfc-e e Digivendas em todo o Brasil.",
   },
 ];
 
@@ -71,8 +71,8 @@ export const VALUES: Value[] = [
 
 export const NUMBERS: Number[] = [
   { count: "30+", label: "Anos de história" },
-  { count: "100+", label: "Clientes ativos" },
-  { count: "3", label: "Estados atendidos" },
+  { count: "147+", label: "Clientes ativos" },
+  { count: "100%", label: "Implantação remota" },
   { count: "1994", label: "Fundação em Itapiranga" },
 ];
 

@@ -18,8 +18,7 @@ export default function Footer() {
                 />
                 <p className="text-sm pt-5 text-muted-foreground">
                   Software de gestão que evolui todo mês, com suporte humano e
-                  sem fila. Mais de 100 empresas já operam com a gente todos os
-                  dias.
+                  sem fila. 147+ empresas já operam com a gente todos os dias.
                 </p>
                 <div className="flex gap-4 mt-6">
                   <Link

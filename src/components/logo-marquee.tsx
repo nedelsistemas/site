@@ -11,7 +11,7 @@ export function LogoMarquee() {
           Quem confia na gente
         </p>
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-nedel-black-blue mt-2">
-          Mais de 100 empresas operam com a Nedel todos os dias
+          147+ empresas operam com a Nedel todos os dias
         </h2>
       </div>
 

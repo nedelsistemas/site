@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sobre a Nedel Sistemas",
     description:
-      "Há mais de 30 anos atendendo empresários do Sul do Brasil com proximidade, atendimento humano e sistemas que evoluem todo mês.",
+      "Há mais de 30 anos atendendo empresários de todo o Brasil com proximidade, atendimento humano e sistemas que evoluem todo mês.",
   },
 };
 import { Building2, MapPin, Sparkles } from "lucide-react";
@@ -336,8 +336,8 @@ export default function About() {
             Comércios que confiam na Nedel
           </h2>
           <p className="text-muted-foreground mt-4 leading-relaxed">
-            Mais de 100 empresas operam diariamente com nossos sistemas em Santa
-            Catarina, Rio Grande do Sul e Paraná.
+            147+ empresas operam diariamente com nossos sistemas em todo o
+            Brasil.
           </p>
         </Reveal>
 
@@ -408,8 +408,8 @@ export default function About() {
               Quer fazer parte dessa história?
             </h2>
             <p className="text-white/80 mt-4 max-w-xl mx-auto leading-relaxed">
-              Conheça os sistemas que ajudam mais de 100 empresas a tocar o dia
-              a dia com tranquilidade.
+              Conheça os sistemas que ajudam 147+ empresas a tocar o dia a dia
+              com tranquilidade.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-8">
               <CTALink

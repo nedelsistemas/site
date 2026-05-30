@@ -19,6 +19,11 @@ const helveticaNeue = localFont({
   variable: "--font-helvetica-neue",
 });
 
+const dongraScript = localFont({
+  src: "../assets/fonts/dongra-script/DongraScript.ttf",
+  variable: "--font-dongra",
+});
+
 const SITE_URL = "https://sistemas.nedel.inf.br";
 
 export const metadata: Metadata = {
@@ -28,10 +33,10 @@ export const metadata: Metadata = {
     template: "%s — Nedel Sistemas",
   },
   description:
-    "Há mais de 30 anos desenvolvendo sistemas de gestão (ERP, PDV, vendas externas, logística) para empresas em Santa Catarina, Rio Grande do Sul e Paraná.",
+    "Há mais de 30 anos desenvolvendo sistemas de gestão (ERP, PDV, vendas externas, logística) para empresas em todo o Brasil.",
   keywords: [
     "Nedel Sistemas",
-    "ERP Santa Catarina",
+    "ERP Brasil",
     "Digiadm",
     "Diginfc-e",
     "Digivendas",
@@ -49,13 +54,13 @@ export const metadata: Metadata = {
     siteName: "Nedel Sistemas",
     title: "Nedel Sistemas — O sistema da nossa cidade",
     description:
-      "Sistemas de gestão para empresas do Sul do Brasil. Mais de 200 clientes ativos em SC, RS e PR.",
+      "Sistemas de gestão para empresas em todo o Brasil. 147+ clientes ativos, atualização mensal e suporte humano sem fila.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nedel Sistemas — O sistema da nossa cidade",
     description:
-      "Sistemas de gestão para empresas do Sul do Brasil. Mais de 200 clientes ativos em SC, RS e PR.",
+      "Sistemas de gestão para empresas em todo o Brasil. 147+ clientes ativos, atualização mensal e suporte humano sem fila.",
   },
   robots: {
     index: true,
@@ -78,7 +83,7 @@ export default function RootLayout({
       className={cn("font-sans", geist.variable, interHeading.variable)}
     >
       <body
-        className={`${inter.variable} ${helveticaNeue.variable} antialiased`}
+        className={`${inter.variable} ${helveticaNeue.variable} ${dongraScript.variable} antialiased`}
       >
         <Navbar />
         {children}

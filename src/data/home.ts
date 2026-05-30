@@ -43,7 +43,7 @@ export const STATS: Stat[] = [
       "Mais de três décadas entregando estabilidade e evolução tecnológica contínua para o mercado brasileiro.",
   },
   {
-    count: "100+",
+    count: "147+",
     title: "Clientes ativos",
     description:
       "Empresas de diversos setores que confiam seu crescimento e gestão diária às nossas ferramentas.",

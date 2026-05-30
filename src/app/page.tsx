@@ -15,65 +15,49 @@ export default function Home() {
         {/* <Video /> */}
         <header className="w-full">
           <div className="grid md:grid-cols-[3fr_2fr] gap-4 p-2 w-full md:h-[calc(100vh-4rem)] md:max-w-6xl mx-auto">
-            <div className="bg-[#f5f5f5] rounded-2xl h-full px-8 md:px-24 py-10">
-              <div className="h-full flex flex-col justify-center items-center">
-                <div className="">
-                  <button className="flex items-center p-2 bg-nedel-blue/20 rounded-2xl text-nedel-blue text-sm mb-4 ">
-                    <div className="bg-nedel-blue w-fit h-fit p-1 rounded-full inline-flex items-center justify-center mr-2">
-                      <Lucide.MapPin size={16} color="white" />
-                    </div>
-                    Itapiranga - SC
-                  </button>
-                  <div>
-                    <h1 className="w-fit">
-                      <span className="block">O SISTEMA</span>
-                      <span className="block align-text-top text-3xl md:text-4xl font-bold">
-                        DA{" "}
-                        <span className="text-7xl md:text-8xl font-bold text-nedel-blue">
-                          NOSSA
-                        </span>
-                      </span>
-                      <span className="block text-right">CIDADE</span>
-                    </h1>
-                    <p className="text-muted-foreground mt-4">
-                      Software de gestão que evolui todo mês, com suporte humano
-                      e sem fila. Mais de 100 empresas já operam com a gente
-                      todos os dias.
-                    </p>
+            <div className="bg-[#f5f5f5] rounded-2xl h-full px-8 md:px-16 py-10">
+              <div className="h-full flex flex-col justify-center">
+                <button className="self-start flex items-center p-2 bg-nedel-blue/20 rounded-2xl text-nedel-blue text-sm mb-6">
+                  <div className="bg-nedel-blue w-fit h-fit p-1 rounded-full inline-flex items-center justify-center mr-2">
+                    <Lucide.MapPin size={16} color="white" />
                   </div>
-                  <div className="flex flex-col gap-4 pt-12">
-                    <h3 className="flex flex-wrap items-center gap-x-1 uppercase text-nedel-blue font-semibold text-sm md:text-base">
-                      <span className="flex items-center">
-                        VELO
-                        <Lucide.Zap
-                          fill="#0066ff"
-                          className="rotate-12 size-7 md:size-10"
-                        />
-                      </span>
-                      , CONFIÁVEL, COMPLETO.
-                    </h3>
-                    <div className="flex gap-4">
-                      <Link
-                        href="/products"
-                        className="py-3 px-6 bg-nedel-black-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-black-blue/80 transition-colors"
-                      >
-                        Comece já
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="py-3.5 px-5 text-nedel-black-blue rounded-xl font-semibold text-sm border border-transparent hover:border hover:border-nedel-black-blue transition-colors"
-                      >
-                        Contate-nos
-                      </Link>
-                    </div>
-                  </div>
+                  Itapiranga - SC · Desde 1994
+                </button>
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-nedel-black-blue">
+                  <span className="text-nedel-blue">ERP e PDV</span> pra
+                  mercados, distribuidoras e padarias
+                </h1>
+                <p className="text-muted-foreground mt-5 text-base md:text-lg max-w-xl">
+                  Sistema de gestão completo — fiscal, financeiro, comercial.
+                  Atualização mensal e suporte humano sem fila.{" "}
+                  <span className="text-nedel-black-blue font-semibold">
+                    147+ empresas
+                  </span>{" "}
+                  operam com a gente todos os dias.
+                </p>
+                <div className="flex gap-4 pt-10">
+                  <Link
+                    href="/products"
+                    className="py-3 px-6 bg-nedel-black-blue text-white rounded-xl font-semibold text-sm hover:bg-nedel-black-blue/80 transition-colors"
+                  >
+                    Comece já
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="py-3.5 px-5 text-nedel-black-blue rounded-xl font-semibold text-sm border border-transparent hover:border hover:border-nedel-black-blue transition-colors"
+                  >
+                    Contate-nos
+                  </Link>
                 </div>
+                <span className="font-dongra text-xl md:text-3xl text-nedel-blue/70 mt-8 self-end">
+                  o sistema da nossa cidade
+                </span>
               </div>
             </div>
             <div className="grid grid-rows-[2fr_1fr] gap-4">
               <div className="bg-nedel-blue rounded-2xl p-8 overflow-clip bg-[url('/graphics/tracado/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color shadow-2xl">
                 <h3 className="text-white ">
-                  Mais de 200 clientes confiam no nosso trabalho
+                  147+ empresas confiam no nosso trabalho todos os dias
                 </h3>
                 <div className="bg-[url('/graphics/ornamento-clientes.png')] bg-no-repeat bg-contain w-full h-full"></div>
               </div>
@@ -435,8 +419,8 @@ export default function Home() {
             <Reveal className="mt-12 md:mt-16 max-w-2xl mx-auto">
               <p className="text-xs md:text-sm text-muted-foreground text-center">
                 Migrando de outro sistema? Analisamos o banco de dados do ERP
-                atual pra avaliar uma possível conversão — serviço opcional,
-                com custo à parte.
+                atual pra avaliar uma possível conversão — serviço opcional, com
+                custo à parte.
               </p>
             </Reveal>
           </div>
@@ -458,8 +442,8 @@ export default function Home() {
                 Pronto para levar mais controle para a sua empresa?
               </h2>
               <p className="text-white/80 mt-5 text-base md:text-lg max-w-2xl">
-                Junte-se a mais de 100 empresas que transformaram sua gestão com
-                a Nedel Sistemas. Peça uma demonstração sem compromisso.
+                Junte-se a 147+ empresas que transformaram sua gestão com a
+                Nedel Sistemas. Peça uma demonstração sem compromisso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
                 <CTALink
