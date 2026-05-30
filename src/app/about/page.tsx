@@ -315,7 +315,7 @@ export default function About() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.15} className="mt-12 w-full">
+        {/* <Reveal delay={0.15} className="mt-12 w-full">
           <div className="relative w-full aspect-[16/7] rounded-3xl overflow-hidden">
             <Image
               src="/images/equipe.jpeg"
@@ -325,7 +325,7 @@ export default function About() {
               className="object-cover object-center"
             />
           </div>
-        </Reveal>
+        </Reveal> */}
       </Section>
 
       {/* Segmentos atendidos + Clientes */}
