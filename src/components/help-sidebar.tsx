@@ -68,7 +68,7 @@ const HELP_NAV: NavSection[] = [
       },
     ],
   },
-  { title: "Digiexpedição", icon: Package, items: [], soon: false },
+  { title: "Digiexpedição", icon: Package, items: [], soon: true },
 ];
 
 export default function HelpSidebar({
@@ -82,7 +82,7 @@ export default function HelpSidebar({
     <nav aria-label="Tópicos da ajuda" className="flex flex-col gap-5">
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-nedel-blue">
-          Central de Ajuda
+          Menu
         </p>
         <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
           Guias e tutoriais para tirar o máximo dos nossos sistemas.

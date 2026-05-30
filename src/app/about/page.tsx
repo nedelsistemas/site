@@ -48,7 +48,7 @@ export default function About() {
         </div>
 
         <div className="relative w-full aspect-[16/8] md:aspect-[20/12] rounded-3xl overflow-hidden mt-10 md:mt-14">
-          {/* TODO: trocar por foto real da sede em Itapiranga (atual é placeholder do Pexels) */}
+          {/* Imagem da fachada (placeholder do Pexels) — comentada enquanto usamos o vídeo abaixo
           <Image
             src="/images/fachada.jpg"
             alt="Fachada da sede da Nedel Sistemas em Itapiranga/SC"
@@ -56,6 +56,17 @@ export default function About() {
             sizes="(min-width: 1280px) 1200px, 100vw"
             className="object-cover object-center"
             priority
+          />
+          */}
+          <video
+            src="/videos/fachada.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="Fachada da sede da Nedel Sistemas em Itapiranga/SC"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </div>
       </Section>

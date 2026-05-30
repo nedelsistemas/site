@@ -44,5 +44,7 @@ next-env.d.ts
 docs
 
 public/logotipos/*
+public/videos/*
+
 !public/logotipos/figma
 !public/logotipos/figma/**
