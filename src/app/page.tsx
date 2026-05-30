@@ -57,7 +57,7 @@ export default function Home() {
             <div className="grid grid-rows-[2fr_1fr] gap-4">
               <div className="bg-nedel-blue rounded-2xl p-8 overflow-clip bg-[url('/graphics/tracado/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color shadow-2xl">
                 <h3 className="text-white ">
-                  147+ empresas confiam no nosso trabalho todos os dias
+                  30+ anos evoluindo todo mês com nossos clientes
                 </h3>
                 <div className="bg-[url('/graphics/ornamento-clientes.png')] bg-no-repeat bg-contain w-full h-full"></div>
               </div>
