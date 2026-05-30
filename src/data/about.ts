@@ -79,7 +79,7 @@ export const NUMBERS: Number[] = [
 export const SEGMENTS: string[] = [
   "Agropecuárias",
   "Distribuidoras",
-  "Lacicínios",
+  "Laticínios",
   "Lojas de varejo",
   "Mercados e mercearias",
   "Padarias e confeitarias",
