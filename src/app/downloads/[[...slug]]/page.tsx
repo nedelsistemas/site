@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ChevronRight, Lock } from "lucide-react";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import {
   listEntries,
   resolvePath,
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   description:
     "Instaladores, aplicativos Android e ferramentas auxiliares dos sistemas Nedel — Digiadm, Diginfc-e, Digivendas, Digientregas e mais.",
 };
+
+export const dynamic = "force-dynamic";
 
 export default async function DownloadsPage({
   params,
@@ -130,36 +132,8 @@ export default async function DownloadsPage({
       </nav>
 
       <Reveal variant="fadeUp" duration={0.5} delay={0.1} amount={0}>
-        {slug[0] === "conteudo-privado" ? (
-          <PrivateNotice />
-        ) : (
-          <FileBrowser entries={entries} slug={slug} />
-        )}
+        <FileBrowser entries={entries} slug={slug} />
       </Reveal>
-    </div>
-  );
-}
-
-function PrivateNotice() {
-  return (
-    <div className="rounded-2xl border border-nedel-highlight-gray/40 p-10 md:p-12 text-center">
-      <div className="inline-flex p-3 rounded-xl bg-nedel-blue/10 mb-4">
-        <Lock className="size-6 text-nedel-blue" />
-      </div>
-      <h2 className="text-xl font-semibold text-nedel-black-blue">
-        Acesso restrito
-      </h2>
-      <p className="text-muted-foreground mt-2 max-w-md mx-auto">
-        Esta área é exclusiva para colaboradores autenticados. Entre em contato
-        com o suporte para solicitar credenciais.
-      </p>
-      <Link
-        href="/contact"
-        className="inline-flex items-center gap-1.5 mt-6 text-sm font-medium text-nedel-blue hover:underline"
-      >
-        Falar com o suporte
-        <ChevronRight size={14} />
-      </Link>
     </div>
   );
 }

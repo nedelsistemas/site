@@ -28,7 +28,7 @@ Marketing/site for **Nedel Sistemas** (a Brazilian ERP/PDV vendor — Itapiranga
 `src/app/layout.tsx` is the root layout: it wires up four fonts (Geist + Inter from `next/font/google`, plus local `HelveticaNeueRoman.otf` and `DongraScript.ttf` from `src/assets/fonts/`) as CSS variables and wraps every page with a shared `<Navbar />` and `<Footer />`. Routes:
 
 - `/` — landing page (`src/app/page.tsx`)
-- `/downloads` — public/internal download links
+- `/downloads/[[...slug]]` — file browser backed by a real Windows share (see **Downloads** below)
 - `/help` — uses its own nested layout with a shadcn `Sidebar`/`SidebarProvider` (`src/app/help/layout.tsx` + `src/components/app-sidebar.tsx`). Note: the sidebar's `navMain` data is still shadcn placeholder content.
 - `/policy/privacy`, `/policy/terms` — share `src/app/policy/layout.tsx`
 
@@ -49,6 +49,17 @@ When introducing colors, use the brand tokens (`bg-nedel-blue`, `text-nedel-blac
 - `src/components/ui/section.tsx` — `<Section>` wrapper used to lay out homepage blocks (vertical padding + centered max-width container). Reach for it before nesting custom section markup.
 - `src/lib/utils.ts` exports `cn()` (clsx + tailwind-merge). Use it (or `twMerge` directly) for any conditional class composition.
 - Top-level `src/components/*` (navbar, footer, app-sidebar, nav-main, team-switcher, type-animation) are app-specific. Note: both `navbar.tsx` and a legacy `_navbar.tsx` exist — the leading-underscore file is unused; edit `navbar.tsx`.
+
+### Downloads
+
+The `/downloads` page (`src/app/downloads/[[...slug]]/page.tsx`) and its streaming API (`src/app/api/downloads/[...slug]/route.ts`) read from a Windows file share in production (`\\10.1.1.1\web`). Both export `dynamic = "force-dynamic"` because the share isn't reachable from the build machine — `next build` must not try to pre-render them.
+
+- **`DOWNLOADS_ROOT` env var** — path to the share root. In production, set to `\\10.1.1.1\web` (or `D:\web` if Next runs on the same host as the files — preferred, avoids the SMB hop). In dev, point to any local folder mirroring the layout (`apk/`, `publico/`, `privado/`, `Radmin.exe`, `vnc.exe`). See `.env.local.example` for the template; copy to `.env.local` and fill in.
+- **Root visibility is an explicit allowlist.** `src/lib/downloads.ts` defines `ROOT_ALLOWED` — only those entries surface at `/downloads`. Anything else in `\web\` (internal junk, dev scratch) is silently hidden. Subfolders (`apk/`, `publico/`, `privado/`) are listed openly via `fs.readdir`. To expose a new top-level entry, add it to `ROOT_ALLOWED` with a friendly label.
+- **`/downloads/privado*` requires HTTP Basic Auth** — handled by `src/proxy.ts`. (Next 16 renamed the `middleware.ts` convention to `proxy.ts`; the file must be at `src/proxy.ts` and export a `proxy()` function.) The matcher covers both `/downloads/privado*` and `/api/downloads/privado*`, so the API can't be used to bypass the page-level auth. Credentials come from `DOWNLOADS_USER` / `DOWNLOADS_PASS` env vars — single user/password for all collaborators.
+- **Cancel-the-popup UX:** the 401 response body for page navigation is an HTML doc that redirects to `/downloads` via `location.replace` + meta-refresh fallback. This way, when the user cancels the Basic Auth dialog, the browser doesn't render an ugly "401 Unauthorized" page — it silently returns to `/downloads`. API requests (`/api/...`) still get a plain-text 401 so non-browser clients (curl, fetch) behave correctly.
+- **Path-traversal guard** in both `lib/downloads.ts` and the route handler — `path.resolve(ROOT, ...slug)` then `startsWith(root + path.sep)`. Don't remove.
+- **Deploy:** `next.config.ts` has `output: "standalone"`, so `.next/standalone/server.js` runs as a self-contained process (good for PM2/NSSM as a Windows service). The `.env.local` with the real share path + credentials must sit next to `server.js`. The user account running the Node process needs read permission on the share.
 
 ### Assets
 
