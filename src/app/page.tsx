@@ -79,31 +79,58 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col justify-between bg-nedel-black-blue rounded-2xl p-8 bg-[url('/graphics/pattern-n/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color bg-center shadow-2xl">
-                <h3 className="text-white ">
-                  Ecossistema completo para sua empresa
+                <h3 className="text-white">
+                  5 sistemas, uma única base de dados.
                 </h3>
-                <div className="flex items-center gap-2">
-                  <div className="w-14 h-14 bg-white p-2 rounded-full flex items-center justify-center">
-                    <Image
-                      src="/apps/color/digiadm.png"
-                      alt="Ícone do Digiadm"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                  <div className="w-14 h-14 bg-white p-2 rounded-full flex items-center justify-center">
-                    <Image
-                      src="/apps/color/diginfce.png"
-                      alt="Ícone do Diginfc-e"
-                      width={40}
-                      height={40}
-                    />
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 bg-white p-1.5 rounded-full flex items-center justify-center">
+                      <Image
+                        src="/apps/color/digiadm.png"
+                        alt="Digiadm"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <div className="w-10 h-10 bg-white p-1.5 rounded-full flex items-center justify-center">
+                      <Image
+                        src="/apps/color/diginfce.png"
+                        alt="Diginfc-e"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <div className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center">
+                      <Image
+                        src="/apps/mono/digivendas.png"
+                        alt="Digivendas"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <div className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center">
+                      <Image
+                        src="/apps/mono/digientregas.png"
+                        alt="Digientregas"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <div className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center">
+                      <Image
+                        src="/apps/mono/digiexpedicao.png"
+                        alt="Digiexpedição"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
                   </div>
                   <Link
                     href="/products"
-                    className="border border-nedel-highlight-gray rounded-full text-white text-sm px-4 py-2 backdrop-blur-lg hover:bg-white/10 transition-colors"
+                    className="text-white/70 text-sm hover:text-white transition-colors inline-flex items-center gap-1 w-fit"
                   >
-                    +4 aplicações
+                    Ver os produtos
+                    <Lucide.ArrowRight size={14} />
                   </Link>
                 </div>
               </div>
