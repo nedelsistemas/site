@@ -55,11 +55,28 @@ export default function Home() {
               </div>
             </div>
             <div className="grid grid-rows-[2fr_1fr] gap-4">
-              <div className="bg-nedel-blue rounded-2xl p-8 overflow-clip bg-[url('/graphics/tracado/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color shadow-2xl">
-                <h3 className="text-white ">
+              <div className="bg-nedel-blue rounded-2xl p-8 overflow-clip bg-[url('/graphics/tracado/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color shadow-2xl flex flex-col">
+                <h3 className="text-white">
                   30+ anos evoluindo todo mês com nossos clientes
                 </h3>
-                <div className="bg-[url('/graphics/ornamento-clientes.png')] bg-no-repeat bg-contain w-full h-full"></div>
+                <div className="flex-1 flex flex-col mt-6" aria-hidden>
+                  <div className="flex-1 flex items-end gap-1">
+                    {Array.from({ length: 32 }).map((_, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 bg-white rounded-sm"
+                        style={{
+                          opacity: 0.25 + (i / 32) * 0.65,
+                          height: `${30 + (i / 32) * 70}%`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex justify-between text-xs text-white/60 mt-3 font-mono tracking-wider">
+                    <span>1994</span>
+                    <span>2026</span>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col justify-between bg-nedel-black-blue rounded-2xl p-8 bg-[url('/graphics/pattern-n/azul-medio.png')] bg-no-repeat bg-cover bg-blend-color bg-center shadow-2xl">
                 <h3 className="text-white ">
