@@ -1,11 +1,6 @@
 import type { StaticImageData } from "next/image";
 import type { LucideIcon } from "lucide-react";
-import {
-  Briefcase,
-  Factory,
-  ShoppingBag,
-  TrendingUp,
-} from "lucide-react";
+import { Briefcase, Factory, ShoppingBag, TrendingUp } from "lucide-react";
 import Digiadm from "@/assets/mock/digiadm.png";
 import Diginfce from "@/assets/mock/diginfce.png";
 import Digientregas from "@/assets/mock/digientregas.png";
@@ -119,6 +114,19 @@ export const APPS: App[] = [
       "Comprovante de entrega digital",
     ],
     pathImage: Digientregas,
+  },
+  {
+    type: "Expedição",
+    name: "Digiexpedição",
+    description:
+      "Organize a saída de mercadorias no caminhão antes das rotas, com bipagem e conferência de pallets.",
+    features: [
+      "Carregamento por rota de entrega",
+      "Bipagem de produtos com leitor",
+      "Carregamento de pallets",
+      "Conferência reduz erros de embarque",
+    ],
+    pathImage: Digiadm,
   },
 ];
 
