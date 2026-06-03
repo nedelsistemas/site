@@ -6,7 +6,7 @@ import { LogoMarquee } from "@/components/logo-marquee";
 import { MockupFrame } from "@/components/ui/mockup-frame";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { CTALink } from "@/components/ui/cta-link";
-import { STATS, SOLUTIONS, APPS, STEPS } from "@/data/home";
+import { STATS, SOLUTIONS, APPS, STEPS, HERO_APP_ICONS } from "@/data/home";
 
 export default function Home() {
   return (
@@ -84,46 +84,19 @@ export default function Home() {
                 </h3>
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-white p-1.5 rounded-full flex items-center justify-center">
-                      <Image
-                        src="/apps/color/digiadm.png"
-                        alt="Digiadm"
-                        width={32}
-                        height={32}
-                      />
-                    </div>
-                    <div className="w-10 h-10 bg-white p-1.5 rounded-full flex items-center justify-center">
-                      <Image
-                        src="/apps/color/diginfce.png"
-                        alt="Diginfc-e"
-                        width={32}
-                        height={32}
-                      />
-                    </div>
-                    <div className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center">
-                      <Image
-                        src="/apps/mono/digivendas.png"
-                        alt="Digivendas"
-                        width={32}
-                        height={32}
-                      />
-                    </div>
-                    <div className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center">
-                      <Image
-                        src="/apps/mono/digientregas.png"
-                        alt="Digientregas"
-                        width={32}
-                        height={32}
-                      />
-                    </div>
-                    <div className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center">
-                      <Image
-                        src="/apps/mono/digiexpedicao.png"
-                        alt="Digiexpedição"
-                        width={32}
-                        height={32}
-                      />
-                    </div>
+                    {HERO_APP_ICONS.map((app) => (
+                      <div
+                        key={app.src}
+                        className="w-10 h-10 bg-nedel-blue p-1.5 rounded-full flex items-center justify-center"
+                      >
+                        <Image
+                          src={app.src}
+                          alt={app.alt}
+                          width={32}
+                          height={32}
+                        />
+                      </div>
+                    ))}
                   </div>
                   <Link
                     href="/products"

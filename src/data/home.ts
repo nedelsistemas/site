@@ -78,6 +78,14 @@ export const SOLUTIONS: Solution[] = [
   },
 ];
 
+export const HERO_APP_ICONS = [
+  { src: "/apps/mono/digiadm.png", alt: "Digiadm" },
+  { src: "/apps/mono/diginfce.png", alt: "Diginfc-e" },
+  { src: "/apps/mono/digivendas.png", alt: "Digivendas" },
+  { src: "/apps/mono/digientregas.png", alt: "Digientregas" },
+  { src: "/apps/mono/digiexpedicao.png", alt: "Digiexpedição" },
+] as const;
+
 export const APPS: App[] = [
   {
     type: "ERP",
