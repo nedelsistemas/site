@@ -215,6 +215,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-16 md:gap-36">
               {APPS.map((app, i) => {
+                if (!app.show) return null;
                 const reversed = i % 2 === 1;
                 return (
                   <Reveal
