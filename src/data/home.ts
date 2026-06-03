@@ -23,6 +23,7 @@ export type App = {
   description: string;
   features: string[];
   pathImage: StaticImageData;
+  show: boolean;
 };
 
 export type Step = {
@@ -98,6 +99,7 @@ export const APPS: App[] = [
       "Controle de estoque inteligente",
     ],
     pathImage: Digiadm,
+    show: true,
   },
   {
     type: "PDV",
@@ -110,6 +112,7 @@ export const APPS: App[] = [
       "Homologado em todos os estados",
     ],
     pathImage: Diginfce,
+    show: true,
   },
   {
     type: "Logística",
@@ -122,6 +125,7 @@ export const APPS: App[] = [
       "Comprovante de entrega digital",
     ],
     pathImage: Digientregas,
+    show: true,
   },
   {
     type: "Expedição",
@@ -135,6 +139,7 @@ export const APPS: App[] = [
       "Conferência reduz erros de embarque",
     ],
     pathImage: Digiadm,
+    show: false,
   },
 ];
 

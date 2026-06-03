@@ -89,7 +89,7 @@ export const PRODUCTS_OVERVIEW: ProductOverview[] = [
     type: "Expedição",
     Icon: Package,
     imageSrc: "/apps/mono/digiexpedicao.png",
-    comingSoon: false,
+    comingSoon: true,
   },
 ];
 
@@ -226,7 +226,7 @@ export const INTEGRATIONS: Product[] = [
     Icon: Package,
     imageSrc: "/apps/mono/digiexpedicao.png",
     show: true,
-    comingSoon: false,
+    comingSoon: true,
   },
 ];
 
